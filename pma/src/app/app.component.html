@@ -2,16 +2,7 @@
   <h1>Project manajment application</h1>
 </header>
 <main>
-  <form (submit)="onSubmit()">
-    <input type="text" placeholder="add todo" [(ngModel)]="todoItemName" name="todoItemName">
-    <button type="button">Submit</button>
-  </form>
-
-<div class="todo-list">
-  <div class="todo" *ngFor="let item of todoList">
-    <h2>{{item.title}}</h2>
-    <input type="checkbox" (change)="toggleComplete(item)">
-  </div>
-</div>
+<pma-add-todo-form (addTodo)="onAddTodo($event)"></pma-add-todo-form>
+<pma-todo-list [todoList]="todoList"></pma-todo-list>
 </main>
 <footer></footer>
