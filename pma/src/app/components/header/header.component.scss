@@ -1,0 +1,41 @@
+$primary: #EDF1D6;
+$primary-dark:#9DC08B;
+$seconary: #609966;
+$secondary-dark: #40513B;
+
+.mat-toolbar {
+  color: $secondary-dark;
+  font-size: 18px;
+  font-weight: 700;
+  justify-content: space-between;
+}
+.logo{
+  font-size: 34px;
+}
+.mat-button-toggle-group:first-child {
+  border-right: 2px solid $secondary-dark;
+}
+
+.auth-wrapper {
+  display: flex;
+}
+.auth-wrapper a{
+  text-decoration: none;
+  margin-right: 10px;
+  color: $secondary-dark;
+  font-size: 16px;
+  letter-spacing: 1.5px;
+}
+
+.auth-wrapper a:last-child{
+  background-color: $seconary;
+  color: $primary;
+}
+
+.auth-wrapper a:first-child{
+  border: none;
+}
+
+.auth-wrapper a:hover{
+  background-color: $primary-dark;
+}

@@ -8,6 +8,8 @@ import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { HeaderComponent } from './components/header/header.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,7 @@ import { HeaderComponent } from './components/header/header.component';
     HeaderComponent,
   ],
   imports: [
-    BrowserModule, FormsModule, MatToolbarModule,
+    BrowserModule, FormsModule, MatToolbarModule, MatButtonToggleModule, MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
