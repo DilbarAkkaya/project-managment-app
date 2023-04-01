@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { TodoItem } from './models/todo.model';
 
 @Component({
   selector: 'pma-root',
@@ -8,11 +7,4 @@ import { TodoItem } from './models/todo.model';
 })
 export class AppComponent {
   title = 'RMA';
-  todoList: TodoItem[] =[];
-  constructor(){
-
-  }
-  onAddTodo(item: TodoItem){
-    this.todoList.push(item)
-  }
 }
