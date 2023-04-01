@@ -10,9 +10,9 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { HeaderComponent } from './components/header/header.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatButtonModule} from '@angular/material/button';
-import { WelcomePageComponent } from './pages/welcome-page/welcome-page.component';
-import { BoardPageComponent } from './pages/board-page/board-page.component';
-import { SelectedBoardPageComponent } from './pages/selected-board-page/selected-board-page.component';
+import { WelcomePageComponent } from './welcome-page/welcome-page.component';
+import { BoardPageComponent } from './auth/pages/board-page/board-page.component';
+import { SelectedBoardPageComponent } from './auth/pages/selected-board-page/selected-board-page.component';
 
 @NgModule({
   declarations: [
