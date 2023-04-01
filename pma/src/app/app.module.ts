@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddTodoFormComponent } from './components/add-todo-form/add-todo-form.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
@@ -10,6 +10,9 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { HeaderComponent } from './components/header/header.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatButtonModule} from '@angular/material/button';
+import { WelcomePageComponent } from './pages/welcome-page/welcome-page.component';
+import { BoardPageComponent } from './pages/board-page/board-page.component';
+import { SelectedBoardPageComponent } from './pages/selected-board-page/selected-board-page.component';
 
 @NgModule({
   declarations: [
@@ -18,9 +21,12 @@ import {MatButtonModule} from '@angular/material/button';
     TodoListComponent,
     TodoItemComponent,
     HeaderComponent,
+    WelcomePageComponent,
+    BoardPageComponent,
+    SelectedBoardPageComponent,
   ],
   imports: [
-    BrowserModule, FormsModule, MatToolbarModule, MatButtonToggleModule, MatButtonModule,
+    BrowserModule, FormsModule, MatToolbarModule, MatButtonToggleModule, MatButtonModule, AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
