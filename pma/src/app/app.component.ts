@@ -7,6 +7,7 @@ import { TodoItem } from './models/todo.model';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  title = 'RMA';
   todoList: TodoItem[] =[];
   constructor(){
 
