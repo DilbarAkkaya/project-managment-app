@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +13,9 @@ import {MatButtonModule} from '@angular/material/button';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { BoardPageComponent } from './auth/pages/board-page/board-page.component';
 import { SelectedBoardPageComponent } from './auth/pages/selected-board-page/selected-board-page.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 @NgModule({
   declarations: [
@@ -26,7 +29,7 @@ import { SelectedBoardPageComponent } from './auth/pages/selected-board-page/sel
     SelectedBoardPageComponent,
   ],
   imports: [
-    BrowserModule, FormsModule, MatToolbarModule, MatButtonToggleModule, MatButtonModule, AppRoutingModule,
+    BrowserModule, FormsModule, MatToolbarModule, MatButtonToggleModule, MatButtonModule, AppRoutingModule, ReactiveFormsModule, BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

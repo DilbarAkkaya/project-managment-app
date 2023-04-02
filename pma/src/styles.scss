@@ -1,7 +1,7 @@
 @import '~normalize.css';
 $primary: #EDF1D6;
 $primary-dark:#9DC08B;
-$seconary: #609966;
+$secondary: #609966;
 $secondary-dark: #40513B;
 
 html {
@@ -36,6 +36,7 @@ main {
 
 .button {
   display: block;
+  background-color: $secondary;
   border-radius: 5px;
   border: 1px solid $secondary-dark;
   width: 100px;
@@ -44,9 +45,13 @@ main {
   font-size: 16px;
   padding: 5px;
   line-height: 1.4;
+  color: $primary;
 }
 
 .wrapper {
   max-width: 1200px;
   margin: 0 auto;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
