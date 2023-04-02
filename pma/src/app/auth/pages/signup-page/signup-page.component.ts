@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'pma-signup-page',
@@ -7,18 +7,26 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./signup-page.component.scss']
 })
 export class SignupPageComponent implements OnInit {
-  signupForm = new FormGroup({
-    name: new FormControl(''),
-    login: new FormControl(''),
-    password: new FormControl('')
-  })
   constructor(){
-
   }
+  errorMessage = '';
+  errorMessageShow = false;
+  signupForm = new FormGroup({
+    name: new FormControl('', Validators.required),
+    login: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required)
+  })
   ngOnInit(): void {
 
   }
   signupSubmit(){
-    console.log(this.signupForm.value, 'signup----')
+if (this.signupForm.valid) {
+  console.log(this.signupForm.value, 'signup----');
+  this.errorMessageShow = false;
+}else {
+  this.errorMessageShow = true;
+  this.errorMessage = 'All fields are required!'
+}
+
   }
 }
