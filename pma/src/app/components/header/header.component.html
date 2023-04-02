@@ -1,8 +1,8 @@
   <header class="header wrapper">
     <mat-toolbar class="mat-toolbar wrapper"><a [routerLink]="['/']" class="logo">RMA</a>
-      <mat-button-toggle-group>
-        <button type="button" mat-button>EN</button>
-        <button type="button" mat-button>RU</button>
+      <mat-button-toggle-group appearance="legacy" name="lang" aria-label="lang">
+        <mat-button-toggle value="ru">RU</mat-button-toggle>
+        <mat-button-toggle value="en">EN</mat-button-toggle>
       </mat-button-toggle-group>
       <div class="auth-wrapper">
         <a href="#" class="button auth-link">Log in</a>

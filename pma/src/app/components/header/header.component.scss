@@ -1,6 +1,6 @@
 $primary: #EDF1D6;
 $primary-dark:#9DC08B;
-$seconary: #609966;
+$secondary: #609966;
 $secondary-dark: #40513B;
 
 .mat-toolbar {
@@ -14,8 +14,9 @@ $secondary-dark: #40513B;
   font-size: 34px;
   color: $secondary-dark;
 }
-.mat-button-toggle-group:first-child {
-  border-right: 2px solid $secondary-dark;
+.mat-button-toggle-checked {
+   background-color: $secondary;
+   color: $primary;
 }
 
 .auth-wrapper {
@@ -30,8 +31,9 @@ $secondary-dark: #40513B;
 }
 
 .auth-wrapper a:last-child{
-  background-color: $seconary;
+  background-color: $secondary;
   color: $primary;
+
 }
 
 .auth-wrapper a:first-child{
