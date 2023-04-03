@@ -4,7 +4,7 @@
   </mat-card-header>
 
   <mat-card-content>
-    <form [formGroup]="signupForm" (ngSubmit)="signupSubmit()">
+    <form [formGroup]="signupForm" (ngSubmit)="signupForm.valid && signupSubmit()">
       <mat-error *ngIf="errorMessageShow">{{errorMessage}}</mat-error>
       <mat-form-field>
         <mat-label>Name</mat-label>
@@ -16,7 +16,8 @@
       </mat-form-field>
       <mat-form-field>
         <mat-label>Password</mat-label>
-        <input matInput type="password" formControlName="password" required>
+        <input matInput type="password" formControlName="password" required minlength="7">
+        <mat-error *ngIf="signupForm.get('password')?.invalid">{{getErrorMessage()}}</mat-error>
       </mat-form-field>
 
       <button class="button" type="submit">Sign Up</button>

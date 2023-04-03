@@ -19,7 +19,6 @@ export class SignupPageComponent implements OnInit {
     password: new FormControl('', [Validators.required, Validators.minLength(7)])
   })
   ngOnInit(): void {
-
   }
   signupSubmit(){
 
@@ -44,5 +43,8 @@ if (this.signupForm.valid) {
       this.errorMessageShow = true;
       this.errorMessage = 'All fields are required!';
     }
+  }
+  getErrorMessage() {
+    return (this.signupForm.value.password!.length < 7) ? 'Your password should be min 7 chars' : '';
   }
 }
