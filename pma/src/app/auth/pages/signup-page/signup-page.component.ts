@@ -31,7 +31,7 @@ if (this.signupForm.valid) {
   this.errorMessageShow = false;
   this.service.signup(data).subscribe({
     next: () => {
-      this.router.navigate(['/auth/board']);
+      this.router.navigate(['/auth/login']);
     },
     error: (err)=> {
       console.error(err, 'signup error');

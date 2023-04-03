@@ -1,5 +1,5 @@
 export enum apiEnum {
-  base = 'http://localhost:3000',
+  base = 'https://backend-pma.up.railway.app',
   signup = 'auth/signup',
   login = 'auth/signin',
   board = 'boards',
