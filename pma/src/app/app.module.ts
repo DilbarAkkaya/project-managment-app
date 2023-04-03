@@ -14,6 +14,7 @@ import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { BoardPageComponent } from './auth/pages/board-page/board-page.component';
 import { SelectedBoardPageComponent } from './auth/pages/selected-board-page/selected-board-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule} from '@angular/common/http';
 
 
 
@@ -30,7 +31,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   imports: [
     BrowserModule, FormsModule, MatToolbarModule, MatButtonToggleModule, MatButtonModule, AppRoutingModule, ReactiveFormsModule, BrowserAnimationsModule,
-  ],
+  HttpClientModule],
   providers: [],
   bootstrap: [AppComponent]
 })
