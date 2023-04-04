@@ -11,8 +11,15 @@ export interface INewUser {
     _id: string,
 }
 
-export interface ISignData {
-  name: string,
+export interface IAuthData {
   login: string,
   password: string,
+}
+
+export interface ISignData extends IAuthData{
+  name: string,
+}
+
+export interface IAuthResponse {
+  token: string
 }
