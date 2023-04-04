@@ -50,3 +50,8 @@ $secondary-dark: #40513B;
 .auth-wrapper a:hover{
   background-color: $primary-dark;
 }
+
+.auth-wrapper:last-child a{
+  background-color: $secondary;
+  color: $primary;
+}

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiserviceService } from 'src/app/auth/apiservice.service';
 
 @Component({
   selector: 'pma-header',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-
+  constructor(public apiservice: ApiserviceService) {}
 }
