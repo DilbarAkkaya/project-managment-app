@@ -21,5 +21,7 @@ export interface ISignData extends IAuthData{
 }
 
 export interface IAuthResponse {
-  token: string
+  token: string,
+  exp?: string
+
 }

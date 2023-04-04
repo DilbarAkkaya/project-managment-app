@@ -12,7 +12,9 @@ import { IAuthData } from 'src/app/models/api.model';
 export class LoginPageComponent implements OnInit{
   errorMessage = '';
   errorMessageShow = false;
-  constructor(private service: ApiserviceService, private router: Router ){}
+  isSubmited = false;
+
+  constructor(public service: ApiserviceService, private router: Router ){}
   loginForm = new FormGroup({
     login: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required)
@@ -20,6 +22,7 @@ export class LoginPageComponent implements OnInit{
   ngOnInit(): void {
   }
   loginSubmit(){
+    this.isSubmited = true;
     const data: IAuthData = {
       login: this.loginForm.value.login!,
       password: this.loginForm.value.password!
@@ -27,7 +30,10 @@ export class LoginPageComponent implements OnInit{
     if (this.loginForm.valid) {
       this.service.login(data).subscribe(()=> {
         this.loginForm.reset();
-        this.router.navigate(['/auth/board'])
+        this.router.navigate(['/auth/board']);
+        this.isSubmited = false;
+      }, ()=> {
+        this.isSubmited = false;
       })
     }else {
       this.errorMessageShow = true;
