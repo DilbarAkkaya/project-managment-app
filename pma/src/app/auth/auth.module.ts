@@ -11,12 +11,17 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import {MatCardModule} from '@angular/material/card';
 import { AuthGuard } from './auth.guard';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ModalCreateComponent } from './components/modal-create/modal-create.component';
+
 
 @NgModule({
   declarations: [
     AuthLayoutComponent,
     LoginPageComponent,
     SignupPageComponent,
+    MainPageComponent,
+    ModalCreateComponent,
 
   ],
   imports: [
@@ -24,6 +29,7 @@ import { AuthGuard } from './auth.guard';
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
+    MatDialogModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild([

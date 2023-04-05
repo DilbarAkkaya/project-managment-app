@@ -15,8 +15,7 @@ import { MainPageComponent } from './auth/pages/main-page/main-page.component';
 import { SelectedBoardPageComponent } from './auth/pages/selected-board-page/selected-board-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule} from '@angular/common/http';
-
-
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -26,12 +25,11 @@ import { HttpClientModule} from '@angular/common/http';
     TodoItemComponent,
     HeaderComponent,
     WelcomePageComponent,
-    MainPageComponent,
     SelectedBoardPageComponent,
   ],
   imports: [
     BrowserModule, FormsModule, MatToolbarModule, MatButtonToggleModule, MatButtonModule, AppRoutingModule, ReactiveFormsModule, BrowserAnimationsModule,
-  HttpClientModule],
+  HttpClientModule, MatDialogModule],
   providers: [],
   bootstrap: [AppComponent]
 })

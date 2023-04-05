@@ -25,3 +25,11 @@ export interface IAuthResponse {
   exp?: string
 
 }
+
+export interface IBoardCreate {
+    title: string,
+    owner?: string,
+    users?: [
+      string
+    ]
+}

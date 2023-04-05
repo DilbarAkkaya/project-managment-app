@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiserviceService } from '../../apiservice.service';
+import { Router } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalCreateComponent } from '../../components/modal-create/modal-create.component';
 
 @Component({
   selector: 'pma-main-page',
@@ -6,12 +11,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent implements OnInit{
-  errorMessage = '';
-  errorMessageShow = false;
-  isSubmited = false;
+  constructor(private dialog: MatDialog) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    const dialogRef = this.dialog.open(ModalCreateComponent);
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
 }
