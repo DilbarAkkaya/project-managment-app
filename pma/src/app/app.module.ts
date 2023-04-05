@@ -11,7 +11,7 @@ import { HeaderComponent } from './components/header/header.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatButtonModule} from '@angular/material/button';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
-import { BoardPageComponent } from './auth/pages/board-page/board-page.component';
+import { MainPageComponent } from './auth/pages/main-page/main-page.component';
 import { SelectedBoardPageComponent } from './auth/pages/selected-board-page/selected-board-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule} from '@angular/common/http';
@@ -26,7 +26,7 @@ import { HttpClientModule} from '@angular/common/http';
     TodoItemComponent,
     HeaderComponent,
     WelcomePageComponent,
-    BoardPageComponent,
+    MainPageComponent,
     SelectedBoardPageComponent,
   ],
   imports: [

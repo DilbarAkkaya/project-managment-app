@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { AuthLayoutComponent } from './components/auth-layout/auth-layout.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
-import { BoardPageComponent } from './pages/board-page/board-page.component';
+import { MainPageComponent } from './pages/main-page/main-page.component';
 import { SelectedBoardPageComponent } from './pages/selected-board-page/selected-board-page.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -32,7 +32,7 @@ import { AuthGuard } from './auth.guard';
           { path: '', redirectTo: './auth/login', pathMatch: 'full'},
           { path: 'login', component: LoginPageComponent},
           { path: 'signup', component: SignupPageComponent},
-          {path: 'board', component: BoardPageComponent, canActivate: [AuthGuard]},
+          {path: 'main', component: MainPageComponent, canActivate: [AuthGuard]},
           {path: 'selected-board/:id', component: SelectedBoardPageComponent, canActivate:[AuthGuard]},
         ]
       }

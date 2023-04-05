@@ -15,7 +15,7 @@ export class LoginPageComponent implements OnInit{
   isSubmited = false;
 
   constructor(public service: ApiserviceService, private router: Router ){}
-  loginForm = new FormGroup({
+    loginForm = new FormGroup({
     login: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required)
   })
@@ -30,7 +30,7 @@ export class LoginPageComponent implements OnInit{
     if (this.loginForm.valid) {
       this.service.login(data).subscribe(()=> {
         this.loginForm.reset();
-        this.router.navigate(['/auth/board']);
+        this.router.navigate(['/auth/main']);
         this.isSubmited = false;
       }, ()=> {
         this.isSubmited = false;
