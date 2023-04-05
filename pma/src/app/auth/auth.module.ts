@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import {MatCardModule} from '@angular/material/card';
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [
@@ -31,11 +32,12 @@ import {MatCardModule} from '@angular/material/card';
           { path: '', redirectTo: './auth/login', pathMatch: 'full'},
           { path: 'login', component: LoginPageComponent},
           { path: 'signup', component: SignupPageComponent},
-          {path: 'board', component: BoardPageComponent},
-          {path: 'selected-board/:id', component: SelectedBoardPageComponent},
+          {path: 'board', component: BoardPageComponent, canActivate: [AuthGuard]},
+          {path: 'selected-board/:id', component: SelectedBoardPageComponent, canActivate:[AuthGuard]},
         ]
       }
     ])
-  ]
+  ],
+  providers: [AuthGuard]
 })
 export class AuthModule { }
