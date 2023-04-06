@@ -27,7 +27,7 @@ export interface IAuthResponse {
 }
 
 export interface IBoardCreate {
-    title: string,
+    title: string | null | undefined,
     owner?: string,
     users?: [
       string

@@ -1,6 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { BoardserviceService } from '../../services/boardservice.service';
+import { IBoardCreate } from 'src/app/models/api.model';
 
 @Component({
   selector: 'pma-modal-create',
@@ -8,7 +10,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./modal-create.component.scss']
 })
 export class ModalCreateComponent implements OnInit{
-  constructor(private dialogRef: MatDialogRef<ModalCreateComponent>) { }
+  constructor(private dialogRef: MatDialogRef<ModalCreateComponent>, private boardservice: BoardserviceService) { }
   ngOnInit(): void {
 
   }
@@ -22,9 +24,21 @@ export class ModalCreateComponent implements OnInit{
    close() {
     this.dialogRef.close();
   }
-  createSubmit(){
-    this.dialogRef.close({
-    clicked: 'submit',
-    form: this.createForm
-  });}
+
+  createSubmit(): void {
+    if (this.createForm.valid) {
+      const board: IBoardCreate = {
+        title: this.createForm.value.title || null,
+        owner: 'fsgdfgfg',
+        users: ['dgfgdf']
+      }
+
+      this.boardservice.createBoard(board).subscribe((response: any) => {
+        console.log('Form data submitted successfully:', response);
+        this.dialogRef.close({ clicked: 'submit', form: this.createForm });
+      }, (error: any) => {
+        console.error('Error submitting form data:', error);
+      });
+    }
+  }
 }
