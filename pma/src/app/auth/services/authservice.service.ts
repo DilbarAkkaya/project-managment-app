@@ -25,9 +25,9 @@ export class AuthserviceService {
     return tokenExp;
   }
 
-  signup(data:ISignData):Observable<INewUser>{
+  signup(data:ISignData):Observable<INewUser | null>{
     console.log(data)
-    return this.http.post<INewUser>(`${this.apiUrl}/${apiEnum.signup}`, data);
+    return this.http.post<INewUser>(`${this.apiUrl}/${apiEnum.signup}`, data).pipe(tap(this.setUserId));
   }
 
   login(data: IAuthData): Observable<IAuthResponse | null> {
@@ -51,13 +51,24 @@ export class AuthserviceService {
   private setToken(response: IAuthResponse | null) {
 
     if (response) {
-      const expiry = (JSON.parse(atob(String(response.token).split('.')[1])));
+      console.log(response)
+      const expiry = (JSON.parse(atob(response.token.split('.')[1])));
       const expirationTimeInMilliseconds = new Date(expiry.exp * 1000).getTime();
-      const expDate = new Date(new Date().getTime() + expirationTimeInMilliseconds)
+      const expDate = new Date(new Date().getTime() + expirationTimeInMilliseconds);
+      const userId = expiry.id;
+
+      console.log(userId)
       localStorage.setItem('token', response.token);
       localStorage.setItem('token-exp', expDate.toString());
+      localStorage.setItem('owner', userId);
     } else {
       localStorage.clear()
+    }
+  }
+  private setUserId = (response: INewUser | null) => {
+    if (response){
+      console.log('dkdkkdk', response._id)
+      localStorage.setItem('owner', response._id.toString())
     }
   }
 }

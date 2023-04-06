@@ -29,8 +29,8 @@ export class ModalCreateComponent implements OnInit{
     if (this.createForm.valid) {
       const board: IBoardCreate = {
         title: this.createForm.value.title || null,
-        owner: 'fsgdfgfg',
-        users: ['dgfgdf']
+        owner: localStorage.getItem('owner') || null || undefined,
+        users: ['']
       }
 
       this.boardservice.createBoard(board).subscribe((response: any) => {
