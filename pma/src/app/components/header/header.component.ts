@@ -11,7 +11,7 @@ import { ModalCreateComponent } from 'src/app/auth/components/modal-create/modal
 export class HeaderComponent {
   constructor(public apiservice: ApiserviceService, private dialog: MatDialog) {}
 
-  openAuthDialog() {
+  openCreateDialog() {
     const dialogRef = this.dialog.open(ModalCreateComponent);
 
     dialogRef.afterClosed().subscribe(result => {

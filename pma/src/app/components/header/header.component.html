@@ -9,7 +9,7 @@
         <a href="#" class="button auth-link" [routerLink]="['./auth/signup']">Sign up</a>
       </div>
       <div class="auth-wrapper" *ngIf="apiservice.isAuthenticated()">
-        <a class="button auth-link create-button" (click) = "openAuthDialog()">Create board</a>
+        <a class="button auth-link create-button" (click) = "openCreateDialog()">Create board</a>
         <a href="#" class="button auth-link" [routerLink]="['/']" (click) = "apiservice.logout()">Log out</a>
       </div>
     </mat-toolbar>
