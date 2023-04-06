@@ -21,7 +21,7 @@
           <mat-error *ngIf="createForm.get('title')?.invalid && createForm.get('title')?.touched">Title is required</mat-error>
         </mat-form-field>
         <div mat-dialog-actions>
-        <button class="button">Cancel</button>
+        <button class="button" [mat-dialog-close] =true >Cancel</button>
         <button class="button" type="submit" [disabled]="createForm.invalid">Submit</button>
       </div>
       </form>

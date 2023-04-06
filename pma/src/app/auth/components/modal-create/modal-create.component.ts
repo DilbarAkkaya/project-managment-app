@@ -19,9 +19,9 @@ export class ModalCreateComponent implements OnInit{
 /*     login: new FormControl('', Validators.required),
     password: new FormControl('', [Validators.required, Validators.minLength(7)]) */
   })
-/*   close() {
+   close() {
     this.dialogRef.close();
-  } */
+  }
   createSubmit(){
     this.dialogRef.close({
     clicked: 'submit',

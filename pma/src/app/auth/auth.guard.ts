@@ -1,12 +1,12 @@
 import { Injectable } from "@angular/core";
 import { ActivatedRouteSnapshot, CanActivate, CanActivateChildFn, Router, RouterStateSnapshot, UrlTree } from "@angular/router";
-import { ApiserviceService } from "./apiservice.service";
+import { AuthserviceService } from "./services/authservice.service";
 import { Observable } from "rxjs";
 
 @Injectable()
 export class AuthGuard {
   constructor(
-    private apiservice: ApiserviceService,
+    private apiservice: AuthserviceService,
     private router: Router
   ){}
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot):  Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ApiserviceService } from '../../apiservice.service';
+import { AuthserviceService } from '../../services/authservice.service';
 import { ISignData } from 'src/app/models/api.model';
 import { Router } from '@angular/router';
 @Component({
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup-page.component.scss']
 })
 export class SignupPageComponent implements OnInit {
-  constructor(private service: ApiserviceService, private router: Router){
+  constructor(private service: AuthserviceService, private router: Router){
   }
   errorMessage = '';
   errorMessageShow = false;

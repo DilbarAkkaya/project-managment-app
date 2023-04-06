@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { IAuthData, IAuthResponse, INewUser, ISignData, apiEnum } from '../models/api.model';
+import { IAuthData, IAuthResponse, INewUser, ISignData, apiEnum } from '../../models/api.model';
 import { Observable, tap, catchError, throwError, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ApiserviceService {
+export class AuthserviceService {
   public error$: Subject<string> = new Subject<string>()
   constructor(private http: HttpClient) { }
   apiUrl = apiEnum.base;

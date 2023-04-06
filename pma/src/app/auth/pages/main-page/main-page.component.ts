@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiserviceService } from '../../apiservice.service';
+import { AuthserviceService } from '../../services/authservice.service';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
@@ -14,11 +14,7 @@ export class MainPageComponent implements OnInit{
   constructor(private dialog: MatDialog) { }
 
   ngOnInit() {
-    const dialogRef = this.dialog.open(ModalCreateComponent);
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
   }
 
 }

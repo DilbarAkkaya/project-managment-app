@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ApiserviceService } from '../../apiservice.service';
+import { AuthserviceService } from '../../services/authservice.service';
 import { Router } from '@angular/router';
 import { IAuthData } from 'src/app/models/api.model';
 
@@ -14,7 +14,7 @@ export class LoginPageComponent implements OnInit{
   errorMessageShow = false;
   isSubmited = false;
 
-  constructor(public service: ApiserviceService, private router: Router ){}
+  constructor(public service: AuthserviceService, private router: Router ){}
     loginForm = new FormGroup({
     login: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required)
