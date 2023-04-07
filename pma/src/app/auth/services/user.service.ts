@@ -20,15 +20,15 @@ export class UserService {
 
   } */
   getAllUsers(){
- return this.http.get(`${this.apiUrl}/users}`);
+ return this.http.get(`${this.apiUrl}/users`);
   }
   getUser(id: string){
-    return this.http.get(`${this.apiUrl}/users/${id}}`);
+    return this.http.get(`${this.apiUrl}/users/${id}`);
      }
   updateUser(id: string, data: INewUser) {
-    return this.http.put(`${this.apiUrl}/users/${id}}`, data);
+    return this.http.put(`${this.apiUrl}/users/${id}`, data);
   }
   deleteUser(id: string) {
-    return this.http.delete(`${this.apiUrl}/users/${id}}`);
+    return this.http.delete(`${this.apiUrl}/users/${id}`);
   }
 }
