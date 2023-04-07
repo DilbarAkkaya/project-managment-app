@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { BoardserviceService } from '../../services/boardservice.service';
+import { BoardserviceService } from '../../services/board.service';
 import { IBoardCreate } from 'src/app/models/api.model';
 
 @Component({
