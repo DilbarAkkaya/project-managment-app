@@ -15,6 +15,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ModalCreateComponent } from './components/modal-create/modal-create.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor} from './interceptor/auth.interceptor';
+import { BoardItemComponent } from './components/board-item/board-item.component';
+import { BoardListComponent } from './components/board-list/board-list.component';
 
 
 @NgModule({
@@ -24,6 +26,8 @@ import { AuthInterceptor} from './interceptor/auth.interceptor';
     SignupPageComponent,
     MainPageComponent,
     ModalCreateComponent,
+    BoardItemComponent,
+    BoardListComponent,
 
   ],
   imports: [

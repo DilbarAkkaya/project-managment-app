@@ -1,0 +1,32 @@
+$primary: #EDF1D6;
+$primary-dark:#9DC08B;
+$secondary: #609966;
+$secondary-dark: #40513B;
+
+.form-wrapper {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid $secondary-dark;
+  color: $primary;
+  background-color: $primary-dark;
+  border-radius: 5px;
+  align-items: center;
+  padding: 10px;
+}
+
+.mat-dialog{
+ padding: 0;
+}
+
+mat-card-header {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  align-self: center;
+  padding-bottom: 15px;
+}
+button[disabled]{
+  background-color: $primary-dark;
+}

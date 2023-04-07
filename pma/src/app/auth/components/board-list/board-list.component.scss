@@ -1,0 +1,10 @@
+li {
+  max-width: 300px;
+  padding: 10px;
+}
+
+ul {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
