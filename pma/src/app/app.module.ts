@@ -14,8 +14,9 @@ import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { MainPageComponent } from './auth/pages/main-page/main-page.component';
 import { SelectedBoardPageComponent } from './auth/pages/selected-board-page/selected-board-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule} from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
+import { AuthInterceptor } from './auth/interceptor/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,11 @@ import { MatDialogModule } from '@angular/material/dialog';
   imports: [
     BrowserModule, FormsModule, MatToolbarModule, MatButtonToggleModule, MatButtonModule, AppRoutingModule, ReactiveFormsModule, BrowserAnimationsModule,
   HttpClientModule, MatDialogModule],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

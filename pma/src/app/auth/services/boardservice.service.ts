@@ -16,7 +16,7 @@ export class BoardserviceService {
     return this.http.post<IBoardResponse>(`${this.apiUrl}/${apiEnum.board}`, data, {headers: new HttpHeaders().set("Authorization", `Bearer ${localStorage.getItem('token')}`)});
   }
 
-  getAllUsers(){
+/*   getAllUsers(){
     const headers = new Headers({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${localStorage.getItem('token')}`,
@@ -24,6 +24,8 @@ export class BoardserviceService {
     })
    return this.http.get(`${this.apiUrl}/users}`, {headers: new HttpHeaders().set("Authorization", `Bearer ${localStorage.getItem('token')}`)})
 
+  } */
+  getAllUsers(){
+ return this.http.get(`${this.apiUrl}/users}`);
   }
-
 }

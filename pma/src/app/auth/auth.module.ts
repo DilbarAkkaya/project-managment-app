@@ -13,6 +13,8 @@ import {MatCardModule} from '@angular/material/card';
 import { AuthGuard } from './auth.guard';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ModalCreateComponent } from './components/modal-create/modal-create.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor} from './interceptor/auth.interceptor';
 
 
 @NgModule({
