@@ -36,7 +36,7 @@ export interface IBoardCreate {
 }
 
 export interface IBoardResponse{
-  _id: string,
+  _id: string | undefined,
   title: string,
   owner?: string,
   users?: [

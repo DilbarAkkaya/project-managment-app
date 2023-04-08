@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { IBoardResponse } from 'src/app/models/api.model';
 
 @Component({
@@ -8,4 +9,8 @@ import { IBoardResponse } from 'src/app/models/api.model';
 })
 export class BoardItemComponent {
   @Input() board: IBoardResponse | undefined;
+  constructor(private router: Router){}
+  openBoard(id: string|undefined){
+    this.router.navigate([`./auth/selected-board/${id}`]);
+  }
 }

@@ -17,4 +17,7 @@ export class BoardserviceService {
   getAllBoards(){
     return this.http.get(`${this.apiUrl}/boards`)
      }
+  getBoardById(id: string|undefined) {
+      return this.http.get<IBoardResponse>(`${this.apiUrl}/boards/${id}`)
+       }
 }
