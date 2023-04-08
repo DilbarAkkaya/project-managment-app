@@ -43,3 +43,14 @@ export interface IBoardResponse{
     string
   ]
 }
+export interface IColumnCreate {
+  title: string | null | undefined,
+  order: number | null | undefined
+}
+
+export interface IColumnResponse {
+    _id: string | undefined,
+    title: string,
+    order: number,
+    boardId: string,
+}

@@ -17,6 +17,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor} from './interceptor/auth.interceptor';
 import { BoardItemComponent } from './components/board-item/board-item.component';
 import { BoardListComponent } from './components/board-list/board-list.component';
+import { ColumnComponent } from './components/column/column.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { BoardListComponent } from './components/board-list/board-list.component
     ModalCreateComponent,
     BoardItemComponent,
     BoardListComponent,
+    ColumnComponent,
 
   ],
   imports: [
