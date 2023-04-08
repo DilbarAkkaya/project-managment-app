@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IBoardCreate, IBoardResponse, apiEnum } from 'src/app/models/api.model';
+import { IBoardCreate, IBoardResponse, IColumnResponse, apiEnum } from 'src/app/models/api.model';
 import {map} from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
@@ -20,4 +20,7 @@ export class BoardserviceService {
   getBoardById(id: string|undefined) {
       return this.http.get<IBoardResponse>(`${this.apiUrl}/boards/${id}`)
        }
+       createColumn(boardId: string| undefined, data: IBoardCreate): Observable<IColumnResponse> {
+        console.log(data)
+        return this.http.post<IColumnResponse>(`${this.apiUrl}/${apiEnum.board}/${boardId}/columns`, data)}
 }

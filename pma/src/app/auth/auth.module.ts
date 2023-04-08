@@ -18,6 +18,7 @@ import { AuthInterceptor} from './interceptor/auth.interceptor';
 import { BoardItemComponent } from './components/board-item/board-item.component';
 import { BoardListComponent } from './components/board-list/board-list.component';
 import { ColumnComponent } from './components/column/column.component';
+import { ColumnFormComponent } from './components/column-form/column-form.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { ColumnComponent } from './components/column/column.component';
     BoardItemComponent,
     BoardListComponent,
     ColumnComponent,
+    ColumnFormComponent,
 
   ],
   imports: [
