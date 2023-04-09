@@ -19,6 +19,8 @@ import { BoardItemComponent } from './components/board-item/board-item.component
 import { BoardListComponent } from './components/board-list/board-list.component';
 import { ColumnComponent } from './components/column/column.component';
 import { ColumnFormComponent } from './components/column-form/column-form.component';
+import { TaskComponent } from './components/task/task.component';
+import { TaskFormComponent } from './components/task-form/task-form.component';
 
 
 @NgModule({
@@ -33,6 +35,8 @@ import { ColumnFormComponent } from './components/column-form/column-form.compon
     ColumnComponent,
     ColumnFormComponent,
     SelectedBoardPageComponent,
+    TaskComponent,
+    TaskFormComponent,
 
   ],
   imports: [

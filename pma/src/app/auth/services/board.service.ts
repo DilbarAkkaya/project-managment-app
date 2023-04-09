@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { IBoardCreate, IBoardResponse, IColumnCreate, IColumnResponse, apiEnum } from 'src/app/models/api.model';
+import { IBoardCreate, IBoardResponse, IColumnCreate, IColumnResponse, ITaskCreate, ITaskResponse, apiEnum } from 'src/app/models/api.model';
 import {catchError, map, tap} from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
@@ -28,6 +28,23 @@ export class BoardserviceService {
   getAllColumns(boardId: string): Observable<IColumnResponse[]> {
     return this.http.get<IColumnResponse[]>(`${this.apiUrl}/${apiEnum.board}/${boardId}/columns`).pipe(
       tap(columns => console.log('Columns:', columns)),
+      catchError(error => {
+        console.error(error);
+        return throwError(error);
+      })
+    );
+  }
+  getColumnById(boardId: string, columnId: string) {
+    return this.http.get<IColumnResponse>(`${this.apiUrl}/boards/${boardId}/${columnId}`)
+  }
+  createTask(boardId: string, data: ITaskCreate): Observable<ITaskResponse> {
+    console.log(data, 'creating')
+    console.log(boardId)
+    return this.http.post<ITaskResponse>(`${this.apiUrl}/${apiEnum.board}/${boardId}/columns`, data)
+  }
+  getAllTasks(boardId: string, columnId: string): Observable<ITaskResponse[]> {
+    return this.http.get<ITaskResponse[]>(`${this.apiUrl}/${apiEnum.board}/${boardId}/columns/${columnId}/tasks`).pipe(
+      tap(tasks => console.log('Columns:',tasks)),
       catchError(error => {
         console.error(error);
         return throwError(error);

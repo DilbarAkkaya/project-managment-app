@@ -54,3 +54,24 @@ export interface IColumnResponse {
     order: number,
     boardId: string,
 }
+
+export interface ITaskCreate {
+    title: string,
+    order: 0,
+    description: string,
+    userId: 0,
+    users: [
+      string
+    ]
+}
+ export interface ITaskResponse {
+    _id: string,
+    title: string,
+    order: 0,
+    boardId: string,
+    description: string,
+    userId: string,
+    users: [
+      string,
+    ]
+ }
