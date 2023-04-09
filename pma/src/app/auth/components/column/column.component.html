@@ -1,1 +1,8 @@
-<p>column works!</p>
+<li>
+  <mat-card class="form-wrapper" *ngIf="column">
+    <mat-card-header>
+      {{column.title}}
+    </mat-card-header>
+      <button class="button">Delete</button>
+  </mat-card>
+</li>

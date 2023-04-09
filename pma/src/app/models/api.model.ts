@@ -49,7 +49,7 @@ export interface IColumnCreate {
 }
 
 export interface IColumnResponse {
-    _id: string | undefined,
+    _id: string,
     title: string,
     order: number,
     boardId: string,
