@@ -22,3 +22,14 @@ $secondary-dark: #40513B;
 p{
   margin: 0;
 }
+
+ul {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+li {
+  min-width: 250px;
+}

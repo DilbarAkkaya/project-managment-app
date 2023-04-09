@@ -8,7 +8,7 @@ import { IColumnResponse } from 'src/app/models/api.model';
   styleUrls: ['./column.component.scss']
 })
 export class ColumnComponent {
-  @Input() column: IColumnResponse | undefined;
+   @Input() column: IColumnResponse | undefined;
 /*   constructor(private router: Router){}
   openBoard(id: string|undefined){
     this.router.navigate([`./auth/selected-board/${id}`]);

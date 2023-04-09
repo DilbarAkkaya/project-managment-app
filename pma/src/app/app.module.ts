@@ -26,7 +26,7 @@ import { AuthInterceptor } from './auth/interceptor/auth.interceptor';
     TodoItemComponent,
     HeaderComponent,
     WelcomePageComponent,
-    SelectedBoardPageComponent,
+
   ],
   imports: [
     BrowserModule, FormsModule, MatToolbarModule, MatButtonToggleModule, MatButtonModule, AppRoutingModule, ReactiveFormsModule, BrowserAnimationsModule,

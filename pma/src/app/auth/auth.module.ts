@@ -32,6 +32,7 @@ import { ColumnFormComponent } from './components/column-form/column-form.compon
     BoardListComponent,
     ColumnComponent,
     ColumnFormComponent,
+    SelectedBoardPageComponent,
 
   ],
   imports: [

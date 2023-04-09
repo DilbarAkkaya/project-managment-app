@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription, switchMap } from 'rxjs';
 import { TodoItem } from 'src/app/models/todo.model';
 import { BoardserviceService } from '../../services/board.service';
-import { IBoardResponse } from 'src/app/models/api.model';
+import { IBoardResponse, IColumnResponse } from 'src/app/models/api.model';
 import { ActivatedRoute, Params } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ColumnFormComponent } from '../../components/column-form/column-form.component';
@@ -16,6 +16,7 @@ export class SelectedBoardPageComponent implements OnInit {
   sub: Subscription | undefined;
   board: IBoardResponse | undefined;
   boardId: string = '';
+  columns: IColumnResponse[] =[];
   //todoList: TodoItem[] =[];
   constructor(private boardService: BoardserviceService, private route: ActivatedRoute, private dialog: MatDialog) {
 
@@ -38,7 +39,7 @@ export class SelectedBoardPageComponent implements OnInit {
             );
           })
         ).subscribe((columns) => {
-          console.log('columns', columns);
+          this.columns =columns;
         });
       }
 
