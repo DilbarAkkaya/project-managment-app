@@ -21,10 +21,9 @@ export class ColumnComponent implements OnInit{
     this.route.params.pipe(
       switchMap((params: Params) => {
         this.boardId = params['id'];
-        console.log('params', this.boardId)
         return this.boardservice.getColumnById(this.boardId, this.column!._id).pipe(
           switchMap((column: IColumnResponse) => {
-            console.log('column', column);
+            console.log('column777777777', column);
             this.column = column;
             console.log(this.column._id, 'columnID')
             return this.boardservice.getAllTasks(this.boardId, this.column._id);
@@ -36,8 +35,9 @@ export class ColumnComponent implements OnInit{
     });
   }
   openTaskForm(){
+    console.log(this.column?._id)
     const dialogRef = this.dialog.open(TaskFormComponent, {
-      data: {boardId: this.boardId }
+          data: {boardId: this.boardId, columnId: this.column!._id }
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result && result.clicked === 'submit') {

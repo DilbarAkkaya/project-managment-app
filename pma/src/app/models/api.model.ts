@@ -57,10 +57,10 @@ export interface IColumnResponse {
 
 export interface ITaskCreate {
     title: string,
-    order: 0,
+    order?: 0,
     description: string,
-    userId: 0,
-    users: [
+    userId?: 0,
+    users?: [
       string
     ]
 }
@@ -69,6 +69,7 @@ export interface ITaskCreate {
     title: string,
     order: 0,
     boardId: string,
+    columnId: string,
     description: string,
     userId: string,
     users: [

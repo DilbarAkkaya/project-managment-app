@@ -12,7 +12,7 @@
           <mat-error *ngIf="createForm.get('title')?.invalid && createForm.get('title')?.touched">Title is required</mat-error>
         </mat-form-field>
         <mat-form-field>
-          <mat-label>Title</mat-label>
+          <mat-label>Description</mat-label>
           <input matInput type="text" formControlName="description" required>
           <mat-error *ngIf="createForm.get('description')?.invalid && createForm.get('description')?.touched">Description is required</mat-error>
         </mat-form-field>

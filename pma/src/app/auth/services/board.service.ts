@@ -37,14 +37,14 @@ export class BoardserviceService {
   getColumnById(boardId: string, columnId: string) {
     return this.http.get<IColumnResponse>(`${this.apiUrl}/boards/${boardId}/${columnId}`)
   }
-  createTask(boardId: string, data: ITaskCreate): Observable<ITaskResponse> {
+  createTask(boardId: string, columnId: string, data: ITaskCreate): Observable<ITaskResponse> {
     console.log(data, 'creating')
     console.log(boardId)
-    return this.http.post<ITaskResponse>(`${this.apiUrl}/${apiEnum.board}/${boardId}/columns`, data)
+    return this.http.post<ITaskResponse>(`${this.apiUrl}/${apiEnum.board}/${boardId}/columns/${columnId}/tasks`, data)
   }
   getAllTasks(boardId: string, columnId: string): Observable<ITaskResponse[]> {
     return this.http.get<ITaskResponse[]>(`${this.apiUrl}/${apiEnum.board}/${boardId}/columns/${columnId}/tasks`).pipe(
-      tap(tasks => console.log('Columns:',tasks)),
+      tap(tasks => console.log('777777777777tasks:',tasks)),
       catchError(error => {
         console.error(error);
         return throwError(error);
