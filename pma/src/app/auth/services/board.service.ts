@@ -35,7 +35,8 @@ export class BoardserviceService {
     );
   }
   getColumnById(boardId: string, columnId: string) {
-    return this.http.get<IColumnResponse>(`${this.apiUrl}/boards/${boardId}/${columnId}`)
+    console.log(boardId, columnId)
+    return this.http.get<IColumnResponse>(`${this.apiUrl}/boards/${boardId}/columns/${columnId}`)
   }
   createTask(boardId: string, columnId: string, data: ITaskCreate): Observable<ITaskResponse> {
     console.log(data, 'creating')

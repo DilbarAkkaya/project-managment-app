@@ -21,6 +21,7 @@ export class ColumnComponent implements OnInit{
     this.route.params.pipe(
       switchMap((params: Params) => {
         this.boardId = params['id'];
+        console.log(this.column?._id, this.boardId)
         return this.boardservice.getColumnById(this.boardId, this.column!._id).pipe(
           switchMap((column: IColumnResponse) => {
             console.log('column777777777', column);
