@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ITaskResponse } from 'src/app/models/api.model';
 
 @Component({
   selector: 'pma-task',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class TaskComponent {
 
+  @Input() task: ITaskResponse | undefined;
 }

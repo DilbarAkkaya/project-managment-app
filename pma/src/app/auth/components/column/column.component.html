@@ -5,5 +5,10 @@
     </mat-card-header>
       <button class="button">Delete column</button>
       <button class="button create" (click) = "openTaskForm()">Create task</button>
+      <ul class="task-list">
+        <li class="task-item" *ngFor="let task of tasks">
+          <pma-task [task] = task></pma-task>
+        </li>
+      </ul>
   </mat-card>
 

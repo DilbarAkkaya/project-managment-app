@@ -1,1 +1,11 @@
-<p>task works!</p>
+<mat-card class="form-wrapper" *ngIf="task">
+  <mat-card-header>
+    {{task.title}}
+  </mat-card-header>
+  <mat-card-content>
+    <p>{{task.description}}</p>
+    <button class="button">Delete task</button>
+    <button class="button">edit task</button>
+  </mat-card-content>
+
+</mat-card>

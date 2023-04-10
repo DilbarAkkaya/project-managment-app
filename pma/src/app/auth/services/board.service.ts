@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
+import { Observable, Subject, throwError } from 'rxjs';
 import { IBoardCreate, IBoardResponse, IColumnCreate, IColumnResponse, ITaskCreate, ITaskResponse, apiEnum } from 'src/app/models/api.model';
 import {catchError, map, tap} from 'rxjs/operators';
 @Injectable({
@@ -9,13 +9,20 @@ import {catchError, map, tap} from 'rxjs/operators';
 export class BoardserviceService {
   constructor(private http: HttpClient) { }
   apiUrl = apiEnum.base;
-
+  private _refresh$ = new Subject<void>();
+  get refresh$() {
+    return this._refresh$;
+  }
   createBoard(data: IBoardCreate): Observable<IBoardResponse> {
     console.log(data)
-    return this.http.post<IBoardResponse>(`${this.apiUrl}/${apiEnum.board}`, data, {headers: new HttpHeaders().set("Authorization", `Bearer ${localStorage.getItem('token')}`)});
+    return this.http.post<IBoardResponse>(`${this.apiUrl}/${apiEnum.board}`, data, {headers: new HttpHeaders().set("Authorization", `Bearer ${localStorage.getItem('token')}`)}).pipe(
+      tap(()=>{
+        this._refresh$.next();
+      })
+    );
   }
-  getAllBoards(){
-    return this.http.get(`${this.apiUrl}/boards`)
+  getAllBoards(): Observable<IBoardResponse[]>{
+    return this.http.get<IBoardResponse[]>(`${this.apiUrl}/boards`)
      }
   getBoardById(id: string | undefined) {
     return this.http.get<IBoardResponse>(`${this.apiUrl}/boards/${id}`)
