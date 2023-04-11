@@ -36,6 +36,7 @@ export interface IBoardCreate {
 }
 
 export interface IBoardResponse{
+  columns: IColumnResponse[]
   _id: string | undefined,
   title: string,
   owner?: string,

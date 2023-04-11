@@ -51,7 +51,6 @@ export class BoardserviceService {
   }
   createTask(boardId: string, columnId: string, data: ITaskCreate): Observable<ITaskResponse> {
     console.log(data, 'creating')
-    console.log(boardId)
     return this.http.post<ITaskResponse>(`${this.apiUrl}/${apiEnum.board}/${boardId}/columns/${columnId}/tasks`, data).pipe(
       tap(()=>{
         this._refresh$.next(true);

@@ -34,14 +34,10 @@ export class ModalCreateComponent implements OnInit{
         owner: localStorage.getItem('owner') || null || undefined,
         users: ['']
       }
-        this.boardservice.createBoard(board).pipe(
-          switchMap(() => this.boardservice.getAllBoards())
-        ).subscribe((boards) => {
-          this.boards = boards as IBoardResponse[];
+        this.boardservice.createBoard(board).subscribe((board) => {
+          this.boards.push(board)
           this.dialogRef.close({ clicked: 'submit', form: this.createForm });
-        }, (error: any) => {
-          console.error('Error submitting form data:', error);
-        });
+        })
       }
 /*
 
@@ -54,3 +50,13 @@ export class ModalCreateComponent implements OnInit{
     } */
   }
 }
+
+/* this.boardservice.createBoard(board).pipe(
+  switchMap(() => this.boardservice.getAllBoards())
+).subscribe((boards) => {
+  this.boards = boards as IBoardResponse[];
+  this.dialogRef.close({ clicked: 'submit', form: this.createForm });
+}, (error: any) => {
+  console.error('Error submitting form data:', error);
+});
+} */

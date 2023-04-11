@@ -16,7 +16,7 @@ import { Inject } from '@angular/core';
 export class ColumnFormComponent implements OnInit{
   board: IBoardResponse | undefined;
   boardId: string = '';
-
+  columns: IColumnResponse[] =[];
   constructor(private dialogRef: MatDialogRef<ModalCreateComponent>, private boardservice: BoardserviceService, private route: ActivatedRoute,
     @Inject(MAT_DIALOG_DATA) public data: { board: IBoardResponse, boardId: string }) {
       this.board = data.board;
@@ -44,7 +44,7 @@ export class ColumnFormComponent implements OnInit{
         order: 0,
       }
       this.boardservice.createColumn(this.boardId, column).subscribe((column: IColumnResponse) => {
-        column = column;
+        this.columns.push(column)
         this.dialogRef.close({ clicked: 'submit', form: this.createForm });
       });
     }

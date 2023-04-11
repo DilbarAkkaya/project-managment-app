@@ -14,6 +14,7 @@ import { IBoardResponse, IColumnCreate, IColumnResponse, ITaskCreate, ITaskRespo
 export class TaskFormComponent implements OnInit{
   boardId: string ='';
   columnId: string ='';
+  tasks: ITaskResponse[] = []
   constructor(private dialogRef: MatDialogRef<ModalCreateComponent>, private boardService: BoardserviceService, private route: ActivatedRoute, private dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: { boardId: string, columnId: string}){
 
@@ -42,7 +43,7 @@ export class TaskFormComponent implements OnInit{
       }
 
       this.boardService.createTask(this.boardId, this.columnId, task).subscribe((task) => {
-        task = task
+        this.tasks.push(task)
         this.dialogRef.close({ clicked: 'submit', form: this.createForm });
       });
     }
