@@ -15,7 +15,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./main-page.component.scss'],
 })
 export class MainPageComponent implements OnInit, OnDestroy{
-  boards: IBoardResponse[] | undefined;
+  boards: IBoardResponse[] = [];
   sub: Subscription | undefined;
   constructor(private boardService: BoardserviceService) { }
 

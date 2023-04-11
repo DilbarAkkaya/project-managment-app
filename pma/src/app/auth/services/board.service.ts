@@ -76,4 +76,11 @@ export class BoardserviceService {
         })
     ) */
   }
+  deleteBoardById(boardId: string) {
+    return this.http.delete<IBoardResponse>(`${this.apiUrl}/boards/${boardId}`)/* .pipe(
+      tap(()=>{
+        this._refresh$.next(true);
+        })
+    ) */
+  }
 }

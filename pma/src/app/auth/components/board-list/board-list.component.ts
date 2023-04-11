@@ -7,5 +7,8 @@ import { IBoardResponse } from 'src/app/models/api.model';
   styleUrls: ['./board-list.component.scss']
 })
 export class BoardListComponent {
-  @Input() boards: IBoardResponse[] | undefined;
+  @Input() boards: IBoardResponse[] = [];
+  ondeleteBoard(boardId: string) {
+    this.boards = this.boards.filter((board) => board._id !== boardId);
+  }
 }

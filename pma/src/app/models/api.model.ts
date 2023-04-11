@@ -35,9 +35,17 @@ export interface IBoardCreate {
     ]
 }
 
-export interface IBoardResponse{
+/* export interface IBoardResponse{
   columns: IColumnResponse[]
   _id: string | undefined,
+  title: string,
+  owner?: string,
+  users?: [
+    string
+  ]
+} */
+export interface IBoardResponse{
+  _id: string,
   title: string,
   owner?: string,
   users?: [

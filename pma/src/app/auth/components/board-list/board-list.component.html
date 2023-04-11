@@ -1,5 +1,5 @@
 <ul>
   <li *ngFor="let board of boards">
-    <pma-board-item [board]="board"></pma-board-item>
+    <pma-board-item [board]="board" (boardDeleted)="ondeleteBoard($event)"></pma-board-item>
   </li>
 </ul>
