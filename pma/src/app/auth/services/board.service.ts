@@ -53,7 +53,7 @@ export class BoardserviceService {
     console.log(data, 'creating')
     return this.http.post<ITaskResponse>(`${this.apiUrl}/${apiEnum.board}/${boardId}/columns/${columnId}/tasks`, data).pipe(
       tap(()=>{
-        this._refresh$.next(true);
+      this._refresh$.next(true);
       })
     )
   }
@@ -65,5 +65,15 @@ export class BoardserviceService {
         return throwError(error);
       })
     );
+  }
+  getTaskById(boardId: string, columnId: string, taskId:string) {
+    return this.http.get<ITaskResponse>(`${this.apiUrl}/boards/${boardId}/columns/${columnId}/tasks/${taskId}`)
+  }
+  deleteTaskById(boardId: string, columnId: string, taskId:string) {
+    return this.http.delete<ITaskResponse>(`${this.apiUrl}/boards/${boardId}/columns/${columnId}/tasks/${taskId}`)/* .pipe(
+      tap(()=>{
+        this._refresh$.next(true);
+        })
+    ) */
   }
 }

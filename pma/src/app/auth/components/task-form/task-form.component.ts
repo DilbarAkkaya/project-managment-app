@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ModalCreateComponent } from '../modal-create/modal-create.component';
 import { BoardserviceService } from '../../services/board.service';
@@ -14,7 +14,7 @@ import { IBoardResponse, IColumnCreate, IColumnResponse, ITaskCreate, ITaskRespo
 export class TaskFormComponent implements OnInit{
   boardId: string ='';
   columnId: string ='';
-  tasks: ITaskResponse[] = []
+  tasks: ITaskResponse[] = [];
   constructor(private dialogRef: MatDialogRef<ModalCreateComponent>, private boardService: BoardserviceService, private route: ActivatedRoute, private dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: { boardId: string, columnId: string}){
 
@@ -43,7 +43,9 @@ export class TaskFormComponent implements OnInit{
       }
 
       this.boardService.createTask(this.boardId, this.columnId, task).subscribe((task) => {
+        console.log('what is this', task)
         this.tasks.push(task)
+        console.log('array', this.tasks)
         this.dialogRef.close({ clicked: 'submit', form: this.createForm });
       });
     }

@@ -13,6 +13,7 @@ import { BoardserviceService } from '../../services/board.service';
 })
 export class ColumnComponent implements OnInit, OnDestroy{
    @Input() column: IColumnResponse | undefined;
+
    boardId: string = '';
   tasks: ITaskResponse[] =[];
   sub: Subscription | undefined;
@@ -30,12 +31,21 @@ export class ColumnComponent implements OnInit, OnDestroy{
           })
         );
       })
-    ).subscribe((task) => {
-      this.tasks =task;
+    ).subscribe((res) => {
+      this.tasks = res
+console.log(this.tasks)
     });
 
   }
 
+  onremoveTask(id: string){
+    this.boardservice.deleteTaskById(this.boardId, this.column!._id, id).subscribe(()=>{
+      console.log('delete', this.tasks)
+      this.tasks = this.tasks.filter((task)=>{
+        console.log(task, '5555')
+        task._id !== id})
+    })
+  }
   openTaskForm(){
     const dialogRef = this.dialog.open(TaskFormComponent, {
           data: {boardId: this.boardId, columnId: this.column!._id }
