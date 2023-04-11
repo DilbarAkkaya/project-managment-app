@@ -44,7 +44,7 @@ export class ColumnFormComponent implements OnInit{
         order: 0,
       }
       this.boardservice.createColumn(this.boardId, column).subscribe((column: IColumnResponse) => {
-        console.log('i am column', column)
+        column = column;
         this.dialogRef.close({ clicked: 'submit', form: this.createForm });
       });
     }

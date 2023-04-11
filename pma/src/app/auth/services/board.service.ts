@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, throwError } from 'rxjs';
 import { IBoardCreate, IBoardResponse, IColumnCreate, IColumnResponse, ITaskCreate, ITaskResponse, apiEnum } from 'src/app/models/api.model';
 import {catchError, map, tap} from 'rxjs/operators';
 @Injectable({
@@ -9,15 +9,15 @@ import {catchError, map, tap} from 'rxjs/operators';
 export class BoardserviceService {
   constructor(private http: HttpClient) { }
   apiUrl = apiEnum.base;
-  private _refresh$ = new Subject<void>();
+  private _refresh$ = new BehaviorSubject<boolean>(true);
   get refresh$() {
-    return this._refresh$;
+    return this._refresh$.asObservable();
   }
   createBoard(data: IBoardCreate): Observable<IBoardResponse> {
     console.log(data)
     return this.http.post<IBoardResponse>(`${this.apiUrl}/${apiEnum.board}`, data, {headers: new HttpHeaders().set("Authorization", `Bearer ${localStorage.getItem('token')}`)}).pipe(
       tap(()=>{
-        this._refresh$.next();
+        this._refresh$.next(true);
       })
     );
   }
@@ -30,7 +30,11 @@ export class BoardserviceService {
   createColumn(boardId: string, data: IColumnCreate): Observable<IColumnResponse> {
     console.log(data, 'creating')
     console.log(boardId)
-    return this.http.post<IColumnResponse>(`${this.apiUrl}/${apiEnum.board}/${boardId}/columns`, data)
+    return this.http.post<IColumnResponse>(`${this.apiUrl}/${apiEnum.board}/${boardId}/columns`, data).pipe(
+      tap(()=>{
+        this._refresh$.next(true);
+      })
+    )
   }
   getAllColumns(boardId: string): Observable<IColumnResponse[]> {
     return this.http.get<IColumnResponse[]>(`${this.apiUrl}/${apiEnum.board}/${boardId}/columns`).pipe(
@@ -48,7 +52,11 @@ export class BoardserviceService {
   createTask(boardId: string, columnId: string, data: ITaskCreate): Observable<ITaskResponse> {
     console.log(data, 'creating')
     console.log(boardId)
-    return this.http.post<ITaskResponse>(`${this.apiUrl}/${apiEnum.board}/${boardId}/columns/${columnId}/tasks`, data)
+    return this.http.post<ITaskResponse>(`${this.apiUrl}/${apiEnum.board}/${boardId}/columns/${columnId}/tasks`, data).pipe(
+      tap(()=>{
+        this._refresh$.next(true);
+      })
+    )
   }
   getAllTasks(boardId: string, columnId: string): Observable<ITaskResponse[]> {
     return this.http.get<ITaskResponse[]>(`${this.apiUrl}/${apiEnum.board}/${boardId}/columns/${columnId}/tasks`).pipe(

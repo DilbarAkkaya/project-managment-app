@@ -40,10 +40,24 @@ export class TaskFormComponent implements OnInit{
         userId: 0,
         users: ['']
       }
+
       this.boardService.createTask(this.boardId, this.columnId, task).subscribe((task) => {
-        console.log('i am column', task)
+        task = task
         this.dialogRef.close({ clicked: 'submit', form: this.createForm });
       });
     }
   }
+
 }
+
+
+/*         this.boardService.refresh$.subscribe(() => {
+          this.createTask(this.boardId, this.columnId, task);
+        });
+        this.createTask(this.boardId, this.columnId, task);
+    }
+  }
+      private createTask(idB:string,idC:string, data:ITaskCreate) {
+        this.boardService.createTask(idB, idC,data).subscribe((task) => {
+          task =task;
+        }); */

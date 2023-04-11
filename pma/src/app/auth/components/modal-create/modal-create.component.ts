@@ -37,7 +37,6 @@ export class ModalCreateComponent implements OnInit{
         this.boardservice.createBoard(board).pipe(
           switchMap(() => this.boardservice.getAllBoards())
         ).subscribe((boards) => {
-          console.log('All boards:', boards);
           this.boards = boards as IBoardResponse[];
           this.dialogRef.close({ clicked: 'submit', form: this.createForm });
         }, (error: any) => {

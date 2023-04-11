@@ -27,21 +27,23 @@ export class SelectedBoardPageComponent implements OnInit {
         this.route.params.pipe(
           switchMap((params: Params) => {
             this.boardId = params['id'];
-            localStorage.setItem('boardId', this.boardId)
-            console.log('params', this.boardId)
-            return this.boardService.getBoardById(this.boardId).pipe(
-              switchMap((board: IBoardResponse) => {
-                console.log('board', board);
-                this.board = board;
-                console.log(this.board._id, '5555555')
-                return this.boardService.getAllColumns(this.boardId);
-              })
-            );
+            return this.boardService.getBoardById(this.boardId);
           })
-        ).subscribe((columns) => {
+        ).subscribe((board: IBoardResponse) => {
+          this.board = board;
+          this.boardService.refresh$.subscribe(() => {
+            this.getAllColumns(this.boardId);
+          });
+          this.getAllColumns(this.boardId);
+        });
+      }
+
+      private getAllColumns(boardId:string) {
+        this.boardService.getAllColumns(boardId).subscribe((columns: IColumnResponse[]) => {
           this.columns =columns;
         });
       }
+
 
       openCreateDialog() {
         const dialogRef = this.dialog.open(ColumnFormComponent, {
