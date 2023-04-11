@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { IColumnResponse, ITaskResponse } from 'src/app/models/api.model';
 import { TaskFormComponent } from '../task-form/task-form.component';
@@ -13,10 +13,11 @@ import { BoardserviceService } from '../../services/board.service';
 })
 export class ColumnComponent implements OnInit, OnDestroy{
    @Input() column: IColumnResponse | undefined;
-
+   @Output() removeColumnEvent = new EventEmitter<string>();
    boardId: string = '';
   tasks: ITaskResponse[] =[];
   sub: Subscription | undefined;
+  columns: IColumnResponse[] =[];
    constructor(private dialog: MatDialog, private route: ActivatedRoute, private boardservice: BoardserviceService){
   }
 
@@ -41,6 +42,14 @@ export class ColumnComponent implements OnInit, OnDestroy{
 /*   oncreateTask(task: ITaskResponse) {
     this.tasks.push(task);
   } */
+
+  onremoveColumn(id: string){
+    this.boardservice.deleteColumnById(this.boardId, id).subscribe(()=>{
+      console.log(this.columns, '11111111111111111111')
+      this.columns = this.columns.filter((column) => column._id !== id)
+      this.removeColumnEvent.emit(id);
+    })
+  }
 
   onremoveTask(id: string){
     this.boardservice.deleteTaskById(this.boardId, this.column!._id, id).subscribe(()=>{

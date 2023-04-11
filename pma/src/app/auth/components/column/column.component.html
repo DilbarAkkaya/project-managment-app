@@ -3,7 +3,7 @@
     <mat-card-header>
       {{column.title}}
     </mat-card-header>
-      <button class="button">Delete column</button>
+      <button class="button" (click) = "onremoveColumn(column._id)">Delete column</button>
       <button class="button create" (click) = "openTaskForm()">Create task</button>
       <ul class="task-list">
         <li class="task-item" *ngFor="let task of tasks">

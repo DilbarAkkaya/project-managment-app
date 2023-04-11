@@ -83,4 +83,11 @@ export class BoardserviceService {
         })
     ) */
   }
+  deleteColumnById(boardId: string, columnId: string) {
+    return this.http.delete<IBoardResponse>(`${this.apiUrl}/boards/${boardId}/columns/${columnId}`)/* .pipe(
+      tap(()=>{
+        this._refresh$.next(true);
+        })
+    ) */
+  }
 }

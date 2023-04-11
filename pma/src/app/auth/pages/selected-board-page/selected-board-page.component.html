@@ -6,7 +6,7 @@
 <section>
   <ul>
     <li *ngFor="let column of columns">
-      <pma-column [column] = column  class="form-wrapper"></pma-column>
+      <pma-column [column] = column  class="form-wrapper" (removeColumnEvent)="ondeleteColumn($event)"></pma-column>
     </li>
 
 

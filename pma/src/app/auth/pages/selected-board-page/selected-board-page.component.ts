@@ -54,5 +54,9 @@ export class SelectedBoardPageComponent implements OnInit {
             console.log(result.form.value);
           }
         });
-      }}
+      }
+      ondeleteColumn(id: string) {
+        this.columns = this.columns.filter(column => column._id !== id);
+      }
+    }
 
