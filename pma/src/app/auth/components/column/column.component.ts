@@ -31,19 +31,20 @@ export class ColumnComponent implements OnInit, OnDestroy{
           })
         );
       })
-    ).subscribe((res) => {
-      this.tasks = res
-console.log(this.tasks)
+    ).subscribe((result) => {
+      this.tasks = result
     });
 
   }
 
+
+/*   oncreateTask(task: ITaskResponse) {
+    this.tasks.push(task);
+  } */
+
   onremoveTask(id: string){
     this.boardservice.deleteTaskById(this.boardId, this.column!._id, id).subscribe(()=>{
-      console.log('delete', this.tasks)
-      this.tasks = this.tasks.filter((task)=>{
-        console.log(task, '5555')
-        task._id !== id})
+      this.tasks = this.tasks.filter((task)=> task._id !== id)
     })
   }
   openTaskForm(){
@@ -51,11 +52,12 @@ console.log(this.tasks)
           data: {boardId: this.boardId, columnId: this.column!._id }
     });
     dialogRef.afterClosed().subscribe(result => {
-      if (result && result.clicked === 'submit') {
-        result = result.form.value;
-      }
-    });
+      console.log(result.task)
+      if (result && result.task) {
+        this.tasks.push(result.task);
+    }
   }
+    )}
   ngOnDestroy(): void {
     this.sub?.unsubscribe()
   }
