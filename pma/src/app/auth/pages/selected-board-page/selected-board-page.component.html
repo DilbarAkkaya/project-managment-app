@@ -3,7 +3,7 @@
   <p>Board: {{board?.title}}</p>
   <button class="button" (click) = "openCreateDialog()" >Create column</button>
 </section>
-<section>
+<section cdkDropListGroup>
   <ul>
     <li *ngFor="let column of columns">
       <pma-column [column] = column  class="form-wrapper" (removeColumnEvent)="ondeleteColumn($event)"></pma-column>

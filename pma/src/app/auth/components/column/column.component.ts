@@ -1,17 +1,18 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { IColumnResponse, ITaskResponse } from 'src/app/models/api.model';
+import { IColumnCreate, IColumnResponse, ITaskResponse, IUpdateTask } from 'src/app/models/api.model';
 import { TaskFormComponent } from '../task-form/task-form.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Subscription, switchMap } from 'rxjs';
 import { BoardserviceService } from '../../services/board.service';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'pma-column',
   templateUrl: './column.component.html',
   styleUrls: ['./column.component.scss']
 })
-export class ColumnComponent implements OnInit, OnDestroy{
+export class ColumnComponent implements OnInit, OnDestroy {
    @Input() column: IColumnResponse | undefined;
    @Output() removeColumnEvent = new EventEmitter<string>();
    boardId: string = '';
@@ -36,6 +37,35 @@ export class ColumnComponent implements OnInit, OnDestroy{
       this.tasks = result
     });
 
+  }
+  onDropTask(event: CdkDragDrop<ITaskResponse[]>, targetColumn: IColumnResponse) {
+    const prevTasks = event.previousContainer.data;
+    const currentTasks = event.container.data;
+    const moveTask: ITaskResponse = prevTasks[event.previousIndex];
+
+    moveTask.columnId = targetColumn._id;
+
+    console.log(moveTask, 'move task');
+    console.log(targetColumn, 'column task');
+
+    prevTasks.splice(event.previousIndex, 1);
+    currentTasks.splice(event.currentIndex, 0, moveTask);
+    console.log(prevTasks)
+    console.log(moveTask, 'moved task')
+    console.log(currentTasks)
+
+
+    this.boardservice.updateTaskById(moveTask.boardId, moveTask.columnId, moveTask._id, {
+
+      title: moveTask.title,
+      order: moveTask.order,
+      description: moveTask.description,
+      columnId: moveTask.columnId,
+      userId: moveTask.userId,
+      users: moveTask.users})
+    .subscribe(() => {
+      console.log(targetColumn)
+    });
   }
 
 
@@ -71,7 +101,6 @@ export class ColumnComponent implements OnInit, OnDestroy{
     this.sub?.unsubscribe()
   }
 }
-
 
 /*     this.sub = this.route.params.pipe(
       switchMap((params: Params) => {

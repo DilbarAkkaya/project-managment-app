@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Subject, throwError } from 'rxjs';
-import { IBoardCreate, IBoardResponse, IColumnCreate, IColumnResponse, ITaskCreate, ITaskResponse, apiEnum } from 'src/app/models/api.model';
+import { IBoardCreate, IBoardResponse, IColumnCreate, IColumnResponse, ITaskCreate, ITaskResponse, IUpdateTask, apiEnum } from 'src/app/models/api.model';
 import {catchError, map, tap} from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
@@ -89,5 +89,19 @@ export class BoardserviceService {
         this._refresh$.next(true);
         })
     ) */
+      }
+    updateTaskById(boardId: string, columnId: string, taskId: string, data: IUpdateTask) {
+      return this.http.put<ITaskResponse>(`${this.apiUrl}/boards/${boardId}/columns/${columnId}/tasks/${taskId}`, data)/* .pipe(
+        tap(()=>{
+          this._refresh$.next(true);
+          })
+      ) */
   }
+  updateColumnById(boardId: string, columnId: string,  data: IColumnCreate) {
+    return this.http.put<IColumnResponse>(`${this.apiUrl}/boards/${boardId}/columns/${columnId}`, data)/* .pipe(
+      tap(()=>{
+        this._refresh$.next(true);
+        })
+    ) */
+}
 }

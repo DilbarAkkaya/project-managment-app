@@ -18,7 +18,6 @@ export class TaskComponent implements OnInit{
   constructor(private route: ActivatedRoute, private boardservice: BoardserviceService){
   }
   ngOnInit(): void {
-console.log(this.column)
   }
   removeTask(id: string) {
     this.removeTaskEvent.emit(id);

@@ -21,6 +21,7 @@ import { ColumnComponent } from './components/column/column.component';
 import { ColumnFormComponent } from './components/column-form/column-form.component';
 import { TaskComponent } from './components/task/task.component';
 import { TaskFormComponent } from './components/task-form/task-form.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { TaskFormComponent } from './components/task-form/task-form.component';
     MatDialogModule,
     FormsModule,
     ReactiveFormsModule,
+    DragDropModule,
     RouterModule.forChild([
       {
         path: '', component: AuthLayoutComponent, children: [

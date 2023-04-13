@@ -73,15 +73,31 @@ export interface ITaskCreate {
       string
     ]
 }
- export interface ITaskResponse {
-    _id: string,
-    title: string,
-    order: 0,
-    boardId: string,
-    columnId: string,
-    description: string,
-    userId: string,
-    users: [
-      string,
-    ]
- }
+
+
+ export interface IUpdateTask
+ {
+  boardId?: string,
+  _id?: string,
+  title: string,
+  order: number,
+  description: string,
+  columnId: string,
+  userId: string | number,
+  users: [
+    string
+  ]
+}
+
+export interface ITaskResponse extends IUpdateTask {
+  _id: string,
+  title: string,
+  order: 0,
+  boardId: string,
+  columnId: string,
+  description: string,
+  userId: string,
+  users: [
+    string,
+  ]
+}
