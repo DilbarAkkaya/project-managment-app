@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { Subscription, switchMap } from 'rxjs';
 import { TodoItem } from 'src/app/models/todo.model';
 import { BoardserviceService } from '../../services/board.service';
@@ -6,6 +6,7 @@ import { IBoardResponse, IColumnResponse } from 'src/app/models/api.model';
 import { ActivatedRoute, Params } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ColumnFormComponent } from '../../components/column-form/column-form.component';
+import { CdkDragDrop } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'pma-selected-board-page',
@@ -13,6 +14,7 @@ import { ColumnFormComponent } from '../../components/column-form/column-form.co
   styleUrls: ['./selected-board-page.component.scss']
 })
 export class SelectedBoardPageComponent implements OnInit {
+  @Output() moveColumns = new EventEmitter<string[]>();
   sub: Subscription | undefined;
   board: IBoardResponse | undefined;
   boardId: string = '';
@@ -57,6 +59,18 @@ export class SelectedBoardPageComponent implements OnInit {
       }
       ondeleteColumn(id: string) {
         this.columns = this.columns.filter(column => column._id !== id);
+      }
+
+      onMoveColumn(event: CdkDragDrop<IColumnResponse[]>) {
+        const prevColumns = this.columns;
+        const currentColumns = prevColumns;
+        const moveColumn = prevColumns[event.previousIndex];
+        console.log(moveColumn)
+        prevColumns.splice(event.previousIndex, 1);
+        currentColumns.splice(event.currentIndex, 0, moveColumn);
+        const columnId = currentColumns.map(c => c._id);
+        this.columns = currentColumns;
+        this.moveColumns.emit(columnId);
       }
     }
 

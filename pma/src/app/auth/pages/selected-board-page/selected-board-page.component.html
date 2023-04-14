@@ -3,10 +3,10 @@
   <p>Board: {{board?.title}}</p>
   <button class="button" (click) = "openCreateDialog()" >Create column</button>
 </section>
-<section cdkDropListGroup>
+<section cdkDropListGroup cdkDropList (cdkDropListDropped)="onMoveColumn($event)" [cdkDropListData]="columns">
   <ul>
     <li *ngFor="let column of columns">
-      <pma-column [column] = column  class="form-wrapper" (removeColumnEvent)="ondeleteColumn($event)"></pma-column>
+      <pma-column [column] = column  class="form-wrapper" (removeColumnEvent)="ondeleteColumn($event)" cdkDrag></pma-column>
     </li>
 
 

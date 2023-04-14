@@ -32,6 +32,7 @@ export class MainPageComponent implements OnInit, OnDestroy{
   private getAllBoards(){
     this.boardService.getAllBoards().subscribe((boards: IBoardResponse[])=> this.boards = boards)
   }
+
   ngOnDestroy(): void {
     if (this.sub) {
       this.sub.unsubscribe();
