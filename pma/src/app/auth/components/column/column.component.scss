@@ -29,3 +29,10 @@ mat-card-header {
 .create {
   margin-top: 10px;
 }
+
+.task-list {
+  max-height: 30em;
+  overflow-y: auto;
+  margin-top: 10px;
+  width: 100%;
+}
