@@ -1,0 +1,39 @@
+$primary: #EDF1D6;
+$primary-dark:#9DC08B;
+$secondary: #609966;
+$secondary-dark: #40513B;
+$warning: #de5555;
+
+.form-wrapper {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid $secondary-dark;
+  color: $primary;
+  background-color: $primary-dark;
+  border-radius: 5px;
+  height: 10em;
+}
+
+.confirm-header {
+  display: flex;
+  flex-direction: column;
+}
+#close-icon {
+  margin-left: auto;
+}
+p {
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.confirm-buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+#yes {
+  background-color: $warning;
+}
