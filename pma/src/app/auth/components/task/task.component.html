@@ -4,8 +4,8 @@
   </mat-card-header>
   <mat-card-content>
     <p>{{task.description}}</p>
-    <button class="button" (click)="removeTask(task._id)">Delete task</button>
-    <button class="button">edit task</button>
+    <button class="button" (click)="removeTask(task._id)"><mat-icon class="margin">delete</mat-icon>Delete task</button>
+    <button class="button"><mat-icon class="margin">edit</mat-icon>edit task</button>
   </mat-card-content>
 
 </mat-card>

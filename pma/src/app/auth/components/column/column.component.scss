@@ -39,6 +39,7 @@ mat-card-header {
   overflow-y: auto;
   margin-top: 10px;
   width: 100%;
+  column-gap: 5px;
 }
 
 .icon {
@@ -56,9 +57,4 @@ border-radius: 8px;
   background-color: $secondary;
   color: $primary;
   transition: all 1s;
-}
-
-span {
-  margin-right: 7px;
-  font-weight: 500;
 }

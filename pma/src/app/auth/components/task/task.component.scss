@@ -1,0 +1,14 @@
+$primary: #EDF1D6;
+$primary-dark:#9DC08B;
+$secondary: #609966;
+$secondary-dark: #40513B;
+
+.form-wrapper {
+  background-color: $primary;
+  color: $secondary-dark;
+}
+
+mat-card-header{
+  font-size: 18px;
+  font-weight: 500;
+}
