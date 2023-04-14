@@ -6,7 +6,7 @@
     </mat-card-header>
 
      <!--  <button class="button" (click) = "onremoveColumn(column._id)">Delete column</button> -->
-      <button class="button create" (click) = "openTaskForm()">Create task</button>
+      <button class="button create" (click) = "openTaskForm()"><span>+</span>Create task</button>
       <ul class="task-list" >
         <li class="task-item" *ngFor="let task of tasks">
           <pma-task [task] = task  [column]="column" [boardId]="boardId" [tasks] ="tasks" (removeTaskEvent)="onremoveTask($event)"cdkDrag></pma-task>

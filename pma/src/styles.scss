@@ -36,7 +36,7 @@ main {
 
 .button {
   display: block;
-  background-color: $secondary;
+  background-color: $primary;
   border-radius: 5px;
   border: 1px solid $secondary-dark;
   width: 120px;
@@ -45,7 +45,8 @@ main {
   font-size: 16px;
   padding: 5px;
   line-height: 1.4;
-  color: $primary;
+  color: $secondary-dark;
+    cursor: pointer;
 }
 
 .wrapper {
@@ -55,3 +56,9 @@ main {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.button:hover {
+  background-color: $secondary-dark;
+  color: $primary;
+  transition: all 1s;
+}
