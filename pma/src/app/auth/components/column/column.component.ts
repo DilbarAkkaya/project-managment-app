@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Subscription, switchMap } from 'rxjs';
 import { BoardserviceService } from '../../services/board.service';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { ConfirmDialogService } from '../../services/confirm-dialog.service';
 
 @Component({
   selector: 'pma-column',
@@ -19,7 +20,7 @@ export class ColumnComponent implements OnInit, OnDestroy {
   tasks: ITaskResponse[] =[];
   sub: Subscription | undefined;
   columns: IColumnResponse[] =[];
-   constructor(private dialog: MatDialog, private route: ActivatedRoute, private boardservice: BoardserviceService){
+   constructor(private dialog: MatDialog, private route: ActivatedRoute, private boardservice: BoardserviceService, private dialogservice: ConfirmDialogService){
   }
 
   ngOnInit() {
@@ -82,9 +83,16 @@ export class ColumnComponent implements OnInit, OnDestroy {
   }
 
   onremoveTask(id: string){
-    this.boardservice.deleteTaskById(this.boardId, this.column!._id, id).subscribe(()=>{
+/*     this.boardservice.deleteTaskById(this.boardId, this.column!._id, id).subscribe(()=>{
       this.tasks = this.tasks.filter((task)=> task._id !== id)
-    })
+    }) */
+    this.dialogservice.openConfirm("delete this column").afterClosed().subscribe(response => {
+      if(response) {
+        this.boardservice.deleteTaskById(this.boardId, this.column!._id, id).subscribe(()=>{
+          this.tasks = this.tasks.filter((task)=> task._id !== id)
+        })
+      }
+  })
   }
   openTaskForm(){
     const dialogRef = this.dialog.open(TaskFormComponent, {
