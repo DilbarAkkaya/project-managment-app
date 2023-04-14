@@ -75,18 +75,27 @@ export class ColumnComponent implements OnInit, OnDestroy {
   } */
 
   onremoveColumn(id: string){
-    this.boardservice.deleteColumnById(this.boardId, id).subscribe(()=>{
+/*     this.boardservice.deleteColumnById(this.boardId, id).subscribe(()=>{
       console.log(this.columns, '11111111111111111111')
       this.columns = this.columns.filter((column) => column._id !== id)
       this.removeColumnEvent.emit(id);
-    })
+    }) */
+    this.dialogservice.openConfirm("delete this column").afterClosed().subscribe(response => {
+      if(response) {
+        this.boardservice.deleteColumnById(this.boardId, id).subscribe(()=>{
+          console.log(this.columns, '11111111111111111111')
+          this.columns = this.columns.filter((column) => column._id !== id)
+          this.removeColumnEvent.emit(id);
+        })
+      }
+  })
   }
 
   onremoveTask(id: string){
 /*     this.boardservice.deleteTaskById(this.boardId, this.column!._id, id).subscribe(()=>{
       this.tasks = this.tasks.filter((task)=> task._id !== id)
     }) */
-    this.dialogservice.openConfirm("delete this column").afterClosed().subscribe(response => {
+    this.dialogservice.openConfirm("delete this task").afterClosed().subscribe(response => {
       if(response) {
         this.boardservice.deleteTaskById(this.boardId, this.column!._id, id).subscribe(()=>{
           this.tasks = this.tasks.filter((task)=> task._id !== id)
