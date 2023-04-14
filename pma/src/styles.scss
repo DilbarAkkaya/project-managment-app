@@ -35,18 +35,20 @@ main {
 }
 
 .button {
-  display: block;
+  display: flex;
+  padding: 5px;
+  justify-content: center;
   background-color: $primary;
   border-radius: 5px;
   border: 1px solid $secondary-dark;
-  width: 120px;
+  width: 140px;
   height: 35px;
   text-align: center;
   font-size: 16px;
   padding: 5px;
   line-height: 1.4;
   color: $secondary-dark;
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .wrapper {

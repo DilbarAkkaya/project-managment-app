@@ -14,6 +14,8 @@ $secondary-dark: #40513B;
   border-radius: 5px;
   align-items: center;
   padding: 10px;
+  box-shadow: 0 0.5em 0.5em rgba(96, 153, 102, 0.5);
+  transition: 0.3s all ease;
 }
 
 .mat-dialog{
@@ -30,3 +32,18 @@ mat-card-header {
 button[disabled]{
   background-color: $primary-dark;
 }
+
+li {
+  min-width: 276px;
+}
+
+.form-wrapper:hover{
+  cursor: pointer;
+  transform: scale(1.1);
+  background: $secondary;
+}
+.margin {
+  margin-right: 10px;
+}
+
+

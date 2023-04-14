@@ -1,11 +1,12 @@
 li {
   max-width: 300px;
-  padding: 10px;
 }
 
 ul {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
   justify-content:flex-start;
+  gap: 16px;
 }
+
+
