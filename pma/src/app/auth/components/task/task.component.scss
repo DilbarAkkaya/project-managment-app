@@ -6,9 +6,47 @@ $secondary-dark: #40513B;
 .form-wrapper {
   background-color: $primary;
   color: $secondary-dark;
+  border: 1px solid $secondary-dark;
+  transition: 0.3s all ease;
+  margin: 0 auto;
+  width: 98%;
 }
+
 
 mat-card-header{
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 700;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon {
+  transform: scale(1.15);
+color: $secondary-dark;
+  cursor: pointer;
+padding-top: 2px;
+  text-align: center;
+height: 30px;
+width: 30px;
+border-radius: 8px;
+}
+
+.icon:hover {
+  background-color: $secondary-dark;
+  transition: all 1s;
+}
+
+.form-wrapper:hover{
+  cursor: pointer;
+  width: 92%;
+  transform: scale(1.08);
+  background: $secondary;
+}
+
+.form-wrapper:hover .icon{
+color: $primary;
 }

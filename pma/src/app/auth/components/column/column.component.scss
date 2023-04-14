@@ -4,7 +4,7 @@ $secondary: #609966;
 $secondary-dark: #40513B;
 
 .form-wrapper {
-  padding: 10px;
+  padding: 5px 10px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -22,8 +22,8 @@ $secondary-dark: #40513B;
 mat-card-header {
   font-size: 18px;
   font-weight: 700;
-  margin-bottom: 10px;
-  padding-bottom: 10px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -35,11 +35,14 @@ mat-card-header {
 }
 
 .task-list {
-  max-height: 30em;
+  padding-top: 5px;
+  display: flex;
+  flex-direction: column;
+  max-height: 45em;
   overflow-y: auto;
   margin-top: 10px;
   width: 100%;
-  column-gap: 5px;
+  gap: 5px;
 }
 
 .icon {
