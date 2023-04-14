@@ -1,10 +1,10 @@
 $primary: #EDF1D6;
-$primary-dark:#9DC08B;
+$primary-dark: #9DC08B;
 $secondary: #609966;
 $secondary-dark: #40513B;
 
 .form-wrapper {
-padding: 10px;
+  padding: 10px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -15,17 +15,21 @@ padding: 10px;
   align-items: center;
 }
 
-.mat-dialog{
- padding: 0;
+.mat-dialog {
+  padding: 0;
 }
 
 mat-card-header {
   font-size: 18px;
   font-weight: 700;
   margin-bottom: 10px;
-  align-self: center;
   padding-bottom: 10px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
 }
+
 .create {
   margin-top: 10px;
 }
@@ -35,4 +39,21 @@ mat-card-header {
   overflow-y: auto;
   margin-top: 10px;
   width: 100%;
+}
+
+.icon {
+  transform: scale(1.3);
+color: $secondary-dark;
+  cursor: pointer;
+padding-top: 4px;
+  text-align: center;
+height: 34px;
+width: 34px;
+border-radius: 8px;
+}
+
+.icon:hover {
+  background-color: $secondary;
+  color: $primary;
+  transition: all 1s;
 }

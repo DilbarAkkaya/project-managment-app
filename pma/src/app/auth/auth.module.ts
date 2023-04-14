@@ -22,6 +22,7 @@ import { ColumnFormComponent } from './components/column-form/column-form.compon
 import { TaskComponent } from './components/task/task.component';
 import { TaskFormComponent } from './components/task-form/task-form.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     MatInputModule,
     MatCardModule,
     MatDialogModule,
+    MatIconModule,
     FormsModule,
     ReactiveFormsModule,
     DragDropModule,
@@ -55,8 +57,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
           { path: '', redirectTo: './auth/login', pathMatch: 'full'},
           { path: 'login', component: LoginPageComponent},
           { path: 'signup', component: SignupPageComponent},
-          {path: 'main', component: MainPageComponent, canActivate: [AuthGuard]},
-          {path: 'selected-board/:id', component: SelectedBoardPageComponent, canActivate:[AuthGuard]},
+          { path: 'main', component: MainPageComponent, canActivate: [AuthGuard]},
+          { path: 'selected-board/:id', component: SelectedBoardPageComponent, canActivate:[AuthGuard]},
         ]
       }
     ])

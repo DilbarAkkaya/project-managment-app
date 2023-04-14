@@ -2,8 +2,10 @@
   <mat-card class="form-wrapper" *ngIf="column" cdkDropList (cdkDropListDropped)="onDropTask($event, column)" [cdkDropListData]="tasks">
     <mat-card-header>
       {{column.title}}
+      <mat-icon class="icon" (click) = "onremoveColumn(column._id)">delete</mat-icon>
     </mat-card-header>
-      <button class="button" (click) = "onremoveColumn(column._id)">Delete column</button>
+
+     <!--  <button class="button" (click) = "onremoveColumn(column._id)">Delete column</button> -->
       <button class="button create" (click) = "openTaskForm()">Create task</button>
       <ul class="task-list" >
         <li class="task-item" *ngFor="let task of tasks">
