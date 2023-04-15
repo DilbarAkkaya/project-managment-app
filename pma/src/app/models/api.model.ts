@@ -82,7 +82,7 @@ export interface ITaskCreate {
   title: string,
   order: number,
   description: string,
-  columnId: string,
+  columnId?: string,
   userId: string | number,
   users: [
     string

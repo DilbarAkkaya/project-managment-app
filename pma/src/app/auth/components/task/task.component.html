@@ -1,4 +1,4 @@
-<mat-card class="form-wrapper" *ngIf="task">
+<mat-card class="form-wrapper" *ngIf="task" (click) ="openTaskForm(task._id)">
   <mat-card-header>
     {{task.title}}
     <mat-icon class="margin icon" (click)="removeTask(task._id)">delete</mat-icon>

@@ -23,6 +23,7 @@ import { TaskComponent } from './components/task/task.component';
 import { TaskFormComponent } from './components/task-form/task-form.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatIconModule } from '@angular/material/icon';
+import { TaskUpdateComponent } from './components/task-update/task-update.component';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { MatIconModule } from '@angular/material/icon';
     SelectedBoardPageComponent,
     TaskComponent,
     TaskFormComponent,
+    TaskUpdateComponent,
 
   ],
   imports: [

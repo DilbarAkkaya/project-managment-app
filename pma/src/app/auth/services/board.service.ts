@@ -91,6 +91,7 @@ export class BoardserviceService {
     ) */
       }
     updateTaskById(boardId: string, columnId: string, taskId: string, data: IUpdateTask) {
+      console.log(columnId)
       return this.http.put<ITaskResponse>(`${this.apiUrl}/boards/${boardId}/columns/${columnId}/tasks/${taskId}`, data)/* .pipe(
         tap(()=>{
           this._refresh$.next(true);

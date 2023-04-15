@@ -114,6 +114,7 @@ export class ColumnComponent implements OnInit, OnDestroy {
     }
   }
     )}
+
   ngOnDestroy(): void {
     this.sub?.unsubscribe()
   }

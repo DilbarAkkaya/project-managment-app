@@ -3,6 +3,8 @@ import { IColumnResponse, ITaskResponse } from 'src/app/models/api.model';
 import { BoardserviceService } from '../../services/board.service';
 import { ActivatedRoute, Params } from '@angular/router';
 import { switchMap } from 'rxjs';
+import { TaskUpdateComponent } from '../task-update/task-update.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'pma-task',
@@ -12,15 +14,29 @@ import { switchMap } from 'rxjs';
 export class TaskComponent implements OnInit{
   @Input() task: ITaskResponse|undefined;
   @Input() column: IColumnResponse | undefined;
-  @ Input() boardId: string = '';
+  @Input() boardId: string = '';
   @Input() tasks: ITaskResponse[] =[];
   @Output() removeTaskEvent = new EventEmitter<string>();
-  constructor(private route: ActivatedRoute, private boardservice: BoardserviceService){
+  constructor(private route: ActivatedRoute, private boardservice: BoardserviceService, private dialog: MatDialog){
   }
   ngOnInit(): void {
   }
   removeTask(id: string) {
     this.removeTaskEvent.emit(id);
+  }
+  openTaskForm(id: string) {
+    const dialogRef = this.dialog.open(TaskUpdateComponent, {
+      data: {boardId: this.boardId, columnId: this.column!._id, id }
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(result);
+      if (result && result.task) {
+        const taskIndex = this.tasks.findIndex((t) => t._id === result.task._id);
+        if (taskIndex >= 0) {
+          this.tasks[taskIndex] = result.task;
+        }
+      }
+    });
   }
 /*
   removeTask(id: string){
