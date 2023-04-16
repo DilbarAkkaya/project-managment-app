@@ -11,7 +11,9 @@ $secondary-dark: #40513B;
   margin: 0 auto;
   width: 98%;
 }
-
+.wrap-text {
+  word-wrap: break-word;
+}
 
 mat-card-header{
   font-size: 18px;

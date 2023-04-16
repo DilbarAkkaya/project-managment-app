@@ -13,6 +13,7 @@ $warning: #ff0000;
   flex-direction: column;
   margin-top: 3rem;
   border: 1px solid $secondary-dark;
+  background-color: $primary-dark;
 }
 
 form {
@@ -45,4 +46,16 @@ button[disabled]{
   font-weight: 500;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
+}
+.mat-dialog {
+  padding: 0;
+}
+
+mat-card-header {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+mat-label, input {
+  color: $primary;
 }

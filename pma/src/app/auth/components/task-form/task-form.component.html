@@ -1,7 +1,7 @@
 <mat-dialog-content class="mat-dialog">
   <mat-card class="form-wrapper">
     <mat-card-header>
-      Enter new task name
+      Enter new task
     </mat-card-header>
 
     <mat-card-content>
@@ -9,17 +9,17 @@
         <mat-form-field>
           <mat-label>Title</mat-label>
           <input matInput type="text" formControlName="title" required  maxlength="15">
-          <mat-error *ngIf="createForm.get('title')?.invalid && createForm.get('title')?.touched">Title is required</mat-error>
+          <mat-error *ngIf="createForm.get('title')?.invalid && createForm.get('title')?.touched">{{getErrorMessage()}}</mat-error>
         </mat-form-field>
         <mat-form-field>
           <mat-label>Description</mat-label>
-          <input matInput type="text" formControlName="description" required>
+          <textarea matInput type="text" formControlName="description" required></textarea>
           <mat-error *ngIf="createForm.get('description')?.invalid && createForm.get('description')?.touched">Description is required</mat-error>
         </mat-form-field>
-        <div mat-dialog-actions>
+        <mat-dialog-actions>
         <button class="button" [mat-dialog-close] =true >Cancel</button>
         <button class="button" type="submit" [disabled]="createForm.invalid">Submit</button>
-      </div>
+        </mat-dialog-actions>
       </form>
     </mat-card-content>
   </mat-card>

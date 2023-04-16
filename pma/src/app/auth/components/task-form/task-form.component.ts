@@ -53,6 +53,9 @@ export class TaskFormComponent implements OnInit{
       });
     }
   }
+  getErrorMessage() {
+    return (this.createForm.value.title!.length < 16) ? 'Title is required and should be max 15 chars' : '';
+  }
 
 }
 

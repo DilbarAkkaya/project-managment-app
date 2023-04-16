@@ -50,4 +50,7 @@ this.boardService.updateTaskById(this.boardId, this.columnId, this.taskId, task)
 });
     }
   }
+  getErrorMessage() {
+    return (this.updateForm.value.title!.length < 16) ? 'Title is required and should be max 15 chars' : '';
+  }
 }
