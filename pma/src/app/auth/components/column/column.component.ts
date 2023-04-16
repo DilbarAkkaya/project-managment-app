@@ -7,6 +7,7 @@ import { Subscription, switchMap } from 'rxjs';
 import { BoardserviceService } from '../../services/board.service';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { ConfirmDialogService } from '../../services/confirm-dialog.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'pma-column',
@@ -20,9 +21,12 @@ export class ColumnComponent implements OnInit, OnDestroy {
   tasks: ITaskResponse[] =[];
   sub: Subscription | undefined;
   columns: IColumnResponse[] =[];
+  isTitleEdit: boolean = false;
    constructor(private dialog: MatDialog, private route: ActivatedRoute, private boardservice: BoardserviceService, private dialogservice: ConfirmDialogService){
   }
-
+ edittitleForm = new FormGroup({
+    title: new FormControl('', Validators.required),
+  })
   ngOnInit() {
     this.route.params.pipe(
       switchMap((params: Params) => {
@@ -115,6 +119,12 @@ export class ColumnComponent implements OnInit, OnDestroy {
   }
     )}
 
+    oneditTitle() {
+      this.isTitleEdit = true;
+    }
+    onexitTitle(){
+      this.isTitleEdit = false;
+    }
   ngOnDestroy(): void {
     this.sub?.unsubscribe()
   }

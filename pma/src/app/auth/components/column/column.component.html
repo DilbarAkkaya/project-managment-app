@@ -1,8 +1,21 @@
 
   <mat-card class="form-wrapper" *ngIf="column" cdkDropList (cdkDropListDropped)="onDropTask($event, column)" [cdkDropListData]="tasks">
     <mat-card-header>
+    <ng-container *ngIf="!isTitleEdit; else editForm">
       {{column.title}}
       <mat-icon class="icon" (click) = "onremoveColumn(column._id)">delete</mat-icon>
+    </ng-container>
+
+
+      <ng-template #editForm>
+        <form>
+          <input type="text">
+          <button mat-icon-button (click)="onexitTitle()">
+            <mat-icon>clear</mat-icon>
+          </button>
+        </form>
+
+      </ng-template>
     </mat-card-header>
 
      <!--  <button class="button" (click) = "onremoveColumn(column._id)">Delete column</button> -->
