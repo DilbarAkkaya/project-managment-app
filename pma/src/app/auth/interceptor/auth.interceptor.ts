@@ -56,7 +56,11 @@ export class AuthInterceptor implements HttpInterceptor {
   else {
       errorMessage = 'An error occured';
     }
-    this.snackBar.open(errorMessage, 'Close');
+    this.snackBar.open(errorMessage, 'Close', {
+      duration: 2000,
+      horizontalPosition: 'right',
+      panelClass: ['warning'],
+    });
     return throwError(()=>error);
 }
 ))}}

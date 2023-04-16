@@ -3,6 +3,7 @@ $primary: #EDF1D6;
 $primary-dark:#9DC08B;
 $secondary: #609966;
 $secondary-dark: #40513B;
+$warning: #CC0000;
 
 html {
   box-sizing: border-box;
@@ -67,4 +68,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .margin {
   margin-right: 10px;
+}
+
+.mat-mdc-snack-bar-container {
+  --mat-mdc-snack-bar-button-color: #EDF1D6;
+  --mdc-snackbar-container-color: #CC0000;
+  --mdc-snackbar-supporting-text-color: #EDF1D6;
 }
