@@ -9,10 +9,11 @@ import {
 import { Observable, catchError, throwError } from 'rxjs';
 import { AuthserviceService } from '../services/authservice.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  constructor(private auth: AuthserviceService, private router: Router) { }
+  constructor(private auth: AuthserviceService, private router: Router, private snackBar: MatSnackBar) { }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     if (this.auth.isAuthenticated()) {
@@ -23,13 +24,14 @@ export class AuthInterceptor implements HttpInterceptor {
       })
     }
     return next.handle(request).pipe(catchError((error: HttpErrorResponse): Observable<never> => {
+      let errorMessage = '';
       if (error instanceof HttpErrorResponse) {
         if (error.error instanceof ErrorEvent) {
-          console.log('error event', error, error.error)
+          errorMessage = `Error: ${error.message}`
         } else {
         switch (error.status) {
           case 401:
-            console.log('Autorization error', error.statusText)
+            errorMessage = 'Autorization error';
 /*             this.auth.logout();
             this.router.navigate(['/auth', 'login'], {
               queryParams: {
@@ -37,25 +39,24 @@ export class AuthInterceptor implements HttpInterceptor {
               }
             }) */
             break;
-          case 403: console.log('Access error', error.statusText);
+          case 403:
+          errorMessage = 'Access error';
             break;
-          case 404: console.log('Route error', error.statusText);
+          case 404:
+          errorMessage = 'Route error';
             break;
-            case 409: console.log('login already exists', error.statusText);
+            case 409:
+            errorMessage = 'login already exists';
             break
-          case 503: console.log('Server error', error.statusText);
+          case 503:
+          errorMessage = 'Server error';
         }
       }
     }
   else {
-      console.log('An error occured')
+      errorMessage = 'An error occured';
     }
+    this.snackBar.open(errorMessage, 'Close');
     return throwError(()=>error);
-      /* if(error.status === 401) {
-        this.auth.logout()
-        this.router.navigate(['/auth', 'login'], {
-          queryParams: {
-            authFailed: true
-          } */
 }
 ))}}

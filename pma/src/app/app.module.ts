@@ -19,6 +19,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { AuthInterceptor } from './auth/interceptor/auth.interceptor';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { MatIconModule } from '@angular/material/icon';
   ],
   imports: [
     BrowserModule, FormsModule, MatToolbarModule, MatButtonToggleModule, MatIconModule, MatButtonModule, AppRoutingModule, ReactiveFormsModule, BrowserAnimationsModule,
-  HttpClientModule, MatDialogModule],
+  HttpClientModule, MatDialogModule, MatSnackBarModule],
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
