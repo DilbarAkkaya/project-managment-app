@@ -21,7 +21,8 @@ export class TaskComponent implements OnInit{
   }
   ngOnInit(): void {
   }
-  removeTask(id: string) {
+  removeTask(id: string, event: Event) {
+    event.stopPropagation();
     this.removeTaskEvent.emit(id);
   }
   openTaskForm(id: string) {
