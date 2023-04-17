@@ -5,8 +5,8 @@
         <mat-button-toggle value="en">EN</mat-button-toggle>
       </mat-button-toggle-group>
       <div class="auth-wrapper" *ngIf="!apiservice.isAuthenticated()">
-        <a href="#" class="button auth-link" [routerLink]="['./auth/login']">Log in</a>
-        <a href="#" class="button auth-link" [routerLink]="['./auth/signup']">Sign up</a>
+        <a i18n="@@headerLogin login|ref for login in site" href="#" class="button auth-link" [routerLink]="['./auth/login']">Log in</a>
+        <a i18n="@@headerSignup signup|ref for sign up in site"href="#" class="button auth-link" [routerLink]="['./auth/signup']">Sign up</a>
       </div>
       <div class="auth-wrapper" *ngIf="apiservice.isAuthenticated()">
         <a class="button auth-link create-button" (click) = "openCreateDialog()"><mat-icon class="margin">add_box</mat-icon>Create board</a>
