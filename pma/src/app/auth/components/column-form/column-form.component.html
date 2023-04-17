@@ -8,7 +8,7 @@
       <form [formGroup]="createForm" (ngSubmit)="createForm.valid && createSubmit()">
         <mat-form-field>
           <mat-label>Title</mat-label>
-          <input matInput type="text" formControlName="title" required>
+          <input class=".mdc-text-field--no-label"  matInput type="text" formControlName="title" required maxlength="15">
           <mat-error *ngIf="createForm.get('title')?.invalid && createForm.get('title')?.touched">Title is required</mat-error>
         </mat-form-field>
         <div mat-dialog-actions>

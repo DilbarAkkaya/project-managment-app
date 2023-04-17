@@ -125,6 +125,9 @@ export class ColumnComponent implements OnInit, OnDestroy {
     onexitTitle(){
       this.isTitleEdit = false;
     }
+    editSubmit(){
+      console.log(this.edittitleForm.value)
+    }
   ngOnDestroy(): void {
     this.sub?.unsubscribe()
   }

@@ -2,19 +2,25 @@
   <mat-card class="form-wrapper" *ngIf="column" cdkDropList (cdkDropListDropped)="onDropTask($event, column)" [cdkDropListData]="tasks">
     <mat-card-header>
     <ng-container *ngIf="!isTitleEdit; else editForm">
-      {{column.title}}
+      <p (click) = oneditTitle()>{{column.title}}</p>
       <mat-icon class="icon" (click) = "onremoveColumn(column._id)">delete</mat-icon>
     </ng-container>
 
 
       <ng-template #editForm>
-        <form>
-          <input type="text">
-          <button mat-icon-button (click)="onexitTitle()">
+        <form class="form-template" [formGroup]="edittitleForm" (ngSubmit)="edittitleForm.valid && editSubmit()">
+          <div class="input-wrapper">
+            <input matInput type="text" formControlName="title" required maxlength="15">
+            <mat-error *ngIf="edittitleForm.get('title')?.invalid && edittitleForm.get('title')?.touched">Title is required</mat-error>
+          </div>
+          <button class="icon-button" mat-icon-button type="submit">
+            <mat-icon>check</mat-icon>
+          </button>
+          <button class="icon-button" mat-icon-button (click)="onexitTitle()">
             <mat-icon>clear</mat-icon>
           </button>
-        </form>
 
+        </form>
       </ng-template>
     </mat-card-header>
 

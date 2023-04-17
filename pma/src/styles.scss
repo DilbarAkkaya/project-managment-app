@@ -75,3 +75,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   --mdc-snackbar-container-color: #CC0000;
   --mdc-snackbar-supporting-text-color: #EDF1D6;
 }
+
+input[type="text"] {
+  border-radius: 5px;
+}
+
+textarea:focus, input:focus{
+  outline: none;
+}
