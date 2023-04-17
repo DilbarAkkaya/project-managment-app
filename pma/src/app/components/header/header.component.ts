@@ -10,7 +10,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+  localeList: {code: string, label: string}[] = [
+    {code: "en-US", label: "EN"},
+    {code: "tr", label: "TR"}
+  ]
+
   constructor(public apiservice: AuthserviceService, private dialog: MatDialog, private router: Router) {}
+
 
   openCreateDialog() {
     this.router.navigate(['./auth/main']);
