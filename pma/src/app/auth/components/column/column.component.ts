@@ -126,8 +126,19 @@ export class ColumnComponent implements OnInit, OnDestroy {
       this.isTitleEdit = false;
     }
     editSubmit(){
+      if (this.edittitleForm.valid && this.boardId) {
+        const column: IColumnCreate = {
+          title: this.edittitleForm.value.title!,
+          order: 0,
+        }
       console.log(this.edittitleForm.value)
+      this.boardservice.updateColumnById(this.boardId, this.column!._id, column).subscribe((updatedcolumn) => {
+  console.log('Updated:', updatedcolumn);
+  this.column!.title = updatedcolumn.title;
+  this.isTitleEdit =false
     }
+      )}
+  }
   ngOnDestroy(): void {
     this.sub?.unsubscribe()
   }
