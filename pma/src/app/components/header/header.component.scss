@@ -11,6 +11,9 @@ $secondary-dark: #40513B;
   justify-content: space-between;
   padding-top: 10px;
 }
+.mat-toolbar-row, .mat-toolbar-single-row{
+  padding: 0;
+}
 .logo{
   font-size: 34px;
   color: $secondary-dark;
@@ -38,7 +41,7 @@ $secondary-dark: #40513B;
 .auth-wrapper a:nth-child(2){
   background-color: $secondary;
   color: $primary;
-
+  margin-right: 0;
 }
 
 .auth-wrapper a:first-child{

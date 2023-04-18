@@ -3,9 +3,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AddTodoFormComponent } from './components/add-todo-form/add-todo-form.component';
-import { TodoListComponent } from './components/todo-list/todo-list.component';
-import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { HeaderComponent } from './components/header/header.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
@@ -20,16 +17,15 @@ import { AuthInterceptor } from './auth/interceptor/auth.interceptor';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AddTodoFormComponent,
-    TodoListComponent,
-    TodoItemComponent,
     HeaderComponent,
     WelcomePageComponent,
     ConfirmDialogComponent,
+    FooterComponent,
 
   ],
   imports: [
