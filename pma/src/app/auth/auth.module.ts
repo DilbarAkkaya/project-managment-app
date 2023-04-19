@@ -24,6 +24,7 @@ import { TaskFormComponent } from './components/task-form/task-form.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatIconModule } from '@angular/material/icon';
 import { TaskUpdateComponent } from './components/task-update/task-update.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import { TaskUpdateComponent } from './components/task-update/task-update.compon
     FormsModule,
     ReactiveFormsModule,
     DragDropModule,
+    TranslateModule,
     RouterModule.forChild([
       {
         path: '', component: AuthLayoutComponent, children: [

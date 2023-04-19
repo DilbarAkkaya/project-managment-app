@@ -1,10 +1,16 @@
   <header class="header wrapper">
     <mat-toolbar class="mat-toolbar wrapper"><a [routerLink]="['/']" class="logo">PMA</a>
-      <mat-button-toggle-group appearance="legacy" name="lang" aria-label="lang">
-        <mat-button-toggle *ngFor="let locale of localeList" value="ru">
-          <a href="/{{locale.code}}/" class="lang-link">{{locale.label}}</a>
+     <!--  <mat-button-toggle-group appearance="legacy" name="lang" aria-label="lang" > -->
+
+        <div class="flag tr">TR</div>
+        <mat-slide-toggle [(ngModel)]="isUsedLangChose" (change)="setLanguage()" >
+        </mat-slide-toggle>
+        <span class="flag en">ENG</span>
+
+<!--         <mat-button-toggle [(ngModel)]="isCurrentLanguageChecked" (change)="checkLanguage()" >
+         en
         </mat-button-toggle>
-      </mat-button-toggle-group>
+      </mat-button-toggle-group> -->
       <div class="auth-wrapper" *ngIf="!apiservice.isAuthenticated()">
         <a i18n="@@headerLogin login|ref for login in site" href="#" class="button auth-link" [routerLink]="['./auth/login']">Log in</a>
         <a i18n="@@headerSignup signup|ref for sign up in site"href="#" class="button auth-link" [routerLink]="['./auth/signup']">Sign up</a>

@@ -13,16 +13,11 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "pma",
-      "i18n": {
-        "sourceLocale": "en-US",
-        "locales": {
-          "tr": "src/i18n/messages.tr.xlf"
-        }
-      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+
             "outputPath": "dist/",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -42,9 +37,7 @@
             "scripts": []
           },
           "configurations": {
-            "tr": {
-              "localize": ["tr"]
-            },
+
             "production": {
               "budgets": [
                 {
@@ -76,9 +69,6 @@
           "configurations": {
             "production": {
               "browserTarget": "pma:build:production"
-            },
-            "tr":{
-              "browserTarget": "pma:build:tr"
             },
 
             "development": {

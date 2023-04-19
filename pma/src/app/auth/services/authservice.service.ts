@@ -62,7 +62,7 @@ export class AuthserviceService {
       localStorage.setItem('token-exp', expDate.toString());
       localStorage.setItem('owner', userId);
     } else {
-      localStorage.clear()
+    localStorage.clear()
     }
   }
   private setUserId = (response: INewUser | null) => {
