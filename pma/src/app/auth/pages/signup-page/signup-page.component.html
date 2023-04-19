@@ -7,22 +7,22 @@
     <form [formGroup]="signupForm" (ngSubmit)="signupSubmit()">
       <mat-error *ngIf="errorMessageShow">{{errorMessage}}</mat-error>
       <mat-form-field>
-        <mat-label>Name</mat-label>
+        <mat-label> {{'signup.name' | translate }}</mat-label>
         <input matInput type="text" formControlName="name" required>
-        <mat-error *ngIf="signupForm.get('name')?.invalid && signupForm.get('name')?.touched">Name is required</mat-error>
+        <mat-error *ngIf="signupForm.get('name')?.invalid && signupForm.get('name')?.touched">{{'signup.nameRequired' | translate }}</mat-error>
       </mat-form-field>
       <mat-form-field>
-        <mat-label>Login</mat-label>
+        <mat-label> {{'signup.login' | translate }}</mat-label>
         <input matInput type="text" formControlName="login" required>
-        <mat-error *ngIf="signupForm.get('login')?.invalid && signupForm.get('login')?.touched">Login is required</mat-error>
+        <mat-error *ngIf="signupForm.get('login')?.invalid && signupForm.get('login')?.touched">{{'signup.loginRequired' | translate }}</mat-error>
       </mat-form-field>
       <mat-form-field>
-        <mat-label>Password</mat-label>
+        <mat-label> {{'signup.password' | translate }}</mat-label>
         <input matInput type="password" formControlName="password" required minlength="7">
         <mat-error *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched">{{getErrorMessage()}}</mat-error>
       </mat-form-field>
 
-      <button class="button" type="submit" [disabled]="signupForm.invalid">Sign Up</button>
+      <button class="button" type="submit" [disabled]="signupForm.invalid">{{'signup.signupButton' | translate }}</button>
     </form>
   </mat-card-content>
 </mat-card>

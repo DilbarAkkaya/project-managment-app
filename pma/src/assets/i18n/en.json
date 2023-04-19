@@ -1,0 +1,12 @@
+{
+  "signup": {
+    "title": "Sign Up",
+    "name": "Enter your name",
+    "password": "Enter your password",
+    "login": "Enter your login",
+    "nameRequired": "Name is required",
+    "loginRequired": "Login is required",
+    "passwordRequired": "Your password should be min 7 chars",
+    "signupButton": "Sign Up"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "signup": {
+    "title": "Üye ol",
+    "name": "İsim giriniz",
+    "password": "Şifre giriniz",
+    "login": "Kullanıcı adı",
+    "nameRequered": "İsim girmelisiniz",
+    "loginRequered": "Kullanıcı adı girmelisiniz",
+    "passwordRequered": "En az 7 karakter girmelisiniz",
+    "signupButton": "Üye ol"
+  }
+}
