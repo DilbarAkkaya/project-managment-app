@@ -19,7 +19,7 @@
       <mat-form-field>
         <mat-label> {{'signup.password' | translate }}</mat-label>
         <input matInput type="password" formControlName="password" required minlength="7">
-        <mat-error *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched">{{getErrorMessage()}}</mat-error>
+        <mat-error *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched"> {{ getErrorMessage('signup.passwordRequired', { length: 7 }) }}</mat-error>
       </mat-form-field>
 
       <button class="button" type="submit" [disabled]="signupForm.invalid">{{'signup.signupButton' | translate }}</button>

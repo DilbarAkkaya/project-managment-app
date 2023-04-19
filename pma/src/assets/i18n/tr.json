@@ -4,9 +4,9 @@
     "name": "İsim giriniz",
     "password": "Şifre giriniz",
     "login": "Kullanıcı adı",
-    "nameRequered": "İsim girmelisiniz",
-    "loginRequered": "Kullanıcı adı girmelisiniz",
-    "passwordRequered": "En az 7 karakter girmelisiniz",
+    "nameRequired": "İsim girmelisiniz",
+    "loginRequired": "Kullanıcı adı girmelisiniz",
+    "passwordRequired": "En az 7 karakter girmelisiniz",
     "signupButton": "Üye ol"
   }
 }
