@@ -41,7 +41,7 @@ export class AuthserviceService {
 
    if (errorMessage === 'Authorization error') {
     console.log('AUTO', translatedError)
-    this.translate.get('login.errors.autorization').subscribe((response: string) => {
+    this.translate.get('errors.autorization').subscribe((response: string) => {
       translatedError = response;
 
     })
@@ -50,7 +50,7 @@ export class AuthserviceService {
    if (errorMessage === 'Bad request') {
     console.log('bad', translatedError)
     /* this.error$.next('Something went wrong') */;
-    this.translate.get('login.errors.badRequest').subscribe((response: string) => {
+    this.translate.get('errors.badRequest').subscribe((response: string) => {
       translatedError = response;
     })
   }

@@ -15,11 +15,7 @@
     "login": "Enter your login",
     "loginRequired": "Login is required",
     "passwordRequired": "Your password should be min 7 chars",
-    "loginButton": "Log In",
-    "errors": {
-      "autorization": "Incorrect login or password",
-      "badRequest": "Something went wrong"
-    }
+    "loginButton": "Log In"
   },
   "header": {
     "logout": "Log out",
@@ -54,5 +50,16 @@
     "submit": "Submit",
     "titleedit": "Edit task title"
 
-   }
+   },
+   "errors": {
+    "autorization": "Incorrect login or password",
+    "badRequest": "Something went wrong",
+    "authorizationError": "Authorization error",
+    "accessError": "Access error",
+    "routeError": "Route error",
+    "loginError": "Login already exists",
+    "serverError": "Server error",
+    "unknownError": "An error occurred",
+    "closeSnack": "Close"
+  }
 }

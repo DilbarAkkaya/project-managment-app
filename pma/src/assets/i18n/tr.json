@@ -16,11 +16,7 @@
     "login": "Kullanıcı adı",
     "loginRequired": "Kullanıcı adı girmelisiniz",
     "passwordRequired": "En az 7 karakter girmelisiniz",
-    "loginButton": "Giriş yap",
-    "errors": {
-      "autorization": "Kullanıcı adı veya şifre hatalı!",
-      "badRequest": "Bir şeyler yanlış gitti"
-    }
+    "loginButton": "Giriş yap"
   },
   "header": {
     "logout": "Çıkış yap",
@@ -54,5 +50,16 @@
     "cancel": "İptal",
     "submit": "Kart ekle",
     "titleedit": "Kart bilgilerini düzenleyiniz"
-   }
+   },
+   "errors": {
+    "autorization": "Kullanıcı adı veya şifre hatalı!",
+    "badRequest": "Birşeyler yalnış gitti",
+    "authorizationError": "Yetkilendirme hatası",
+    "accessError": "Erişim hatası",
+    "routeError": "Rota hatası",
+    "loginError": "Giriş zaten mevcut",
+    "serverError": "Server hatası",
+    "unknownError": "Bir hata oluştu",
+    "closeSnack": "Kapat"
+  }
 }
