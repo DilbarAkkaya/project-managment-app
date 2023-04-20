@@ -20,5 +20,17 @@
       "autorization": "Incorrect login or password",
       "badRequest": "Something went wrong"
     }
+  },
+  "header": {
+    "logout": "Log out",
+    "createBoard": "Create board"
+  },
+  "boardItem": {
+    "delete": "Delete",
+    "header": "Enter new board name",
+    "cancel": "Cancel",
+    "submit": "Submit",
+    "title": "Title",
+    "titleRequired": "Title is require"
   }
 }

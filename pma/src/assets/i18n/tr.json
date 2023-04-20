@@ -21,5 +21,17 @@
       "autorization": "Kullanıcı adı veya şifre hatalı!",
       "badRequest": "Bir şeyler yanlış gitti"
     }
+  },
+  "header": {
+    "logout": "Çıkış yap",
+    "createBoard": "Pano oluştur"
+  },
+  "boardItem": {
+    "delete": "Sil",
+    "header": "Yeni pano oluştur",
+    "cancel": "Iptal",
+    "submit": "Oluştur",
+    "title": "Başlık",
+    "titleRequired": "Başlık girmelisiniz"
   }
 }
