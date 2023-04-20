@@ -19,6 +19,7 @@ export class SelectedBoardPageComponent implements OnInit {
   board: IBoardResponse | undefined;
   boardId: string = '';
   columns: IColumnResponse[] =[];
+  searchText: string = '';
   //todoList: TodoItem[] =[];
   constructor(private boardService: BoardserviceService, private route: ActivatedRoute, private dialog: MatDialog) {
 
