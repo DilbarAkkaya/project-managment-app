@@ -16,6 +16,10 @@
     "login": "Kullanıcı adı",
     "loginRequired": "Kullanıcı adı girmelisiniz",
     "passwordRequired": "En az 7 karakter girmelisiniz",
-    "loginButton": "Giriş yap"
+    "loginButton": "Giriş yap",
+    "errors": {
+      "autorization": "Kullanıcı adı veya şifre hatalı!",
+      "badRequest": "Bir şeyler yanlış gitti"
+    }
   }
 }

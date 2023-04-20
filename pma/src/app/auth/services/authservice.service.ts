@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { IAuthData, IAuthResponse, INewUser, ISignData, apiEnum } from '../../models/api.model';
 import { Observable, tap, catchError, throwError, Subject } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthserviceService {
   public error$: Subject<string> = new Subject<string>()
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private translate: TranslateService) { }
   apiUrl = apiEnum.base;
 
   get token(): string | null{
@@ -36,8 +37,24 @@ export class AuthserviceService {
   }
   private handleError(error: HttpErrorResponse) {
    const errorMessage = error.error.message;
-   if (errorMessage === 'Authorization error') {this.error$.next('Incorrect login or password')}
-   if (errorMessage === 'Bad request') {this.error$.next('Something went wrong')};
+   let translatedError = errorMessage;
+
+   if (errorMessage === 'Authorization error') {
+    console.log('AUTO', translatedError)
+    this.translate.get('login.errors.autorization').subscribe((response: string) => {
+      translatedError = response;
+
+    })
+  }
+   /*  this.error$.next('Incorrect login or password') */
+   if (errorMessage === 'Bad request') {
+    console.log('bad', translatedError)
+    /* this.error$.next('Something went wrong') */;
+    this.translate.get('login.errors.badRequest').subscribe((response: string) => {
+      translatedError = response;
+    })
+  }
+    this.error$.next(translatedError)
    return throwError(() => error);
   }
 

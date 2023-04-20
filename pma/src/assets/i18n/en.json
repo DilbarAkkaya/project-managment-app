@@ -15,6 +15,10 @@
     "login": "Enter your login",
     "loginRequired": "Login is required",
     "passwordRequired": "Your password should be min 7 chars",
-    "loginButton": "Log In"
+    "loginButton": "Log In",
+    "errors": {
+      "autorization": "Incorrect login or password",
+      "badRequest": "Something went wrong"
+    }
   }
 }
