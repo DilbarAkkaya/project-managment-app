@@ -21,6 +21,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     WelcomePageComponent,
     ConfirmDialogComponent,
     FooterComponent,
+    SearchComponent,
 
   ],
   imports: [
