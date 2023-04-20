@@ -26,6 +26,7 @@
     "createBoard": "Create board"
   },
   "boardItem": {
+    "pageName": "Boards",
     "delete": "Delete",
     "header": "Enter new board name",
     "cancel": "Cancel",
@@ -37,15 +38,21 @@
    "column": {
     "titleRequired": "Title is required",
     "create":"Create column",
-    "createTask": "Create task"
+    "createTask": "Create task",
+    "columnName": "Enter new column name",
+    "title": "Title",
+    "cancel": "Cancel",
+    "submit": "Submit"
    },
    "task": {
     "header": "Enter new task title",
     "title": "Title",
-    "titleRequired": "Title is required",
+    "titleRequired": "Title should be max 15 chars",
     "descriptionRequired": "Description is required",
     "description": "Description",
     "cancel": "Cancel",
-    "submit": "Submit"
+    "submit": "Submit",
+    "titleedit": "Edit task title"
+
    }
 }

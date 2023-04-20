@@ -5,6 +5,7 @@ import { BoardserviceService } from '../../services/board.service';
 import { ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { IBoardResponse, IColumnCreate, IColumnResponse, ITaskCreate, ITaskResponse } from 'src/app/models/api.model';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'pma-task-form',
@@ -16,7 +17,7 @@ export class TaskFormComponent implements OnInit{
   boardId: string ='';
   columnId: string ='';
   tasks: ITaskResponse[] = [];
-  constructor(private dialogRef: MatDialogRef<ModalCreateComponent>, private boardService: BoardserviceService, private route: ActivatedRoute, private dialog: MatDialog,
+  constructor(private dialogRef: MatDialogRef<ModalCreateComponent>, private translateService: TranslateService, private boardService: BoardserviceService, private route: ActivatedRoute, private dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: { boardId: string, columnId: string}){
 
       this.boardId = data.boardId,
@@ -53,11 +54,12 @@ export class TaskFormComponent implements OnInit{
       });
     }
   }
-  getErrorMessage() {
-    return (this.createForm.value.title!.length < 16) ? 'Title is required and should be max 15 chars' : '';
+    getErrorMessage(text: string, params: { length: number }): string {
+      return this.translateService.instant(text, params)
+      //return (this.signupForm.value.password!.length < 7) ? 'Your password should be min 7 chars' : '';
+    }
+  //  return (this.createForm.value.title!.length < 16) ? 'Title is required and should be max 15 chars' : '';
   }
-
-}
 
 
 /*         this.boardService.refresh$.subscribe(() => {

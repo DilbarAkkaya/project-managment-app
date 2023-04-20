@@ -1,24 +1,24 @@
 <mat-dialog-content class="mat-dialog">
   <mat-card class="form-wrapper">
     <mat-card-header>
-      Edit task title
+      {{'task.titleedit'| translate}}
     </mat-card-header>
 
     <mat-card-content>
       <form [formGroup]="updateForm" (ngSubmit)="updateForm.valid && updateSubmit()">
         <mat-form-field>
-          <mat-label>Title</mat-label>
+          <mat-label>{{'task.title'| translate}}</mat-label>
           <input matInput type="text" formControlName="title" required maxlength="15">
-          <mat-error *ngIf="updateForm.get('title')?.invalid && updateForm.get('title')?.touched">{{getErrorMessage()}}</mat-error>
+          <mat-error *ngIf="updateForm.get('title')?.invalid && updateForm.get('title')?.touched">{{ getErrorMessage('task.titleRequired', { length: 15}) }}</mat-error>
         </mat-form-field>
         <mat-form-field>
-          <mat-label>Description</mat-label>
+          <mat-label>{{'task.description'| translate}}</mat-label>
           <input matInput type="text" formControlName="description" required>
-          <mat-error *ngIf="updateForm.get('description')?.invalid && updateForm.get('description')?.touched">Description is required</mat-error>
+          <mat-error *ngIf="updateForm.get('description')?.invalid && updateForm.get('description')?.touched">{{'task.descriptionRequired'| translate}}</mat-error>
         </mat-form-field>
         <div mat-dialog-actions>
-        <button class="button" [mat-dialog-close] =true >Cancel</button>
-        <button class="button" type="submit" [disabled]="updateForm.invalid">Submit</button>
+        <button class="button" [mat-dialog-close] =true >{{'task.cancel'| translate}}</button>
+        <button class="button" type="submit" [disabled]="updateForm.invalid">{{'task.submit'| translate}}</button>
       </div>
       </form>
     </mat-card-content>

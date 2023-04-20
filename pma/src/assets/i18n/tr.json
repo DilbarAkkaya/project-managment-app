@@ -27,6 +27,7 @@
     "createBoard": "Pano oluştur"
   },
   "boardItem": {
+    "pageName": "Panolar",
     "delete": "Sil",
     "header": "Yeni pano oluştur",
     "cancel": "Iptal",
@@ -38,15 +39,20 @@
   "column": {
     "titleRequired": "Başlık girmelisiniz",
     "create":"Sütün oluştur",
-    "createTask": "Kart ekle"
+    "createTask": "Kart ekle",
+    "columnName": "Yeni sütün oluştur",
+    "title": "Başlık",
+    "cancel": "İptal",
+    "submit": "Sütün oluştur"
    },
    "task": {
     "header": "Yenıi kart oluşturunuz",
     "title": "Başlık",
-    "titleRequired": "Başlık girmelisiniz",
+    "titleRequired":  "En çok 15 karakter girmelisiniz",
     "descriptionRequired": "Açıklama girmelisiniz",
     "description": "Açıklama",
     "cancel": "İptal",
-    "submit": "Kart ekle"
+    "submit": "Kart ekle",
+    "titleedit": "Kart bilgilerini düzenleyiniz"
    }
 }
