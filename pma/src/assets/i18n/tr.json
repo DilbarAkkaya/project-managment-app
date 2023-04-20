@@ -8,5 +8,14 @@
     "loginRequired": "Kullanıcı adı girmelisiniz",
     "passwordRequired": "En az 7 karakter girmelisiniz",
     "signupButton": "Üye ol"
+  },
+
+  "login": {
+    "title": "Üye girişi",
+    "password": "Şifre giriniz",
+    "login": "Kullanıcı adı",
+    "loginRequired": "Kullanıcı adı girmelisiniz",
+    "passwordRequired": "En az 7 karakter girmelisiniz",
+    "loginButton": "Giriş yap"
   }
 }

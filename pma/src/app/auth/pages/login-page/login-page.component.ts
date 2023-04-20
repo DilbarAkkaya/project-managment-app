@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthserviceService } from '../../services/authservice.service';
 import { Router } from '@angular/router';
 import { IAuthData } from 'src/app/models/api.model';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'pma-login-page',
@@ -14,7 +15,7 @@ export class LoginPageComponent implements OnInit{
   errorMessageShow = false;
   isSubmited = false;
 
-  constructor(public service: AuthserviceService, private router: Router ){}
+  constructor(public service: AuthserviceService, private router: Router, private translateService:TranslateService){}
     loginForm = new FormGroup({
     login: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required)
@@ -40,7 +41,8 @@ export class LoginPageComponent implements OnInit{
       this.errorMessage = 'All field required!'
     }
   }
-  getErrorMessage() {
-    return (this.loginForm.value.password!.length < 7) ? 'Password is required and should be min 7 chars' : '';
+  getErrorMessage(text: string, params: { length: number }): string {
+    return this.translateService.instant(text, params)
+    //return (this.signupForm.value.password!.length < 7) ? 'Your password should be min 7 chars' : '';
   }
 }

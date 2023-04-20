@@ -8,5 +8,13 @@
     "loginRequired": "Login is required",
     "passwordRequired": "Your password should be min 7 chars",
     "signupButton": "Sign Up"
+  },
+  "login": {
+    "title": "Log In",
+    "password": "Enter your password",
+    "login": "Enter your login",
+    "loginRequired": "Login is required",
+    "passwordRequired": "Your password should be min 7 chars",
+    "loginButton": "Log In"
   }
 }
