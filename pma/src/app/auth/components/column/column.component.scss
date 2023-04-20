@@ -91,3 +91,8 @@ mat-error {
 .icon-button:nth-child(2) {
   font-weight: 700;
 }
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+}

@@ -31,6 +31,21 @@
     "cancel": "Cancel",
     "submit": "Submit",
     "title": "Title",
-    "titleRequired": "Title is require"
-  }
+    "titleRequired": "Title is required",
+    "boardName": "Board"
+  },
+   "column": {
+    "titleRequired": "Title is required",
+    "create":"Create column",
+    "createTask": "Create task"
+   },
+   "task": {
+    "header": "Enter new task title",
+    "title": "Title",
+    "titleRequired": "Title is required",
+    "descriptionRequired": "Description is required",
+    "description": "Description",
+    "cancel": "Cancel",
+    "submit": "Submit"
+   }
 }

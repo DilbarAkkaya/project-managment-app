@@ -11,7 +11,7 @@
         <form class="form-template" [formGroup]="edittitleForm" (ngSubmit)="edittitleForm.valid && editSubmit()">
           <div class="input-wrapper">
             <input matInput type="text" formControlName="title" required maxlength="15">
-            <mat-error *ngIf="edittitleForm.get('title')?.invalid && edittitleForm.get('title')?.touched">Title is required</mat-error>
+            <mat-error *ngIf="edittitleForm.get('title')?.invalid && edittitleForm.get('title')?.touched">{{'column.titleRequired'| translate}}</mat-error>
           </div>
           <button class="icon-button" mat-icon-button type="submit">
             <mat-icon>check</mat-icon>
@@ -25,7 +25,7 @@
     </mat-card-header>
 
      <!--  <button class="button" (click) = "onremoveColumn(column._id)">Delete column</button> -->
-      <button class="button create" (click) = "openTaskForm()"><mat-icon class="margin">add_task</mat-icon>Create task</button>
+      <button class="button create" (click) = "openTaskForm()"><mat-icon class="margin">add_task</mat-icon>{{'column.createTask'| translate}}</button>
       <ul class="task-list" >
         <li class="task-item" *ngFor="let task of tasks">
           <pma-task [task] = task  [column]="column" [boardId]="boardId" [tasks] ="tasks" (removeTaskEvent)="onremoveTask($event)"cdkDrag></pma-task>

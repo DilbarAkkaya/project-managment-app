@@ -1,7 +1,7 @@
 
 <section class="board-header">
-  <p>Board: {{board?.title}}</p>
-  <button class="button" (click) = "openCreateDialog()" ><mat-icon class="margin">add_box</mat-icon>Create column</button>
+  <p>{{'boardItem.boardName'| translate}}: {{board?.title}}</p>
+  <button class="button" (click) = "openCreateDialog()" ><mat-icon class="margin">add_box</mat-icon>{{'column.create'| translate}}</button>
 </section>
 <section cdkDropListGroup cdkDropList (cdkDropListDropped)="onMoveColumn($event)" [cdkDropListData]="columns">
   <ul>

@@ -30,8 +30,23 @@
     "delete": "Sil",
     "header": "Yeni pano oluştur",
     "cancel": "Iptal",
-    "submit": "Oluştur",
+    "submit": "Pano oluştur",
     "title": "Başlık",
-    "titleRequired": "Başlık girmelisiniz"
-  }
+    "titleRequired": "Başlık girmelisiniz",
+    "boardName": "Pano adı"
+  },
+  "column": {
+    "titleRequired": "Başlık girmelisiniz",
+    "create":"Sütün oluştur",
+    "createTask": "Kart ekle"
+   },
+   "task": {
+    "header": "Yenıi kart oluşturunuz",
+    "title": "Başlık",
+    "titleRequired": "Başlık girmelisiniz",
+    "descriptionRequired": "Açıklama girmelisiniz",
+    "description": "Açıklama",
+    "cancel": "İptal",
+    "submit": "Kart ekle"
+   }
 }
