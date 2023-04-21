@@ -22,6 +22,8 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { SearchComponent } from './components/search/search.component';
+import { FilterPipe } from './pipes/filter.pipe';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -30,12 +32,10 @@ import { SearchComponent } from './components/search/search.component';
     WelcomePageComponent,
     ConfirmDialogComponent,
     FooterComponent,
-    SearchComponent,
-
   ],
   imports: [
     BrowserModule, FormsModule, MatToolbarModule, MatButtonToggleModule, MatIconModule, MatButtonModule, MatSlideToggleModule, AppRoutingModule, ReactiveFormsModule, BrowserAnimationsModule,
-  HttpClientModule, MatDialogModule, MatSnackBarModule, TranslateModule.forRoot({
+  HttpClientModule, MatDialogModule, MatSnackBarModule,  TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
         useFactory: createTranslateLoader,

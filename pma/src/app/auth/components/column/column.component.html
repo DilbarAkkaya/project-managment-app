@@ -26,9 +26,9 @@
 
      <!--  <button class="button" (click) = "onremoveColumn(column._id)">Delete column</button> -->
       <button class="button create" (click) = "openTaskForm()"><mat-icon class="margin">add_task</mat-icon>{{'column.createTask'| translate}}</button>
-      <ul class="task-list" >
-        <li class="task-item" *ngFor="let task of tasks">
-          <pma-task [task] = task  [column]="column" [boardId]="boardId" [tasks] ="tasks" (removeTaskEvent)="onremoveTask($event)"cdkDrag></pma-task>
+      <ul class="task-list">
+        <li class="task-item" *ngFor="let task of tasks | filter: (searchText ? searchText : '')">
+          <pma-task [task] = "task"  [column]="column" [boardId]="boardId" [tasks] ="tasks" (removeTaskEvent)="onremoveTask($event)"cdkDrag></pma-task>
         </li>
       </ul>
   </mat-card>

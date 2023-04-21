@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { IColumnCreate, IColumnResponse, ITaskResponse, IUpdateTask } from 'src/app/models/api.model';
 import { TaskFormComponent } from '../task-form/task-form.component';
@@ -8,14 +8,17 @@ import { BoardserviceService } from '../../services/board.service';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { ConfirmDialogService } from '../../services/confirm-dialog.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FilterPipe } from 'src/app/pipes/filter.pipe';
 
 @Component({
   selector: 'pma-column',
   templateUrl: './column.component.html',
-  styleUrls: ['./column.component.scss']
+  styleUrls: ['./column.component.scss'],
+  providers: [FilterPipe]
 })
 export class ColumnComponent implements OnInit, OnDestroy {
    @Input() column: IColumnResponse | undefined;
+   @Input() searchText!: string;
    @Output() removeColumnEvent = new EventEmitter<string>();
    boardId: string = '';
   tasks: ITaskResponse[] =[];
@@ -41,7 +44,6 @@ export class ColumnComponent implements OnInit, OnDestroy {
     ).subscribe((result) => {
       this.tasks = result
     });
-
   }
   onDropTask(event: CdkDragDrop<ITaskResponse[]>, targetColumn: IColumnResponse) {
     const prevTasks = event.previousContainer.data;
@@ -139,6 +141,21 @@ export class ColumnComponent implements OnInit, OnDestroy {
     }
       )}
   }
+/*
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['tasks'] && !changes['tasks'].firstChange) {
+      this.filteredTasks = this.tasks.filter(task =>
+        task.title.toLowerCase().includes(this.searchText!.toLowerCase())
+      );
+    }
+  }
+
+  searchTasks(query: string) {
+    this.searchText = query;
+    this.filteredTasks = this.tasks.filter(task =>
+      task.title.toLowerCase().includes(query.toLowerCase())
+    );
+  } */
   ngOnDestroy(): void {
     this.sub?.unsubscribe()
   }

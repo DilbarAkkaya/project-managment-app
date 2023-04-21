@@ -16,6 +16,7 @@ export class HeaderComponent implements OnInit {
       {code: "en-US", label: "EN"},
       {code: "tr", label: "TR"}
     ] */
+
   usedLang: string = 'en';
   isUsedLangChose: boolean | null = false;
   constructor(public apiservice: AuthserviceService, private dialog: MatDialog, private router: Router, public translate: TranslateService,) {
@@ -23,6 +24,7 @@ export class HeaderComponent implements OnInit {
     translate.setDefaultLang('en');
   }
   ngOnInit() {
+
     const storageLang = localStorage.getItem('language');
     if (storageLang) {
       this.usedLang = storageLang;

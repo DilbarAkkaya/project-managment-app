@@ -7,6 +7,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ColumnFormComponent } from '../../components/column-form/column-form.component';
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
+import { AuthserviceService } from '../../services/authservice.service';
 
 @Component({
   selector: 'pma-selected-board-page',
@@ -20,8 +21,9 @@ export class SelectedBoardPageComponent implements OnInit {
   boardId: string = '';
   columns: IColumnResponse[] =[];
   searchText: string = '';
+
   //todoList: TodoItem[] =[];
-  constructor(private boardService: BoardserviceService, private route: ActivatedRoute, private dialog: MatDialog) {
+  constructor(public apiservice: AuthserviceService, private boardService: BoardserviceService, private route: ActivatedRoute, private dialog: MatDialog) {
 
   }
   /*   onAddTodo(item: TodoItem){
@@ -72,6 +74,10 @@ export class SelectedBoardPageComponent implements OnInit {
         const columnId = currentColumns.map(c => c._id);
         this.columns = currentColumns;
         this.moveColumns.emit(columnId);
+      }
+      onSearchTextEntered(searchValue: string){
+        this.searchText = searchValue;
+        console.log('entered value', this.searchText)
       }
     }
 

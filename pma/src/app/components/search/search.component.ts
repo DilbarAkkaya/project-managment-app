@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'pma-search',
@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class SearchComponent {
   enteredSearchValue = '';
+  @Output()
+  searchTextChanged: EventEmitter<string> = new EventEmitter();
+
+  onSearchTextChanged(){
+    console.log(this.enteredSearchValue)
+    this.searchTextChanged.emit(this.enteredSearchValue)
+  }
+
 }

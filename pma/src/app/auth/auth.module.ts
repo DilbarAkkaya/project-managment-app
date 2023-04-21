@@ -25,6 +25,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatIconModule } from '@angular/material/icon';
 import { TaskUpdateComponent } from './components/task-update/task-update.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { FilterPipe } from '../pipes/filter.pipe';
+import { SearchComponent } from '../components/search/search.component';
 
 
 @NgModule({
@@ -42,7 +44,8 @@ import { TranslateModule } from '@ngx-translate/core';
     TaskComponent,
     TaskFormComponent,
     TaskUpdateComponent,
-
+    FilterPipe,
+    SearchComponent
   ],
   imports: [
     CommonModule,

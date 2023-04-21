@@ -2,11 +2,12 @@
 <section class="board-header">
   <p>{{'boardItem.boardName'| translate}}: {{board?.title}}</p>
   <button class="button" (click) = "openCreateDialog()" ><mat-icon class="margin">add_box</mat-icon>{{'column.create'| translate}}</button>
+   <pma-search *ngIf="apiservice.isAuthenticated()" (searchTextChanged)="onSearchTextEntered($event)"></pma-search>
 </section>
 <section cdkDropListGroup cdkDropList (cdkDropListDropped)="onMoveColumn($event)" [cdkDropListData]="columns">
   <ul>
     <li *ngFor="let column of columns">
-      <pma-column [column] = column  class="form-wrapper" (removeColumnEvent)="ondeleteColumn($event)" cdkDrag></pma-column>
+      <pma-column [searchText]="searchText" [column] = column  class="form-wrapper" (removeColumnEvent)="ondeleteColumn($event)" cdkDrag></pma-column>
     </li>
 
 
