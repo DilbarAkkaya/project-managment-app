@@ -8,6 +8,7 @@ import { IBoardResponse } from 'src/app/models/api.model';
 })
 export class BoardListComponent {
   @Input() boards: IBoardResponse[] = [];
+ // @Input() searchText: string = '';
   ondeleteBoard(boardId: string) {
     this.boards = this.boards.filter((board) => board._id !== boardId);
   }

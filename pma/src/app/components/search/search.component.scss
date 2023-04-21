@@ -1,0 +1,30 @@
+$primary: #EDF1D6;
+$primary-dark:#9DC08B;
+$secondary: #609966;
+$secondary-dark: #40513B;
+$warning: #CC0000;
+
+input[type="text"] {
+  display: flex;
+  padding: 5px;
+  background-color: $primary;
+  border-radius: 5px;
+  border: 1px solid $secondary-dark;
+  width: 30em;
+  height: 35px;
+  font-size: 18px;
+  line-height: 1.4;
+  color: $secondary-dark;
+}
+
+.search-wrapper {
+  display: flex;
+  position: relative;
+ }
+
+ mat-icon {
+  position: absolute;
+  right: 0;
+  top: 7px;
+  color: $secondary-dark;
+ }

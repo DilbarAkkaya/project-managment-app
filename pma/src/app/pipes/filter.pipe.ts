@@ -11,6 +11,6 @@ export class FilterPipe implements PipeTransform {
     if (!tasks) return [];
     if (!searchText) return tasks;
     searchText = searchText.toLowerCase();
-    return tasks.filter(task => task.title.toLowerCase().includes(searchText));
+    return tasks.filter(task => task.title.toLowerCase().includes(searchText) || task.description.toLowerCase().includes(searchText));
   }
 }

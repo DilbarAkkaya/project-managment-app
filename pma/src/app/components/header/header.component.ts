@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
       {code: "en-US", label: "EN"},
       {code: "tr", label: "TR"}
     ] */
-
+    searchText: string = '';
   usedLang: string = 'en';
   isUsedLangChose: boolean | null = false;
   constructor(public apiservice: AuthserviceService, private dialog: MatDialog, private router: Router, public translate: TranslateService,) {
@@ -55,4 +55,10 @@ setLanguage() {
       console.log(`Dialog result: ${result}`);
     });
   }
+/*   onSearchTextEntered(searchValue: string){
+  this.searchText = searchValue;
+  console.log(this.searchText, '444444444444')
+
+  } */
+
 }

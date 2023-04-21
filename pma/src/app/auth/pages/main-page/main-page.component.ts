@@ -17,7 +17,8 @@ import { Subscription } from 'rxjs';
 export class MainPageComponent implements OnInit, OnDestroy{
   boards: IBoardResponse[] = [];
   sub: Subscription | undefined;
-  constructor(private boardService: BoardserviceService) { }
+  searchText: string = '';
+  constructor(private boardService: BoardserviceService, public apiservice: AuthserviceService,) { }
 
 
   ngOnInit() {
@@ -32,6 +33,10 @@ export class MainPageComponent implements OnInit, OnDestroy{
   private getAllBoards(){
     this.boardService.getAllBoards().subscribe((boards: IBoardResponse[])=> this.boards = boards)
   }
+/*   onSearchTextEntered(searchValue: string){
+    this.searchText = searchValue;
+    console.log('entered value', this.searchText)
+  } */
 
   ngOnDestroy(): void {
     if (this.sub) {
