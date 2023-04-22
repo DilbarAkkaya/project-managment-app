@@ -4,21 +4,21 @@
   </mat-card-header>
 
   <mat-card-content>
-    <form [formGroup]="editForm" (ngSubmit)="editSubmit()">
+    <form [formGroup]="editForm" (ngSubmit)="editSubmit()" autocomplete="off">
       <mat-error *ngIf="errorMessageShow">{{errorMessage}}</mat-error>
-      <mat-form-field>
+      <mat-form-field autocomplete="off">
         <mat-label> Title </mat-label>
-        <input matInput type="text" formControlName="name" required>
+        <input matInput type="text" formControlName="name" required value="" autocomplete="chrome-off">
         <mat-error *ngIf="editForm.get('name')?.invalid && editForm.get('name')?.touched">Name is required</mat-error>
       </mat-form-field>
-      <mat-form-field>
+      <mat-form-field autocomplete="off">
         <mat-label> {{'edit.login' | translate }}</mat-label>
-        <input matInput type="text" formControlName="login" required>
+        <input matInput type="text" formControlName="login" required autocomplete="off">
         <mat-error *ngIf="editForm.get('login')?.invalid && editForm.get('login')?.touched">Login is required</mat-error>
       </mat-form-field>
-      <mat-form-field>
+      <mat-form-field autocomplete="off">
         <mat-label> {{'edit.password' | translate }}</mat-label>
-        <input matInput type="password" formControlName="password" required minlength="7">
+        <input matInput type="password" formControlName="password" required minlength="7" autocomplete="off">
         <mat-error *ngIf="editForm.get('password')?.invalid && editForm.get('password')?.touched"> {{ getErrorMessage('edit.passwordRequired', { length: 7 }) }}</mat-error>
       </mat-form-field>
 

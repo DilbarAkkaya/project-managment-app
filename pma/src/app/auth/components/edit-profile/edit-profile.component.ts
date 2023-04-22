@@ -25,6 +25,7 @@ export class EditProfileComponent {
   constructor(private dialogRef: MatDialogRef<ModalCreateComponent>, private service: UserService, private router: Router, private translateService:TranslateService){
   }
   ngOnInit(): void {
+    this.resetForm();
   }
   editSubmit(){
 console.log("edit profile")
@@ -46,6 +47,13 @@ if (this.editForm.valid) {
       this.errorMessage = 'All fields are required!';
     }
     this.dialogRef.close();
+  }
+  resetForm() {
+    this.editForm.setValue({
+      name: '',
+      login: '',
+      password: ''
+    });
   }
   getErrorMessage(text: string, params: { length: number }): string {
     return this.translateService.instant(text, params)
