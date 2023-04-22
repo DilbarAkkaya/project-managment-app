@@ -27,6 +27,7 @@ import { TaskUpdateComponent } from './components/task-update/task-update.compon
 import { TranslateModule } from '@ngx-translate/core';
 import { FilterPipe } from '../pipes/filter.pipe';
 import { SearchComponent } from '../components/search/search.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { SearchComponent } from '../components/search/search.component';
     TaskFormComponent,
     TaskUpdateComponent,
     FilterPipe,
-    SearchComponent
+    SearchComponent,
+    EditProfileComponent
   ],
   imports: [
     CommonModule,

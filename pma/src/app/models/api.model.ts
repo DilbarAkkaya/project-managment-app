@@ -13,6 +13,11 @@ export interface INewUser {
     _id: string,
 }
 
+ export interface IUpdateUser {
+  name: string,
+  login: string,
+  password: string,
+ }
 export interface IAuthData {
   login: string,
   password: string,

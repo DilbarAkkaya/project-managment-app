@@ -5,6 +5,7 @@ import { ModalCreateComponent } from 'src/app/auth/components/modal-create/modal
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { MatSlideToggle } from '@angular/material/slide-toggle';
+import { EditProfileComponent } from 'src/app/auth/components/edit-profile/edit-profile.component';
 
 @Component({
   selector: 'pma-header',
@@ -16,7 +17,7 @@ export class HeaderComponent implements OnInit {
       {code: "en-US", label: "EN"},
       {code: "tr", label: "TR"}
     ] */
-    searchText: string = '';
+  searchText: string = '';
   usedLang: string = 'en';
   isUsedLangChose: boolean | null = false;
   constructor(public apiservice: AuthserviceService, private dialog: MatDialog, private router: Router, public translate: TranslateService,) {
@@ -36,16 +37,16 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-setLanguage() {
-  if (this.isUsedLangChose) {
-    this.usedLang = 'en';
-  } else {
-    this.usedLang = 'tr';
+  setLanguage() {
+    if (this.isUsedLangChose) {
+      this.usedLang = 'en';
+    } else {
+      this.usedLang = 'tr';
+    }
+    localStorage.setItem('language', this.usedLang);
+    this.translate.use(this.usedLang);
+    this.isUsedLangChose = false;
   }
-  localStorage.setItem('language', this.usedLang);
-  this.translate.use(this.usedLang);
-  this.isUsedLangChose = false;
-}
 
   openCreateDialog() {
     this.router.navigate(['./auth/main']);
@@ -55,10 +56,17 @@ setLanguage() {
       console.log(`Dialog result: ${result}`);
     });
   }
-/*   onSearchTextEntered(searchValue: string){
-  this.searchText = searchValue;
-  console.log(this.searchText, '444444444444')
+  /*   onSearchTextEntered(searchValue: string){
+    this.searchText = searchValue;
+    console.log(this.searchText, '444444444444')
 
-  } */
+    } */
+  openEditForm() {
+    const dialogRef = this.dialog.open(EditProfileComponent)
+    dialogRef.afterClosed().subscribe(() => {
+      console.log("close")
+    }
+    )
+  }
 
 }
