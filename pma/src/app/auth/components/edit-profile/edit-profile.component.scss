@@ -18,6 +18,7 @@ form {
   padding: 0;
 }
 .form-wrapper {
+  align-items: center;
   background-color: $primary-dark;
 }
 mat-dialog-actions{
@@ -34,6 +35,6 @@ mat-card-header {
   font-weight: 500;
 }
 
-mat-label, input {
+mat-label, input, mat-card-header {
   color: $primary;
 }

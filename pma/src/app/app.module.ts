@@ -3,15 +3,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { HeaderComponent } from './components/header/header.component';
-import {MatButtonToggleModule} from '@angular/material/button-toggle';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatButtonModule } from '@angular/material/button';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { MainPageComponent } from './auth/pages/main-page/main-page.component';
 import { SelectedBoardPageComponent } from './auth/pages/selected-board-page/selected-board-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HTTP_INTERCEPTORS, HttpBackend, HttpClientModule, HttpClient} from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpBackend, HttpClientModule, HttpClient } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AuthInterceptor } from './auth/interceptor/auth.interceptor';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
@@ -24,6 +24,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { SearchComponent } from './components/search/search.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { CommonModule } from '@angular/common';
+import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
+import { SliderComponent } from './components/slider/slider.component';
 
 @NgModule({
   declarations: [
@@ -32,16 +34,31 @@ import { CommonModule } from '@angular/common';
     WelcomePageComponent,
     ConfirmDialogComponent,
     FooterComponent,
+    SliderComponent,
   ],
   imports: [
-    BrowserModule, FormsModule, MatToolbarModule, MatButtonToggleModule, MatIconModule, MatButtonModule, MatSlideToggleModule, AppRoutingModule, ReactiveFormsModule, BrowserAnimationsModule,
-  HttpClientModule, MatDialogModule, MatSnackBarModule,  TranslateModule.forRoot({
+    BrowserModule,
+    FormsModule,
+    MatToolbarModule,
+    MatButtonToggleModule,
+    MatIconModule,
+    MatButtonModule,
+    MatSlideToggleModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    MatDialogModule,
+    MatSnackBarModule,
+    NgxUsefulSwiperModule,
+    TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
         useFactory: createTranslateLoader,
         deps: [HttpBackend]
       }
-})],
+    }),
+  ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
