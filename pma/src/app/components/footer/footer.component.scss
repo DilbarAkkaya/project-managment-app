@@ -8,14 +8,24 @@ $secondary-dark: #40513B;
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
+  background: $secondary-dark;
+  color: $primary;
 }
 
 footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 10px 5px 10px 10px;
+}
+
+a {
+  color: $primary;
+  padding: 0 0 5px 0px;
+}
+svg {
+  margin-right: 5px;
+}
+div {
+  color: $primary;
 }
