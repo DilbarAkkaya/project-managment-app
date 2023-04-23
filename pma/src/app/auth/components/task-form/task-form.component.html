@@ -8,8 +8,8 @@
       <form [formGroup]="createForm" (ngSubmit)="createForm.valid && createSubmit()">
         <mat-form-field>
           <mat-label>{{'task.title'| translate}}</mat-label>
-          <input matInput type="text" formControlName="title" required  maxlength="15">
-          <mat-error *ngIf="createForm.get('title')?.invalid && createForm.get('title')?.touched">{{ getErrorMessage('task.titleRequired', { length: 15}) }}</mat-error>
+          <input matInput type="text" formControlName="title" required  maxlength="22">
+          <mat-error *ngIf="createForm.get('title')?.invalid && createForm.get('title')?.touched">{{ getErrorMessage('task.titleRequired', { length: 22}) }}</mat-error>
         </mat-form-field>
         <mat-form-field>
           <mat-label>{{'task.description'| translate}}</mat-label>

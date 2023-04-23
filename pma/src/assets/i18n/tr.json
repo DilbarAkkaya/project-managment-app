@@ -61,5 +61,8 @@
     "serverError": "Server hatası",
     "unknownError": "Bir hata oluştu",
     "closeSnack": "Kapat"
+  },
+  "search": {
+    "placeholder": "Başlığa veya açıklamaya göre ara"
   }
 }

@@ -1,17 +1,31 @@
-<swiper [config]="config" style="height: 100%; width: 100%;">
+<swiper [config]="config">
     <div class="swiper-wrapper">
-      <div class="swiper-slide">Slide 1</div>
-      <div class="swiper-slide">Slide 2</div>
-      <div class="swiper-slide">Slide 3</div>
-      <div class="swiper-slide">Slide 4</div>
-      <div class="swiper-slide">Slide 5</div>
-      <div class="swiper-slide">Slide 6</div>
-      <div class="swiper-slide">Slide 7</div>
-      <div class="swiper-slide">Slide 8</div>
-      <div class="swiper-slide">Slide 9</div>
-      <div class="swiper-slide">Slide 10</div>
+      <div class="swiper-slide">
+        <div class="text-wrapper">
+          <h1>Project Managment App</h1>
+          <p>Service for project management in the form of a list of boards, columns filled with tasks used by your team or directly by you. You can drag tasks between columns to show progress. Users can create tasks, describe them. PMA helps an individual in a team or group of developers achieve their goals.</p>
+        </div>
+        <div class="image-wrapper">
+          <img class="img-1" src="../../../assets/boards.png" >
+          <img class="img-2" src="../../../assets/tasks.png">
+          <img class="img-3" src="../../../assets/edit.png">
+          <img class="img-4" src="../../../assets/serach.png">
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="text-wrapper">
+          <h1>Javascript/Front-end Mentoring Program (in English)</h1>
+          <p class="course">This course is provided by <a href="https://rs.school/"> The Rolling Scopes community.</a> RS school is working by the principle of "Pay it forward". Community members share their knowledge and check student assignments for free. School mentors and trainers are front-end and javascript developers from different companies/countries. Everyone can study at RS School, regardless of age, professional employment and place of residence. However, students must have sufficient basic knowledge prior to starting the program. Completely independent study. The course consists of three stages. The first 2 stages are learning Git, Javascript, Typescript, Webpack, CSS3 / HTML5, Figma, REST API, NPM. Stage 3 - Angular. As part of this course, this training application was developed on the Angular framework, according to the <a href="https://github.com/rolling-scopes-school/js-fe-course-en/blob/main/tasks/angular/project-management-system.md">Terms of Reference.</a></p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="text-wrapper">
+          <h1>About developer</h1>
+          <p class="avatar"><img class="right-img" src="../../../assets/avatar.jpg" >My name is Dilbar Akkaya.  I’m currently learning Web Development. I have no experience on front-end developmet. My goal is to become a front-end development specialist. The skills and experience acquired in other fields and my personal qualities, purposefulness, a strong desire to learn, self-develop, easy to adapt to different conditions, discipline, motivation, will help in achieving the goal. I choose frontend because I really like it when I can instantly see the result of my work. On my <a href="https://github.com/DilbarAkkaya"> GitHub page </a> you can see other projects created within the school</p>
+        </div>
+      </div>
     </div>
-    <div class="swiper-pagination"></div>
+    <div class="swiper-pagination pag_bullet"></div>
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>
   </swiper>

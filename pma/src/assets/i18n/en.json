@@ -48,7 +48,7 @@
     "description": "Description",
     "cancel": "Cancel",
     "submit": "Submit",
-    "titleedit": "Edit task title"
+    "titleedit": "Edit task"
 
    },
    "errors": {
@@ -61,5 +61,8 @@
     "serverError": "Server error",
     "unknownError": "An error occurred",
     "closeSnack": "Close"
+  },
+  "search": {
+    "placeholder": "Search task by title or description"
   }
 }

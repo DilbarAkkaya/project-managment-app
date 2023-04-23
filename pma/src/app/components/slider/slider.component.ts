@@ -8,7 +8,14 @@ import { SwiperOptions } from 'swiper';
 })
 export class SliderComponent {
   config: SwiperOptions = {
-    pagination: { el: '.swiper-pagination', clickable: true },
+    pagination: {
+      el: ".pag_bullet",
+        clickable: true,
+        type : 'bullets',
+      renderBullet: function (index, className) {
+        return '<span class="' + className + '">' + (index + 1) + "</span>";
+      },
+},
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev'
