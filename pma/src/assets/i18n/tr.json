@@ -79,5 +79,22 @@
     "dev-link": "GitHub sayfamda",
     "dev-text-2": "okulda geliştirilen başka projelerim de vardır.\"",
     "start": "Başlat"
-  }
+  },
+  "edit": {
+    "button": "Profil düzenleme",
+    "title": "Profil düzenleme",
+    "name": "İsim",
+    "login": "Kullanıcı adı",
+    "password": "Şifre",
+    "nameRequired": "İsim girmelisiniz",
+    "loginRequired": "Kullanıcı adı girmelisiniz",
+    "passwordRequired": "En az 7 karakter girmelisiniz",
+    "delete": "Kullanıcıyı sil",
+    "submit": "Düzenle"
+   },
+   "confirm":{
+      "sure": "Emin misiniz",
+      "yes": "Evet",
+      "no": "Hayır"
+   }
 }

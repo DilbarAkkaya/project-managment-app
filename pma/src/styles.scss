@@ -66,6 +66,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   transition: all 1s;
 }
 
+button[disabled]{
+  background-color: $primary-dark;
+  cursor:default;
+  color:#EDF1D6;
+  pointer-events: none;
+}
+
 .margin {
   margin-right: 10px;
 }

@@ -21,7 +21,7 @@ export class UserService {
     return this.http.put(`${this.apiUrl}/users/${id}`, data).pipe(catchError(this.handleError.bind(this)));
   }
   deleteUser(id: string) {
-    return this.http.delete(`${this.apiUrl}/users/${id}`);
+    return this.http.delete(`${this.apiUrl}/users/${id}`).pipe(catchError(this.handleError.bind(this)));
   }
 
   private handleError(error: HttpErrorResponse) {

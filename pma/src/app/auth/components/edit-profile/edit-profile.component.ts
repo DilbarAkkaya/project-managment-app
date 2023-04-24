@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { AuthserviceService } from '../../services/authservice.service';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
@@ -7,6 +7,7 @@ import { IUpdateUser } from 'src/app/models/api.model';
 import { UserService } from '../../services/user.service';
 import { MatDialogRef } from '@angular/material/dialog';
 import { ModalCreateComponent } from '../modal-create/modal-create.component';
+import { ConfirmDialogService } from '../../services/confirm-dialog.service';
 
 @Component({
   selector: 'pma-edit-profile',
@@ -14,6 +15,7 @@ import { ModalCreateComponent } from '../modal-create/modal-create.component';
   styleUrls: ['./edit-profile.component.scss']
 })
 export class EditProfileComponent {
+  @Output() userDeleted = new EventEmitter<string>();
   userId: string = '';
   errorMessage = '';
   errorMessageShow = false;
@@ -22,7 +24,7 @@ export class EditProfileComponent {
     login: new FormControl('', Validators.required),
     password: new FormControl('', [Validators.required, Validators.minLength(7)])
   })
-  constructor(private dialogRef: MatDialogRef<ModalCreateComponent>, private service: UserService, private router: Router, private translateService:TranslateService){
+  constructor(private dialogRef: MatDialogRef<ModalCreateComponent>, private service: UserService, private router: Router, private translateService:TranslateService, private dialogservice: ConfirmDialogService){
   }
   ngOnInit(): void {
     this.resetForm();
@@ -59,4 +61,19 @@ if (this.editForm.valid) {
     return this.translateService.instant(text, params)
     //return (this.signupForm.value.password!.length < 7) ? 'Your password should be min 7 chars' : '';
   }
+  deleteUser(event: Event) {
+    /*  event.stopPropagation();
+     this.boardservice.deleteBoardById(this.board!._id).subscribe(() => {
+       this.boardDeleted.emit(this.board!._id);
+     }); */
+     event.stopPropagation();
+     this.dialogservice.openConfirm().afterClosed().subscribe(response => {
+       if(response) {
+         this.service.deleteUser(this.userId!).subscribe(() => {
+           this.userDeleted.emit(this.userId);
+           this.router.navigate([`./auth/login`]);
+         })
+       }
+     })
+   }
 }

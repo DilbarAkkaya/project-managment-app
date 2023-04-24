@@ -79,5 +79,22 @@
     "dev-link": "GitHub page",
     "dev-text-2": "you can see other projects created within the school.\"",
     "start":"Start"
-  }
+  },
+   "edit": {
+    "button": "Edit profile",
+    "title": "Edit profile",
+    "name": "Name",
+    "login": "Login",
+    "password": "Password",
+    "nameRequired": "Name is required",
+    "loginRequired": "Login is required",
+    "passwordRequired": "Your password should be min 7 chars",
+    "delete": "Delete user",
+    "submit": "Submit"
+   },
+   "confirm":{
+    "sure": "Are you sure",
+    "yes": "Yes",
+    "no": "No"
+ }
 }

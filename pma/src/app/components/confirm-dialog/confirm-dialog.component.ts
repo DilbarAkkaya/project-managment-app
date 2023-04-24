@@ -7,7 +7,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./confirm-dialog.component.scss']
 })
 export class ConfirmDialogComponent implements OnInit{
-  constructor( @Inject(MAT_DIALOG_DATA) public data: {message: string}, public dialogRef: MatDialogRef<ConfirmDialogComponent>){
+  constructor( @Inject(MAT_DIALOG_DATA) public data: {message?: string}, public dialogRef: MatDialogRef<ConfirmDialogComponent>){
 
   }
   ngOnInit(): void {
