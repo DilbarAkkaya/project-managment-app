@@ -64,5 +64,18 @@
   },
   "search": {
     "placeholder": "Search task by title or description"
+  },
+  "welcome": {
+    "header": "Project Managment App",
+    "description": "Service for project management in the form of a list of boards, columns filled with tasks used by your team or directly by you. You can drag tasks between columns to show progress. Users can create tasks, describe them. PMA helps an individual in a team or group of developers achieve their goals.",
+    "course": "Javascript/Front-end Mentoring Program (in English)",
+    "course-text-1": "This course is provided by",
+    "link-course": "The Rolling Scopes community. ",
+    "course-text-3": "RS school is working by the principle of 'Pay it forward'. Community members share their knowledge and check student assignments for free. School mentors and trainers are front-end and javascript developers from different companies/countries. Everyone can study at RS School, regardless of age, professional employment and place of residence. However, students must have sufficient basic knowledge prior to starting the program. Completely independent study. The course consists of three stages. The first 2 stages are learning Git, Javascript, Typescript, Webpack, CSS3 / HTML5, Figma, REST API, NPM. Stage 3 - Angular. As part of this course, this training application was developed on the Angular framework, according to the,",
+    "link-terms": " Terms of Reference",
+    "dev-header": "About developer",
+    "dev-text-1": "\"My name is Dilbar Akkaya.  I’m currently learning Web Development. My goal is to become a front-end development specialist. The skills and experience acquired in other fields and my personal qualities, purposefulness, a strong desire to learn, self-develop, easy to adapt to different conditions, discipline, motivation, will help in achieving the goal. I choose frontend because I really like it when I can instantly see the result of my work. On my ",
+    "dev-link": "GitHub page",
+    "dev-text-2": "you can see other projects created within the school."
   }
 }
