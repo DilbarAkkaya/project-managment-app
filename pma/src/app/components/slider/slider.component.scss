@@ -4,9 +4,8 @@ $secondary: #609966;
 $secondary-dark: #40513B;
 
 swiper {
-  margin-top: 20px;
   width: 100%;
-  height: 85vh;
+  height: 88vh;
   background: linear-gradient(to bottom, #EDF1D6, #9DC08B, #609966, #40513B);
 }
 .swipper-wrapper{
@@ -15,20 +14,20 @@ swiper {
 }
 .image-wrapper {
   position: relative;
-  width: 95vw;
-  height: 90%;
+  width: 90vw;
+  height: 82%;
   display: flex;
   padding: 40px;
 }
 
 img {
-  width: 500px;
+  width: 400px;
   height: 400px;
   position: absolute;
 }
 
 .img-1 {
-  width: 650px;
+  width: 600px;
   height: 200px;
   right: 65px;
   top: 50px;
@@ -40,8 +39,8 @@ img {
   z-index: 1;
 }
 .img-3 {
-  width: 150px;
-  height: 150px;
+  width: 130px;
+  height: 130px;
   right: 150px;
   top: 380px;
   z-index: 3;
@@ -49,7 +48,7 @@ img {
 .img-4 {
   width: 260px;
   height: 100px;
-  right: 340px;
+  right: 280px;
   top: 486px;
   z-index: 4;
 }
@@ -61,7 +60,7 @@ img {
 }
 
 .text-wrapper {
-  padding: 50px 50px 50px 60px;
+  padding: 0px 50px 50px 60px;
 }
 
 p {
@@ -100,7 +99,7 @@ h1 {
 }
 
 .swiper-pagination {
-  bottom: 100px;
+  bottom: 155px;
 }
 
 .dev {

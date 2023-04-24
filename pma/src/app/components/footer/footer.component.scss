@@ -10,13 +10,14 @@ $secondary-dark: #40513B;
   width: 100%;
   background: $secondary-dark;
   color: $primary;
+
 }
 
 footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 5px 10px 10px;
+  padding: 5px 5px 5px 10px;
 }
 
 a {
