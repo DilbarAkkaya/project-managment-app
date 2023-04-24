@@ -67,6 +67,10 @@
     "unknownError": "Bir hata oluştu",
     "closeSnack": "Kapat"
   },
+  "success": {
+    "close": "Kapat",
+    "message": "Başarıyla güncellendi"
+  },
   "search": {
     "placeholder": "Başlığa veya açıklamaya göre ara"
   },

@@ -67,6 +67,10 @@
     "unknownError": "An error occurred",
     "closeSnack": "Close"
   },
+  "success": {
+    "close": "Close",
+    "message": "Updated successfully"
+  },
   "search": {
     "placeholder": "Search task by title or description"
   },

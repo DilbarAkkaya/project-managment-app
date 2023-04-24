@@ -167,3 +167,9 @@ textarea:focus, input:focus{
   font-weight: 700;
   background:$primary-dark;
 }
+
+.success-snack {
+  --mat-mdc-snack-bar-button-color: #EDF1D6;
+  --mdc-snackbar-container-color: #609966;
+  --mdc-snackbar-supporting-text-color: #EDF1D6;
+}
