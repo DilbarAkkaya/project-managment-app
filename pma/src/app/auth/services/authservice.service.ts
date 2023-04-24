@@ -59,7 +59,8 @@ export class AuthserviceService {
   }
 
   logout(){
-  this.setToken(null)
+  this.setToken(null);
+  localStorage.removeItem('user');
   }
   isAuthenticated(): boolean {
     return !!this.token;
@@ -68,13 +69,14 @@ export class AuthserviceService {
   private setToken(response: IAuthResponse | null) {
 
     if (response) {
-      console.log(response)
+      console.log(response, '111111111111')
       const expiry = (JSON.parse(atob(response.token.split('.')[1])));
       const expirationTimeInMilliseconds = new Date(expiry.exp * 1000).getTime();
       const expDate = new Date(new Date().getTime() + expirationTimeInMilliseconds);
       const userId = expiry.id;
 
-      console.log(userId)
+
+      console.log(userId, '555555555555555555555')
       localStorage.setItem('token', response.token);
       localStorage.setItem('token-exp', expDate.toString());
       localStorage.setItem('owner', userId);
@@ -82,12 +84,13 @@ export class AuthserviceService {
       localStorage.removeItem('token');
       localStorage.removeItem('token-exp');
       localStorage.removeItem('owner');
+      localStorage.removeItem('user');
     }
   }
   private setUserId = (response: INewUser | null) => {
     if (response){
-      console.log('dkdkkdk', response._id)
-      localStorage.setItem('owner', response._id.toString())
+      console.log('dkdkkdk', response)
+      localStorage.setItem('owner', response._id.toString());
     }
   }
 }

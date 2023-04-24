@@ -1,27 +1,31 @@
-  <header class="header wrapper">
-    <mat-toolbar class="mat-toolbar wrapper"><a [routerLink]="['/']" class="logo">PMA</a>
-     <!--  <mat-button-toggle-group appearance="legacy" name="lang" aria-label="lang" > -->
+<header class="header wrapper" >
+  <mat-toolbar class="mat-toolbar wrapper"><a [routerLink]="['/']" class="logo">PMA</a>
+    <div class="name-wrapper" *ngIf="apiservice.isAuthenticated()">
+      <span class="user-name">{{'header.user'|translate}}<mat-icon>account_box</mat-icon>{{user}}</span>
+    </div>
+    <div class="language-toggle">
+      <div class="flag tr"></div>
+      <mat-slide-toggle [(ngModel)]="isUsedLangChose" (change)="setLanguage()"></mat-slide-toggle>
+      <div class="flag en"></div>
+    </div>
+    <div class="auth-wrapper" *ngIf="!apiservice.isAuthenticated()">
+      <a i18n="@@headerLogin login|ref for login in site" href="#" class="button auth-link login"
+        [routerLink]="['./auth/login']"><mat-icon class="margin">login</mat-icon>{{'login.loginButton' | translate
+        }}</a>
 
-<div class="language-toggle">
-  <div class="flag tr"></div>
-  <mat-slide-toggle [(ngModel)]="isUsedLangChose" (change)="setLanguage()"></mat-slide-toggle>
-  <div class="flag en"></div>
-</div>
-
-<!--         <mat-button-toggle [(ngModel)]="isCurrentLanguageChecked" (change)="checkLanguage()" >
-         en
-        </mat-button-toggle>
-      </mat-button-toggle-group> -->
-      <div class="auth-wrapper" *ngIf="!apiservice.isAuthenticated()">
-        <a i18n="@@headerLogin login|ref for login in site" href="#" class="button auth-link login" [routerLink]="['./auth/login']"><mat-icon class="margin">login</mat-icon>{{'login.loginButton' | translate }}</a>
-
-        <a i18n="@@headerSignup signup|ref for sign up in site"href="#" class="button auth-link sign" [routerLink]="['./auth/signup']"><mat-icon class="margin">exit_to_app</mat-icon>{{'signup.signupButton' | translate }}</a>
-      </div>
-      <div class="auth-wrapper" *ngIf="apiservice.isAuthenticated()">
-        <a i18n="@@createBoard createBoard|ref creating board"class="button auth-link create-button" (click) = "openCreateDialog()"><mat-icon class="margin">add_box</mat-icon>{{'header.createBoard' | translate }}</a>
-        <a i18n="@@headerSignup signup|ref for sign up in site"href="#" class="button auth-link edit" [routerLink]="['./auth/edit']" (click) = "openEditForm()"><mat-icon class="margin">edit</mat-icon>{{'edit.button' | translate }}</a>
-        <a i18n="@@logOut logout|ref for logout from site" href="#" class="button auth-link logout" [routerLink]="['/']" (click) = "apiservice.logout()"><mat-icon class="margin">logout</mat-icon>{{'header.logout' | translate }}</a>
-      </div>
-    </mat-toolbar>
-   <!--  <pma-search *ngIf="apiservice.isAuthenticated()" (searchTextChanged)="onSearchTextEntered($event)"></pma-search> -->
-  </header>
+      <a i18n="@@headerSignup signup|ref for sign up in site" href="#" class="button auth-link sign"
+        [routerLink]="['./auth/signup']"><mat-icon class="margin">exit_to_app</mat-icon>{{'signup.signupButton' |
+        translate }}</a>
+    </div>
+    <div class="auth-wrapper" *ngIf="apiservice.isAuthenticated()">
+      <a i18n="@@createBoard createBoard|ref creating board" class="button auth-link create-button"
+        (click)="openCreateDialog()"><mat-icon class="margin">add_box</mat-icon>{{'header.createBoard' | translate
+        }}</a>
+      <a i18n="@@headerSignup signup|ref for sign up in site" href="#" class="button auth-link edit"
+        [routerLink]="['./auth/edit']" (click)="openEditForm()"><mat-icon class="margin">edit</mat-icon>{{'edit.button'
+        | translate }}</a>
+      <a i18n="@@logOut logout|ref for logout from site" href="#" class="button auth-link logout" [routerLink]="['/']"
+        (click)="apiservice.logout()"><mat-icon class="margin">logout</mat-icon>{{'header.logout' | translate }}</a>
+    </div>
+  </mat-toolbar>
+</header>

@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class AppComponent implements OnInit{
 @Input() searchText: string = ''
+@Input() user: string = '';
 
   constructor(private auth: AuthserviceService, private router: Router){
 

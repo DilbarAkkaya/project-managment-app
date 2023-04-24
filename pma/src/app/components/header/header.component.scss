@@ -84,3 +84,16 @@ $secondary-dark: #40513B;
 .login, .edit, .create-button {
   margin-right: 10px;
 }
+
+span {
+  color: $secondary;
+}
+
+.user-name {
+  display: flex;
+  align-items: center;
+}
+
+span mat-icon {
+  margin-left: 5px;
+}

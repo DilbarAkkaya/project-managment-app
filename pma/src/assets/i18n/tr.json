@@ -19,6 +19,7 @@
     "loginButton": "Giriş yap"
   },
   "header": {
+    "user": "Hoş geldiniz,  ",
     "logout": "Çıkış yap",
     "createBoard": "Pano oluştur"
   },

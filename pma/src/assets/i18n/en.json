@@ -18,6 +18,7 @@
     "loginButton": "Log In"
   },
   "header": {
+    "user": "Welcome,   ",
     "logout": "Log out",
     "createBoard": "Create board"
   },
