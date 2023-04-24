@@ -8,7 +8,7 @@ import { ConfirmDialogComponent } from 'src/app/components/confirm-dialog/confir
 export class ConfirmDialogService {
 
   constructor(private dialog: MatDialog) { }
-  openConfirm(message?: string){
+  openConfirm(message?: string) {
     return this.dialog.open(ConfirmDialogComponent, {
       width: '23em',
       disableClose: true,
