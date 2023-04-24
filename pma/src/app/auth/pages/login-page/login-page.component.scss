@@ -1,8 +1,9 @@
 $primary: #EDF1D6;
-$primary-dark:#9DC08B;
+$primary-dark: #9DC08B;
 $secondary: #609966;
 $secondary-dark: #40513B;
 $warning: #CC0000;
+
 .form-wrapper {
   min-width: 150px;
   max-width: 362px;
@@ -25,6 +26,7 @@ mat-card {
   background-color: $primary-dark;
   border-radius: 5px;
 }
+
 mat-card-header {
   font-size: 18px;
   font-weight: 700;
@@ -32,10 +34,10 @@ mat-card-header {
   align-self: center;
 }
 
-button[disabled]{
+button[disabled] {
   background-color: $primary-dark;
-  cursor:default;
-  color:#EDF1D6;
+  cursor: default;
+  color: #EDF1D6;
 }
 
 .error {
@@ -46,6 +48,7 @@ button[disabled]{
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
 }
+
 .mat-dialog {
   padding: 0;
 }
@@ -55,6 +58,7 @@ mat-card-header {
   font-weight: 500;
 }
 
-mat-label, input {
+mat-label,
+input {
   color: $primary;
 }

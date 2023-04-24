@@ -15,7 +15,6 @@ import { TranslateService } from '@ngx-translate/core';
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
   constructor(private auth: AuthserviceService, private router: Router, private snackBar: MatSnackBar, private translate: TranslateService) { }
-
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     if (this.auth.isAuthenticated()) {
       request = request.clone({
@@ -30,38 +29,34 @@ export class AuthInterceptor implements HttpInterceptor {
         if (error.error instanceof ErrorEvent) {
           errorMessage = `Error: ${error.message}`
         } else {
-        switch (error.status) {
-          case 401:
-            errorMessage = this.translate.instant('errors.authorizationError');
-/*             this.auth.logout();
-            this.router.navigate(['/auth', 'login'], {
-              queryParams: {
-                authFailed: true
-              }
-            }) */
-            break;
-          case 403:
-          errorMessage = this.translate.instant('errors.accessError')
-            break;
-          case 404:
-          errorMessage = this.translate.instant('errors.routeError')
-            break;
+          switch (error.status) {
+            case 401:
+              errorMessage = this.translate.instant('errors.authorizationError');
+              break;
+            case 403:
+              errorMessage = this.translate.instant('errors.accessError')
+              break;
+            case 404:
+              errorMessage = this.translate.instant('errors.routeError')
+              break;
             case 409:
-            errorMessage = this.translate.instant('errors.loginError')
-            break
-          case 503:
-          errorMessage = this.translate.instant('errors.serverError')
+              errorMessage = this.translate.instant('errors.loginError')
+              break
+            case 503:
+              errorMessage = this.translate.instant('errors.serverError')
+          }
         }
       }
+      else {
+        errorMessage = this.translate.instant('errors.unknownError')
+      }
+      this.snackBar.open(errorMessage, this.translate.instant('errors.closeSnack'), {
+        duration: 2000,
+        horizontalPosition: 'right',
+        panelClass: ['warning'],
+      });
+      return throwError(() => error);
     }
-  else {
-      errorMessage = this.translate.instant('errors.unknownError')
-    }
-    this.snackBar.open(errorMessage, this.translate.instant('errors.closeSnack'), {
-      duration: 2000,
-      horizontalPosition: 'right',
-      panelClass: ['warning'],
-    });
-    return throwError(()=>error);
+    ))
+  }
 }
-))}}

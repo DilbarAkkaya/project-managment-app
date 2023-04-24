@@ -31,14 +31,11 @@ export class LoginPageComponent implements OnInit {
     };
     if (this.loginForm.valid) {
       this.service.login(data).subscribe(() => {
-       localStorage.setItem('user', data.login)
-      //localStorage.getItem('user') as string;
+        localStorage.setItem('user', data.login)
         this.userLogin.emit(data.login);
         this.userService.setUser(data.login);
         this.loginForm.reset();
         this.router.navigate(['/auth/main']);
-        this.isSubmited = false;
-      }, () => {
         this.isSubmited = false;
       })
     } else {
