@@ -1,12 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AuthserviceService } from '../../services/authservice.service';
-import { Router } from '@angular/router';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
-import { ModalCreateComponent } from '../../components/modal-create/modal-create.component';
 import { BoardserviceService } from '../../services/board.service';
 import { IBoardResponse } from 'src/app/models/api.model';
-import { UserService } from '../../services/user.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -14,30 +9,20 @@ import { Subscription } from 'rxjs';
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.scss'],
 })
-export class MainPageComponent implements OnInit, OnDestroy{
+export class MainPageComponent implements OnInit, OnDestroy {
   boards: IBoardResponse[] = [];
   sub: Subscription | undefined;
   searchText: string = '';
   constructor(private boardService: BoardserviceService, public apiservice: AuthserviceService,) { }
-
-
   ngOnInit() {
- /*    this.sub = this.boardService.getAllBoards().subscribe((boards: any) => {
-      this.boards = boards;
-    }) */
-    this.boardService.refresh$.subscribe(()=>{
+    this.boardService.refresh$.subscribe(() => {
       this.getAllBoards();
     })
     this.getAllBoards();
   }
-  private getAllBoards(){
-    this.boardService.getAllBoards().subscribe((boards: IBoardResponse[])=> this.boards = boards)
+  private getAllBoards() {
+    this.boardService.getAllBoards().subscribe((boards: IBoardResponse[]) => this.boards = boards)
   }
-/*   onSearchTextEntered(searchValue: string){
-    this.searchText = searchValue;
-    console.log('entered value', this.searchText)
-  } */
-
   ngOnDestroy(): void {
     if (this.sub) {
       this.sub.unsubscribe();

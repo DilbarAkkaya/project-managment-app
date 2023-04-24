@@ -1,5 +1,5 @@
 $primary: #EDF1D6;
-$primary-dark:#9DC08B;
+$primary-dark: #9DC08B;
 $secondary: #609966;
 $secondary-dark: #40513B;
 
@@ -24,6 +24,7 @@ mat-card {
   background-color: $primary-dark;
   border-radius: 5px;
 }
+
 mat-card-header {
   font-size: 18px;
   font-weight: 700;
@@ -31,6 +32,6 @@ mat-card-header {
   align-self: center;
 }
 
-button[disabled]{
+button[disabled] {
   background-color: $primary-dark;
 }

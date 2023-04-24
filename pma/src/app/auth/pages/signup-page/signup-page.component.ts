@@ -10,7 +10,7 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./signup-page.component.scss']
 })
 export class SignupPageComponent implements OnInit {
-  constructor(private service: AuthserviceService, private router: Router, private translateService:TranslateService){
+  constructor(private service: AuthserviceService, private router: Router, private translateService: TranslateService) {
   }
   errorMessage = '';
   errorMessageShow = false;
@@ -21,25 +21,23 @@ export class SignupPageComponent implements OnInit {
   })
   ngOnInit(): void {
   }
-  signupSubmit(){
-
-if (this.signupForm.valid) {
-  const data: ISignData = {
-    name: this.signupForm.value.name!,
-    login: this.signupForm.value.login!,
-    password: this.signupForm.value.password!
-  };
-  this.errorMessageShow = false;
-  this.service.signup(data).subscribe({
-    next: () => {
-      this.router.navigate(['/auth/login']);
-    },
-    error: (err)=> {
-      console.error(err, 'signup error');
-      this.errorMessageShow = true;
-      this.errorMessage = 'Login already exists!';
-    }
-})
+  signupSubmit() {
+    if (this.signupForm.valid) {
+      const data: ISignData = {
+        name: this.signupForm.value.name!,
+        login: this.signupForm.value.login!,
+        password: this.signupForm.value.password!
+      };
+      this.errorMessageShow = false;
+      this.service.signup(data).subscribe({
+        next: () => {
+          this.router.navigate(['/auth/login']);
+        },
+        error: () => {
+          this.errorMessageShow = true;
+          this.errorMessage = 'Login already exists!';
+        }
+      })
     } else {
       this.errorMessageShow = true;
       this.errorMessage = 'All fields are required!';
@@ -47,6 +45,5 @@ if (this.signupForm.valid) {
   }
   getErrorMessage(text: string, params: { length: number }): string {
     return this.translateService.instant(text, params)
-    //return (this.signupForm.value.password!.length < 7) ? 'Your password should be min 7 chars' : '';
   }
 }
