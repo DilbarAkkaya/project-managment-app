@@ -1,5 +1,5 @@
 $primary: #EDF1D6;
-$primary-dark:#9DC08B;
+$primary-dark: #9DC08B;
 $secondary: #609966;
 $secondary-dark: #40513B;
 
@@ -11,10 +11,13 @@ $secondary-dark: #40513B;
   justify-content: space-between;
   padding-top: 5px;
 }
-.mat-toolbar-row, .mat-toolbar-single-row{
+
+.mat-toolbar-row,
+.mat-toolbar-single-row {
   padding: 0;
 }
-.logo{
+
+.logo {
   font-size: 34px;
   color: $secondary-dark;
 }
@@ -22,6 +25,7 @@ $secondary-dark: #40513B;
 .mat-button-toggle {
   color: $secondary-dark;
 }
+
 .mat-button-toggle-checked {
   background-color: $secondary;
   color: $primary;
@@ -30,29 +34,30 @@ $secondary-dark: #40513B;
 .auth-wrapper {
   display: flex;
 }
-.auth-wrapper a{
+
+.auth-wrapper a {
   text-decoration: none;
   color: $secondary-dark;
   font-size: 16px;
   letter-spacing: 1.5px;
 }
 
-.auth-wrapper a:nth-child(2){
+.auth-wrapper a:nth-child(2) {
   background-color: $secondary;
   color: $primary;
 }
 
-.auth-wrapper a:first-child{
+.auth-wrapper a:first-child {
   border: none;
   color: $secondary-dark;
   background-color: transparent;
 }
 
-.auth-wrapper a:hover{
+.auth-wrapper a:hover {
   background-color: $primary-dark;
 }
 
-.auth-wrapper:last-child a{
+.auth-wrapper:last-child a {
   background-color: $secondary;
   color: $primary;
 }
@@ -70,18 +75,21 @@ $secondary-dark: #40513B;
 }
 
 .tr {
-  background-image:url('../../../assets/tr.png');
+  background-image: url('../../../assets/tr.png');
 }
 
 .en {
-  background-image:url('../../../assets/en.png');
+  background-image: url('../../../assets/en.png');
 }
 
-.sign, .logout {
+.sign,
+.logout {
   margin-right: 0;
 }
 
-.login, .edit, .create-button {
+.login,
+.edit,
+.create-button {
   margin-right: 10px;
 }
 

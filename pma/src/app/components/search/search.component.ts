@@ -10,8 +10,7 @@ export class SearchComponent {
   @Output()
   searchTextChanged: EventEmitter<string> = new EventEmitter();
 
-  onSearchTextChanged(){
-    console.log(this.enteredSearchValue)
+  onSearchTextChanged() {
     this.searchTextChanged.emit(this.enteredSearchValue)
   }
 

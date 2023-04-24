@@ -8,6 +8,7 @@ import { UserService } from '../../services/user.service';
 import { MatDialogRef } from '@angular/material/dialog';
 import { ModalCreateComponent } from '../modal-create/modal-create.component';
 import { ConfirmDialogService } from '../../services/confirm-dialog.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'pma-edit-profile',
@@ -24,7 +25,7 @@ export class EditProfileComponent {
     login: new FormControl('', Validators.required),
     password: new FormControl('', [Validators.required, Validators.minLength(7)])
   })
-  constructor(private dialogRef: MatDialogRef<ModalCreateComponent>, private service: UserService, private router: Router, private translateService: TranslateService, private dialogservice: ConfirmDialogService) {
+  constructor(private dialogRef: MatDialogRef<ModalCreateComponent>, private snackBar: MatSnackBar, public translate: TranslateService, private service: UserService, private router: Router, private translateService: TranslateService, private dialogservice: ConfirmDialogService) {
   }
   ngOnInit(): void {
     this.resetForm();

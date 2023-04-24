@@ -8,8 +8,6 @@ import { HeaderComponent } from './components/header/header.component';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatButtonModule } from '@angular/material/button';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
-import { MainPageComponent } from './auth/pages/main-page/main-page.component';
-import { SelectedBoardPageComponent } from './auth/pages/selected-board-page/selected-board-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HTTP_INTERCEPTORS, HttpBackend, HttpClientModule, HttpClient } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -21,9 +19,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { SearchComponent } from './components/search/search.component';
-import { FilterPipe } from './pipes/filter.pipe';
-import { CommonModule } from '@angular/common';
 import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
 import { SliderComponent } from './components/slider/slider.component';
 
@@ -68,7 +63,6 @@ import { SliderComponent } from './components/slider/slider.component';
   entryComponents: [ConfirmDialogComponent]
 })
 export class AppModule { }
-
 export function createTranslateLoader(http: HttpBackend) {
   return new TranslateHttpLoader(new HttpClient(http));
 }

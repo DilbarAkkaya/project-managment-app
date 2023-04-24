@@ -5,9 +5,7 @@ import { ITaskResponse } from '../models/api.model';
   name: 'filter'
 })
 export class FilterPipe implements PipeTransform {
-
   transform(tasks: ITaskResponse[], searchText: string): ITaskResponse[] {
-    console.log('FilterPipe transform method called');
     if (!tasks) return [];
     if (!searchText) return tasks;
     searchText = searchText.toLowerCase();

@@ -1,5 +1,5 @@
 $primary: #EDF1D6;
-$primary-dark:#9DC08B;
+$primary-dark: #9DC08B;
 $secondary: #609966;
 $secondary-dark: #40513B;
 
@@ -24,9 +24,11 @@ a {
   color: $primary;
   padding: 0 0 5px 0px;
 }
+
 svg {
   margin-right: 5px;
 }
+
 div {
   color: $primary;
 }

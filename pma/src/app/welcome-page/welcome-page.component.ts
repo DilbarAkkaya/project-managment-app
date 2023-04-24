@@ -6,8 +6,7 @@ import { SwiperOptions } from 'swiper';
   templateUrl: './welcome-page.component.html',
   styleUrls: ['./welcome-page.component.scss']
 })
-export class WelcomePageComponent implements OnInit{
-
+export class WelcomePageComponent implements OnInit {
   ngOnInit(): void {
   }
 }

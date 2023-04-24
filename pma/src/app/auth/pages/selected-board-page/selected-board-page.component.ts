@@ -46,13 +46,7 @@ export class SelectedBoardPageComponent implements OnInit {
     const dialogRef = this.dialog.open(ColumnFormComponent, {
       data: { board: this.board, boardId: this.boardId }
     });
-    dialogRef.afterClosed().subscribe(() => {
-      this.snackBar.open(this.translate.instant('success.create'), this.translate.instant('success.close'), {
-        duration: 2000,
-        horizontalPosition: 'right',
-        panelClass: ['success-snack'],
-      })
-    });
+    dialogRef.afterClosed().subscribe(() => {});
   }
   ondeleteColumn(id: string) {
     this.columns = this.columns.filter(column => column._id !== id);

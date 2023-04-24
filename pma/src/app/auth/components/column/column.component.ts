@@ -81,7 +81,7 @@ export class ColumnComponent implements OnInit, OnDestroy {
     })
   }
   onremoveTask(id: string) {
-    this.dialogservice.openConfirm("delete this task").afterClosed().subscribe(response => {
+    this.dialogservice.openConfirm(this.translate.instant('task.deleteTask')).afterClosed().subscribe(response => {
       if (response) {
         this.boardservice.deleteTaskById(this.boardId, this.column!._id, id).subscribe(() => {
           this.tasks = this.tasks.filter((task) => task._id !== id)

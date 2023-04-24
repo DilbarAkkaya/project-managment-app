@@ -7,19 +7,14 @@ import { Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
-@Input() searchText: string = ''
-@Input() user: string = '';
-
-  constructor(private auth: AuthserviceService, private router: Router){
-
-  }
-
+export class AppComponent implements OnInit {
+  @Input() searchText: string = ''
+  @Input() user: string = '';
+  constructor(private auth: AuthserviceService, private router: Router) {}
   ngOnInit(): void {
     if (this.auth.isAuthenticated()) {
       this.router.navigate(['./auth/main']);
     }
   }
   title = 'RMA';
-
 }

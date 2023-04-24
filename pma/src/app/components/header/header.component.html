@@ -1,4 +1,4 @@
-<header class="header wrapper" >
+<header class="header wrapper">
   <mat-toolbar class="mat-toolbar wrapper"><a [routerLink]="['/']" class="logo">PMA</a>
     <div class="name-wrapper" *ngIf="apiservice.isAuthenticated()">
       <span class="user-name">{{'header.user'|translate}}<mat-icon>account_box</mat-icon>{{user}}</span>
@@ -12,7 +12,6 @@
       <a i18n="@@headerLogin login|ref for login in site" href="#" class="button auth-link login"
         [routerLink]="['./auth/login']"><mat-icon class="margin">login</mat-icon>{{'login.loginButton' | translate
         }}</a>
-
       <a i18n="@@headerSignup signup|ref for sign up in site" href="#" class="button auth-link sign"
         [routerLink]="['./auth/signup']"><mat-icon class="margin">exit_to_app</mat-icon>{{'signup.signupButton' |
         translate }}</a>

@@ -1,5 +1,5 @@
 $primary: #EDF1D6;
-$primary-dark:#9DC08B;
+$primary-dark: #9DC08B;
 $secondary: #609966;
 $secondary-dark: #40513B;
 $warning: #CC0000;
@@ -20,11 +20,11 @@ input[type="text"] {
 .search-wrapper {
   display: flex;
   position: relative;
- }
+}
 
- mat-icon {
+mat-icon {
   position: absolute;
   right: 0;
   top: 7px;
   color: $secondary-dark;
- }
+}

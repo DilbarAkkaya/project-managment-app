@@ -6,6 +6,8 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ModalCreateComponent } from '../modal-create/modal-create.component';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Inject } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'pma-column-form',
@@ -16,7 +18,7 @@ export class ColumnFormComponent implements OnInit {
   board: IBoardResponse | undefined;
   boardId: string = '';
   columns: IColumnResponse[] = [];
-  constructor(private dialogRef: MatDialogRef<ModalCreateComponent>, private boardservice: BoardserviceService, private route: ActivatedRoute,
+  constructor(private dialogRef: MatDialogRef<ModalCreateComponent>, private snackBar: MatSnackBar, private translate: TranslateService, private boardservice: BoardserviceService, private route: ActivatedRoute,
     @Inject(MAT_DIALOG_DATA) public data: { board: IBoardResponse, boardId: string }) {
     this.board = data.board;
     this.boardId = data.boardId;
@@ -40,6 +42,11 @@ export class ColumnFormComponent implements OnInit {
       this.boardservice.createColumn(this.boardId, column).subscribe((column: IColumnResponse) => {
         this.columns.push(column)
         this.dialogRef.close({ clicked: 'submit', form: this.createForm });
+        this.snackBar.open(this.translate.instant('success.create'), this.translate.instant('success.close'), {
+          duration: 2000,
+          horizontalPosition: 'right',
+          panelClass: ['success-snack'],
+        })
       });
     }
   }

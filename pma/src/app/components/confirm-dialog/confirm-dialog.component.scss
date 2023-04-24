@@ -1,5 +1,5 @@
 $primary: #EDF1D6;
-$primary-dark:#9DC08B;
+$primary-dark: #9DC08B;
 $secondary: #609966;
 $secondary-dark: #40513B;
 $warning: #de5555;
@@ -20,9 +20,11 @@ $warning: #de5555;
   display: flex;
   flex-direction: column;
 }
+
 #close-icon {
   margin-left: auto;
 }
+
 p {
   padding: 10px;
   font-size: 18px;
@@ -34,6 +36,8 @@ p {
   justify-content: space-between;
   padding: 10px;
 }
+
 #yes {
+  margin-left: 10px;
   background-color: $warning;
 }
