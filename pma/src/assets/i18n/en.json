@@ -26,10 +26,11 @@
     "delete": "Delete",
     "header": "Enter new board name",
     "cancel": "Cancel",
-    "submit": "Submit",
+    "submit": "Create",
     "title": "Title",
     "titleRequired": "Title is required",
-    "boardName": "Board"
+    "boardName": "Board",
+    "deleteBoard": "delete this board"
   },
    "column": {
     "titleRequired": "Title is required",
@@ -38,8 +39,9 @@
     "columnName": "Enter new column name",
     "title": "Title",
     "cancel": "Cancel",
-    "submit": "Submit",
-    "back": "Back"
+    "submit": "Create",
+    "back": "Back",
+    "deleteColumn": " delete this column"
    },
    "task": {
     "header": "Enter new task title",
@@ -48,8 +50,9 @@
     "descriptionRequired": "Description is required",
     "description": "Description",
     "cancel": "Cancel",
-    "submit": "Submit",
-    "titleedit": "Edit task"
+    "submit": "Create",
+    "titleedit": "Edit task",
+    "deleteTask": " delete this task"
 
    },
    "errors": {

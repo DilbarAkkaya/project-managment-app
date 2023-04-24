@@ -21,8 +21,8 @@
           <mat-error *ngIf="createForm.get('title')?.invalid && createForm.get('title')?.touched">{{'boardItem.titleRequired' | translate}}</mat-error>
         </mat-form-field>
         <mat-dialog-actions>
-        <button class="button" [mat-dialog-close] =true >{{'boardItem.cancel' | translate}}</button>
-        <button class="button" type="submit" [disabled]="createForm.invalid">{{'boardItem.submit' | translate}}</button>
+        <button class="button" [mat-dialog-close] =true ><mat-icon class="margin">cancel</mat-icon>{{'boardItem.cancel' | translate}}</button>
+        <button class="button" type="submit" [disabled]="createForm.invalid"><mat-icon class="margin">check</mat-icon>{{'boardItem.submit' | translate}}</button>
         </mat-dialog-actions>
       </form>
     </mat-card-content>

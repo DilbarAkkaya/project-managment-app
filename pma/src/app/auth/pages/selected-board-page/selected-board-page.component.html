@@ -2,9 +2,10 @@
 <section class="board-header">
   <p>{{'boardItem.boardName'| translate}}: {{board?.title}}</p>
   <pma-search *ngIf="apiservice.isAuthenticated()" (searchTextChanged)="onSearchTextEntered($event)"></pma-search>
-  <button class="button" (click)="backToMain()"><mat-icon class="margin">arrow_back</mat-icon>{{'column.back'| translate}}</button>
-  <button class="button" (click) = "openCreateDialog()" ><mat-icon class="margin">add_box</mat-icon>{{'column.create'| translate}}</button>
-
+  <div class="button-wrapper">
+    <button class="button margin" (click)="backToMain()"><mat-icon class="margin">arrow_back</mat-icon>{{'column.back'| translate}}</button>
+    <button class="button" (click) = "openCreateDialog()" ><mat-icon class="margin">add_box</mat-icon>{{'column.create'| translate}}</button>
+  </div>
 </section>
 <section class="columns-main" cdkDropListGroup cdkDropList (cdkDropListDropped)="onMoveColumn($event)" [cdkDropListData]="columns">
   <ul>

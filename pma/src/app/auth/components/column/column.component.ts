@@ -9,6 +9,7 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
 import { ConfirmDialogService } from '../../services/confirm-dialog.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { FilterPipe } from 'src/app/pipes/filter.pipe';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'pma-column',
@@ -25,7 +26,7 @@ export class ColumnComponent implements OnInit, OnDestroy {
   sub: Subscription | undefined;
   columns: IColumnResponse[] =[];
   isTitleEdit: boolean = false;
-   constructor(private dialog: MatDialog, private route: ActivatedRoute, private boardservice: BoardserviceService, private dialogservice: ConfirmDialogService){
+   constructor(private dialog: MatDialog, private translate: TranslateService, private route: ActivatedRoute, private boardservice: BoardserviceService, private dialogservice: ConfirmDialogService){
   }
  edittitleForm = new FormGroup({
     title: new FormControl('', Validators.required),
@@ -86,7 +87,7 @@ export class ColumnComponent implements OnInit, OnDestroy {
       this.columns = this.columns.filter((column) => column._id !== id)
       this.removeColumnEvent.emit(id);
     }) */
-    this.dialogservice.openConfirm("delete this column").afterClosed().subscribe(response => {
+    this.dialogservice.openConfirm(this.translate.instant('column.deleteColumn')).afterClosed().subscribe(response => {
       if(response) {
         this.boardservice.deleteColumnById(this.boardId, id).subscribe(()=>{
           console.log(this.columns, '11111111111111111111')

@@ -17,8 +17,8 @@
           <mat-error *ngIf="createForm.get('description')?.invalid && createForm.get('description')?.touched">{{'task.descriptionRequired'| translate}}</mat-error>
         </mat-form-field>
         <mat-dialog-actions>
-        <button class="button" [mat-dialog-close] =true >{{'task.cancel'| translate}}</button>
-        <button class="button" type="submit" [disabled]="createForm.invalid">{{'task.submit'| translate}}</button>
+        <button class="button" [mat-dialog-close] =true ><mat-icon class="margin">cancel</mat-icon>{{'task.cancel'| translate}}</button>
+        <button class="button" type="submit" [disabled]="createForm.invalid"><mat-icon class="margin">check</mat-icon>{{'task.submit'| translate}}</button>
         </mat-dialog-actions>
       </form>
     </mat-card-content>

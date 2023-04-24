@@ -30,7 +30,8 @@
     "submit": "Pano oluştur",
     "title": "Başlık",
     "titleRequired": "Başlık girmelisiniz",
-    "boardName": "Pano adı"
+    "boardName": "Pano adı",
+    "deleteBoard": "bu panoyu silmeye"
   },
   "column": {
     "titleRequired": "Başlık girmelisiniz",
@@ -40,7 +41,8 @@
     "title": "Başlık",
     "cancel": "İptal",
     "submit": "Sütün oluştur",
-    "back": "Geri dön"
+    "back": "Geri dön",
+    "deleteColumn": " bu sütünü silmeye"
    },
    "task": {
     "header": "Yenıi kart oluşturunuz",
@@ -50,7 +52,8 @@
     "description": "Açıklama",
     "cancel": "İptal",
     "submit": "Kart ekle",
-    "titleedit": "Kart bilgilerini düzenleyiniz"
+    "titleedit": "Kart bilgilerini düzenleyiniz",
+    "deleteTask": "bu kartı silmeye"
    },
    "errors": {
     "autorization": "Kullanıcı adı veya şifre hatalı!",
