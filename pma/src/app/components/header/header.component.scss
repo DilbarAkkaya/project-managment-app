@@ -32,7 +32,6 @@ $secondary-dark: #40513B;
 }
 .auth-wrapper a{
   text-decoration: none;
-  margin-right: 10px;
   color: $secondary-dark;
   font-size: 16px;
   letter-spacing: 1.5px;
@@ -41,7 +40,6 @@ $secondary-dark: #40513B;
 .auth-wrapper a:nth-child(2){
   background-color: $secondary;
   color: $primary;
-  margin-right: 10px;
 }
 
 .auth-wrapper a:first-child{
@@ -77,4 +75,12 @@ $secondary-dark: #40513B;
 
 .en {
   background-image:url('../../../assets/en.png');
+}
+
+.sign, .logout {
+  margin-right: 0;
+}
+
+.login, .edit, .create-button {
+  margin-right: 10px;
 }

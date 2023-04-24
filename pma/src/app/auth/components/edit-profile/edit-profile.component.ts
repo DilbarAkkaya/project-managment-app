@@ -76,4 +76,7 @@ if (this.editForm.valid) {
        }
      })
    }
+   closeEdit(){
+    this.dialogRef.close(false);
+   }
 }

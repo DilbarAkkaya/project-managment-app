@@ -13,14 +13,14 @@
         </mat-button-toggle>
       </mat-button-toggle-group> -->
       <div class="auth-wrapper" *ngIf="!apiservice.isAuthenticated()">
-        <a i18n="@@headerLogin login|ref for login in site" href="#" class="button auth-link" [routerLink]="['./auth/login']"><mat-icon class="margin">login</mat-icon>{{'login.loginButton' | translate }}</a>
+        <a i18n="@@headerLogin login|ref for login in site" href="#" class="button auth-link login" [routerLink]="['./auth/login']"><mat-icon class="margin">login</mat-icon>{{'login.loginButton' | translate }}</a>
 
-        <a i18n="@@headerSignup signup|ref for sign up in site"href="#" class="button auth-link" [routerLink]="['./auth/signup']"><mat-icon class="margin">exit_to_app</mat-icon>{{'signup.signupButton' | translate }}</a>
+        <a i18n="@@headerSignup signup|ref for sign up in site"href="#" class="button auth-link sign" [routerLink]="['./auth/signup']"><mat-icon class="margin">exit_to_app</mat-icon>{{'signup.signupButton' | translate }}</a>
       </div>
       <div class="auth-wrapper" *ngIf="apiservice.isAuthenticated()">
         <a i18n="@@createBoard createBoard|ref creating board"class="button auth-link create-button" (click) = "openCreateDialog()"><mat-icon class="margin">add_box</mat-icon>{{'header.createBoard' | translate }}</a>
-        <a i18n="@@headerSignup signup|ref for sign up in site"href="#" class="button auth-link margin" [routerLink]="['./auth/edit']" (click) = "openEditForm()"><mat-icon class="margin">edit</mat-icon>Edit profile</a>
-        <a i18n="@@logOut logout|ref for logout from site" href="#" class="button auth-link" [routerLink]="['/']" (click) = "apiservice.logout()"><mat-icon class="margin">logout</mat-icon>{{'header.logout' | translate }}</a>
+        <a i18n="@@headerSignup signup|ref for sign up in site"href="#" class="button auth-link edit" [routerLink]="['./auth/edit']" (click) = "openEditForm()"><mat-icon class="margin">edit</mat-icon>{{'edit.button' | translate }}</a>
+        <a i18n="@@logOut logout|ref for logout from site" href="#" class="button auth-link logout" [routerLink]="['/']" (click) = "apiservice.logout()"><mat-icon class="margin">logout</mat-icon>{{'header.logout' | translate }}</a>
       </div>
     </mat-toolbar>
    <!--  <pma-search *ngIf="apiservice.isAuthenticated()" (searchTextChanged)="onSearchTextEntered($event)"></pma-search> -->

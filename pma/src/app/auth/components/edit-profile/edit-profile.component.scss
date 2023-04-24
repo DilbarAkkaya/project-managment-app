@@ -31,6 +31,7 @@ mat-dialog-actions{
 mat-card-header {
   font-size: 18px;
   font-weight: 500;
+  display: flex;
 }
 
 mat-label, input, mat-card-header {
@@ -40,4 +41,7 @@ mat-label, input, mat-card-header {
 
 .button-wrapper {
   display: flex;
+}
+#close-icon {
+  margin-left: auto;
 }
