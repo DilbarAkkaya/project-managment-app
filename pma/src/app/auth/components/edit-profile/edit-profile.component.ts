@@ -24,26 +24,25 @@ export class EditProfileComponent {
     login: new FormControl('', Validators.required),
     password: new FormControl('', [Validators.required, Validators.minLength(7)])
   })
-  constructor(private dialogRef: MatDialogRef<ModalCreateComponent>, private service: UserService, private router: Router, private translateService:TranslateService, private dialogservice: ConfirmDialogService){
+  constructor(private dialogRef: MatDialogRef<ModalCreateComponent>, private service: UserService, private router: Router, private translateService: TranslateService, private dialogservice: ConfirmDialogService) {
   }
   ngOnInit(): void {
     this.resetForm();
   }
-  editSubmit(){
-console.log("edit profile")
-if (this.editForm.valid) {
-  const data: IUpdateUser = {
-    name: this.editForm.value.name!,
-    login: this.editForm.value.login!,
-    password: this.editForm.value.password!
-  };
-  this.errorMessageShow = false;
-  this.userId = localStorage.getItem('owner')!;
-  this.service.updateUser(this.userId, data).subscribe({
-    next: () => {
-      this.router.navigate(['/auth/main']);
-    }
-})
+  editSubmit() {
+    if (this.editForm.valid) {
+      const data: IUpdateUser = {
+        name: this.editForm.value.name!,
+        login: this.editForm.value.login!,
+        password: this.editForm.value.password!
+      };
+      this.errorMessageShow = false;
+      this.userId = localStorage.getItem('owner')!;
+      this.service.updateUser(this.userId, data).subscribe({
+        next: () => {
+          this.router.navigate(['/auth/main']);
+        }
+      })
     } else {
       this.errorMessageShow = true;
       this.errorMessage = 'All fields are required!';
@@ -59,24 +58,19 @@ if (this.editForm.valid) {
   }
   getErrorMessage(text: string, params: { length: number }): string {
     return this.translateService.instant(text, params)
-    //return (this.signupForm.value.password!.length < 7) ? 'Your password should be min 7 chars' : '';
   }
   deleteUser(event: Event) {
-    /*  event.stopPropagation();
-     this.boardservice.deleteBoardById(this.board!._id).subscribe(() => {
-       this.boardDeleted.emit(this.board!._id);
-     }); */
-     event.stopPropagation();
-     this.dialogservice.openConfirm().afterClosed().subscribe(response => {
-       if(response) {
-         this.service.deleteUser(this.userId!).subscribe(() => {
-           this.userDeleted.emit(this.userId);
-           this.router.navigate([`./auth/login`]);
-         })
-       }
-     })
-   }
-   closeEdit(){
+    event.stopPropagation();
+    this.dialogservice.openConfirm().afterClosed().subscribe(response => {
+      if (response) {
+        this.service.deleteUser(this.userId!).subscribe(() => {
+          this.userDeleted.emit(this.userId);
+          this.router.navigate([`./auth/login`]);
+        })
+      }
+    })
+  }
+  closeEdit() {
     this.dialogRef.close(false);
-   }
+  }
 }

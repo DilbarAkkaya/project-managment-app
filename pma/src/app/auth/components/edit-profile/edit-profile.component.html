@@ -1,33 +1,37 @@
 <mat-dialog-content class="mat-dialog">
-<mat-card class="form-wrapper">
-  <mat-card-header>
-    {{'edit.title'|translate}}
-    <mat-icon id="close-icon" (click) ="closeEdit()">close</mat-icon>
-  </mat-card-header>
-
-  <mat-card-content>
-    <form [formGroup]="editForm" (ngSubmit)="editSubmit()" autocomplete="off">
-      <mat-error *ngIf="errorMessageShow">{{errorMessage}}</mat-error>
-      <mat-form-field autocomplete="off">
-        <mat-label> {{'edit.name'|translate}} </mat-label>
-        <input matInput type="text" formControlName="name" required value="" autocomplete="chrome-off">
-        <mat-error *ngIf="editForm.get('name')?.invalid && editForm.get('name')?.touched">{{'edit.nameRequired'|translate}}</mat-error>
-      </mat-form-field>
-      <mat-form-field autocomplete="off">
-        <mat-label> {{'edit.login' | translate }}</mat-label>
-        <input matInput type="text" formControlName="login" required autocomplete="off">
-        <mat-error *ngIf="editForm.get('login')?.invalid && editForm.get('login')?.touched">{{'edit.loginRequired'|translate}}</mat-error>
-      </mat-form-field>
-      <mat-form-field autocomplete="off">
-        <mat-label> {{'edit.password' | translate }}</mat-label>
-        <input matInput type="password" formControlName="password" required minlength="7" autocomplete="off">
-        <mat-error *ngIf="editForm.get('password')?.invalid && editForm.get('password')?.touched"> {{ getErrorMessage('edit.passwordRequired', { length: 7 }) }}</mat-error>
-      </mat-form-field>
-      <div class="button-wrapper">
-        <button class="button" [disabled]="editForm.invalid" (click) = "deleteUser($event)"><mat-icon class="margin">delete</mat-icon>{{'edit.delete'|translate}}</button>
-        <button class="button" type="submit" [disabled]="editForm.invalid"><mat-icon class="margin">check</mat-icon>{{'edit.submit'|translate}}</button>
-      </div>
-    </form>
-  </mat-card-content>
-</mat-card>
+  <mat-card class="form-wrapper">
+    <mat-card-header>
+      {{'edit.title'|translate}}
+      <mat-icon id="close-icon" (click)="closeEdit()">close</mat-icon>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="editForm" (ngSubmit)="editSubmit()" autocomplete="off">
+        <mat-error *ngIf="errorMessageShow">{{errorMessage}}</mat-error>
+        <mat-form-field autocomplete="off">
+          <mat-label> {{'edit.name'|translate}} </mat-label>
+          <input matInput type="text" formControlName="name" required value="" autocomplete="chrome-off">
+          <mat-error
+            *ngIf="editForm.get('name')?.invalid && editForm.get('name')?.touched">{{'edit.nameRequired'|translate}}</mat-error>
+        </mat-form-field>
+        <mat-form-field autocomplete="off">
+          <mat-label> {{'edit.login' | translate }}</mat-label>
+          <input matInput type="text" formControlName="login" required autocomplete="off">
+          <mat-error
+            *ngIf="editForm.get('login')?.invalid && editForm.get('login')?.touched">{{'edit.loginRequired'|translate}}</mat-error>
+        </mat-form-field>
+        <mat-form-field autocomplete="off">
+          <mat-label> {{'edit.password' | translate }}</mat-label>
+          <input matInput type="password" formControlName="password" required minlength="7" autocomplete="off">
+          <mat-error *ngIf="editForm.get('password')?.invalid && editForm.get('password')?.touched"> {{
+            getErrorMessage('edit.passwordRequired', { length: 7 }) }}</mat-error>
+        </mat-form-field>
+        <div class="button-wrapper">
+          <button class="button" [disabled]="editForm.invalid" (click)="deleteUser($event)"><mat-icon
+              class="margin">delete</mat-icon>{{'edit.delete'|translate}}</button>
+          <button class="button" type="submit" [disabled]="editForm.invalid"><mat-icon
+              class="margin">check</mat-icon>{{'edit.submit'|translate}}</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
 </mat-dialog-content>

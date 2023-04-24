@@ -1,8 +1,9 @@
 $primary: #EDF1D6;
-$primary-dark:#9DC08B;
+$primary-dark: #9DC08B;
 $secondary: #609966;
 $secondary-dark: #40513B;
 $warning: #ff0000;
+
 form {
   min-width: 150px;
   max-width: 500px;
@@ -12,29 +13,36 @@ form {
   flex-direction: column;
   margin-top: 3rem;
 }
+
 .mat-dialog {
   padding: 0;
 }
+
 .form-wrapper {
   align-items: center;
   background-color: $primary-dark;
 }
-mat-dialog-actions{
+
+mat-dialog-actions {
   padding: 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
+
 .button:nth-child(1) {
   margin-right: 30px;
 }
+
 mat-card-header {
   font-size: 18px;
   font-weight: 500;
   display: flex;
 }
 
-mat-label, input, mat-card-header {
+mat-label,
+input,
+mat-card-header {
   color: $primary;
   width: 100%;
 }
@@ -42,6 +50,7 @@ mat-label, input, mat-card-header {
 .button-wrapper {
   display: flex;
 }
+
 #close-icon {
   margin-left: auto;
 }

@@ -1,35 +1,33 @@
-
-  <mat-card class="form-wrapper" *ngIf="column" cdkDropList (cdkDropListDropped)="onDropTask($event, column)" [cdkDropListData]="tasks">
-    <mat-card-header>
+<mat-card class="form-wrapper" *ngIf="column" cdkDropList (cdkDropListDropped)="onDropTask($event, column)"
+  [cdkDropListData]="tasks">
+  <mat-card-header>
     <ng-container *ngIf="!isTitleEdit; else editForm">
-      <p (click) = oneditTitle()>{{column.title}}</p>
-      <mat-icon class="icon" (click) = "onremoveColumn(column._id)">delete</mat-icon>
+      <p (click)=oneditTitle()>{{column.title}}</p>
+      <mat-icon class="icon" (click)="onremoveColumn(column._id)">delete</mat-icon>
     </ng-container>
-
-
-      <ng-template #editForm>
-        <form class="form-template" [formGroup]="edittitleForm" (ngSubmit)="edittitleForm.valid && editSubmit()">
-          <div class="input-wrapper">
-            <input matInput type="text" formControlName="title" required maxlength="15">
-            <mat-error *ngIf="edittitleForm.get('title')?.invalid && edittitleForm.get('title')?.touched">{{'column.titleRequired'| translate}}</mat-error>
-          </div>
-          <button class="icon-button" mat-icon-button type="submit">
-            <mat-icon>check</mat-icon>
-          </button>
-          <button class="icon-button" mat-icon-button (click)="onexitTitle()">
-            <mat-icon>clear</mat-icon>
-          </button>
-
-        </form>
-      </ng-template>
-    </mat-card-header>
-
-     <!--  <button class="button" (click) = "onremoveColumn(column._id)">Delete column</button> -->
-      <button class="button create" (click) = "openTaskForm()"><mat-icon class="margin">add_task</mat-icon>{{'column.createTask'| translate}}</button>
-      <ul class="task-list">
-        <li class="task-item" *ngFor="let task of tasks | filter: (searchText ? searchText : '')">
-          <pma-task [task] = "task"  [column]="column" [boardId]="boardId" [tasks] ="tasks" (removeTaskEvent)="onremoveTask($event)"cdkDrag></pma-task>
-        </li>
-      </ul>
-  </mat-card>
-
+    <ng-template #editForm>
+      <form class="form-template" [formGroup]="edittitleForm" (ngSubmit)="edittitleForm.valid && editSubmit()">
+        <div class="input-wrapper">
+          <input matInput type="text" formControlName="title" required maxlength="15">
+          <mat-error
+            *ngIf="edittitleForm.get('title')?.invalid && edittitleForm.get('title')?.touched">{{'column.titleRequired'|
+            translate}}</mat-error>
+        </div>
+        <button class="icon-button" mat-icon-button type="submit">
+          <mat-icon>check</mat-icon>
+        </button>
+        <button class="icon-button" mat-icon-button (click)="onexitTitle()">
+          <mat-icon>clear</mat-icon>
+        </button>
+      </form>
+    </ng-template>
+  </mat-card-header>
+  <button class="button create" (click)="openTaskForm()"><mat-icon
+      class="margin">add_task</mat-icon>{{'column.createTask'| translate}}</button>
+  <ul class="task-list">
+    <li class="task-item" *ngFor="let task of tasks | filter: (searchText ? searchText : '')">
+      <pma-task [task]="task" [column]="column" [boardId]="boardId" [tasks]="tasks"
+        (removeTaskEvent)="onremoveTask($event)" cdkDrag></pma-task>
+    </li>
+  </ul>
+</mat-card>

@@ -1,5 +1,5 @@
 $primary: #EDF1D6;
-$primary-dark:#9DC08B;
+$primary-dark: #9DC08B;
 $secondary: #609966;
 $secondary-dark: #40513B;
 
@@ -18,8 +18,8 @@ $secondary-dark: #40513B;
   transition: 0.3s all ease;
 }
 
-.mat-dialog{
- padding: 0;
+.mat-dialog {
+  padding: 0;
 }
 
 mat-card-header {
@@ -29,7 +29,8 @@ mat-card-header {
   align-self: center;
   padding-bottom: 15px;
 }
-button[disabled]{
+
+button[disabled] {
   background-color: $primary-dark;
 }
 
@@ -37,11 +38,8 @@ li {
   min-width: 282px;
 }
 
-.form-wrapper:hover{
+.form-wrapper:hover {
   cursor: pointer;
   transform: scale(1.1);
   background: $secondary;
 }
-
-
-
