@@ -3,7 +3,7 @@ import { Subscription, switchMap } from 'rxjs';
 import { TodoItem } from 'src/app/models/todo.model';
 import { BoardserviceService } from '../../services/board.service';
 import { IBoardResponse, IColumnResponse } from 'src/app/models/api.model';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ColumnFormComponent } from '../../components/column-form/column-form.component';
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
@@ -23,7 +23,7 @@ export class SelectedBoardPageComponent implements OnInit {
   searchText: string = '';
 
   //todoList: TodoItem[] =[];
-  constructor(public apiservice: AuthserviceService, private boardService: BoardserviceService, private route: ActivatedRoute, private dialog: MatDialog) {
+  constructor(public apiservice: AuthserviceService, private boardService: BoardserviceService, private route: ActivatedRoute, private dialog: MatDialog, private router: Router) {
 
   }
   /*   onAddTodo(item: TodoItem){
@@ -78,6 +78,9 @@ export class SelectedBoardPageComponent implements OnInit {
       onSearchTextEntered(searchValue: string){
         this.searchText = searchValue;
         console.log('entered value', this.searchText)
+      }
+      backToMain(){
+        this.router.navigate(['./auth/main']);
       }
     }
 

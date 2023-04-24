@@ -38,7 +38,8 @@
     "columnName": "Enter new column name",
     "title": "Title",
     "cancel": "Cancel",
-    "submit": "Submit"
+    "submit": "Submit",
+    "back": "Back"
    },
    "task": {
     "header": "Enter new task title",

@@ -39,7 +39,8 @@
     "columnName": "Yeni sütün oluştur",
     "title": "Başlık",
     "cancel": "İptal",
-    "submit": "Sütün oluştur"
+    "submit": "Sütün oluştur",
+    "back": "Geri dön"
    },
    "task": {
     "header": "Yenıi kart oluşturunuz",
