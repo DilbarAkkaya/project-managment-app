@@ -29,8 +29,13 @@ ul {
   flex-wrap: nowrap;
   gap: 10px;
   overflow-x: auto;
+  margin-bottom: 10px;
 }
 
 li {
   min-width: 250px;
+}
+
+.columns-main {
+  height: calc(100vh - 173px);
 }

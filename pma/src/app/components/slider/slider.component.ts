@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthserviceService } from 'src/app/auth/services/authservice.service';
 import { SwiperOptions } from 'swiper';
 
 @Component({
@@ -7,6 +9,9 @@ import { SwiperOptions } from 'swiper';
   styleUrls: ['./slider.component.scss']
 })
 export class SliderComponent {
+  constructor(private auth: AuthserviceService, private router: Router){
+
+  }
   config: SwiperOptions = {
     pagination: {
       el: ".pag_bullet",
@@ -23,4 +28,11 @@ export class SliderComponent {
     spaceBetween: 30,
     slidesPerView: 1,
   };
+  onStart(){
+    if (this.auth.isAuthenticated()) {
+      this.router.navigate(['./auth/main']);
+    } else {
+      this.router.navigate(['./auth/login']);
+    }
+  }
 }
