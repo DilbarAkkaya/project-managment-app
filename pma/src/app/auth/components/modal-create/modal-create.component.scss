@@ -1,5 +1,5 @@
 $primary: #EDF1D6;
-$primary-dark:#9DC08B;
+$primary-dark: #9DC08B;
 $secondary: #609966;
 $secondary-dark: #40513B;
 
@@ -18,15 +18,18 @@ form {
   display: flex;
   flex-direction: column;
 }
-.mat-dialog{
- padding: 0;
+
+.mat-dialog {
+  padding: 0;
 }
-mat-dialog-actions{
+
+mat-dialog-actions {
   padding: 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
+
 .button:nth-child(1) {
   margin-right: 30px;
 }
@@ -37,6 +40,7 @@ mat-card-header {
   margin-bottom: 10px;
   align-self: center;
 }
-button[disabled]{
+
+button[disabled] {
   background-color: $primary-dark;
 }
