@@ -55,7 +55,8 @@ export class HeaderComponent implements OnInit {
     const dialogRef = this.dialog.open(ModalCreateComponent);
     dialogRef.afterClosed().subscribe(() => {});
   }
-  openEditForm() {
+  openEditForm(event: Event) {
+    event?.preventDefault();
     const dialogRef = this.dialog.open(EditProfileComponent)
     dialogRef.afterClosed().subscribe(() => {})
   }

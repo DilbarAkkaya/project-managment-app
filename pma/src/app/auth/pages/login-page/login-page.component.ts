@@ -14,7 +14,6 @@ import { UserService } from '../../services/user.service';
 export class LoginPageComponent implements OnInit {
   errorMessage = '';
   errorMessageShow = false;
-  isSubmited = false;
   @Output() userLogin = new EventEmitter<string>();
   constructor(public service: AuthserviceService, private userService: UserService, private router: Router, private translateService: TranslateService) { }
   loginForm = new FormGroup({
@@ -24,11 +23,11 @@ export class LoginPageComponent implements OnInit {
   ngOnInit(): void {
   }
   loginSubmit() {
-    this.isSubmited = true;
     const data: IAuthData = {
       login: this.loginForm.value.login!,
       password: this.loginForm.value.password!
     };
+     this.loginForm.markAllAsTouched();
     if (this.loginForm.valid) {
       this.service.login(data).subscribe(() => {
         localStorage.setItem('user', data.login)
@@ -36,11 +35,11 @@ export class LoginPageComponent implements OnInit {
         this.userService.setUser(data.login);
         this.loginForm.reset();
         this.router.navigate(['/auth/main']);
-        this.isSubmited = false;
       })
     } else {
       this.errorMessageShow = true;
-      this.errorMessage = 'All field required!'
+      this.errorMessage = 'All field required!';
+      this.service.error$.next(null);
     }
   }
   getErrorMessage(text: string, params: { length: number }): string {

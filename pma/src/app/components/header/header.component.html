@@ -21,7 +21,7 @@
         (click)="openCreateDialog()"><mat-icon class="margin">add_box</mat-icon>{{'header.createBoard' | translate
         }}</a>
       <a i18n="@@headerSignup signup|ref for sign up in site" href="#" class="button auth-link edit"
-        [routerLink]="['./auth/edit']" (click)="openEditForm()"><mat-icon class="margin">edit</mat-icon>{{'edit.button'
+        (click)="openEditForm($event)"><mat-icon class="margin">edit</mat-icon>{{'edit.button'
         | translate }}</a>
       <a i18n="@@logOut logout|ref for logout from site" href="#" class="button auth-link logout" [routerLink]="['/']"
         (click)="apiservice.logout()"><mat-icon class="margin">logout</mat-icon>{{'header.logout' | translate }}</a>

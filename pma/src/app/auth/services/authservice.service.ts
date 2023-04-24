@@ -8,7 +8,7 @@ import { TranslateService } from '@ngx-translate/core';
   providedIn: 'root'
 })
 export class AuthserviceService {
-  public error$: Subject<string> = new Subject<string>()
+  public error$: Subject<string | null> = new Subject<string|null>()
   constructor(private http: HttpClient, private translate: TranslateService) { }
   apiUrl = apiEnum.base;
   get token(): string | null {

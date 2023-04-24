@@ -25,12 +25,13 @@ export class EditProfileComponent {
     login: new FormControl('', Validators.required),
     password: new FormControl('', [Validators.required, Validators.minLength(7)])
   })
-  constructor(private dialogRef: MatDialogRef<ModalCreateComponent>, private snackBar: MatSnackBar, public translate: TranslateService, private service: UserService, private router: Router, private translateService: TranslateService, private dialogservice: ConfirmDialogService) {
+  constructor(private dialogRef: MatDialogRef<ModalCreateComponent>, private snackBar: MatSnackBar, private service: UserService, private router: Router, private translateService: TranslateService, private dialogservice: ConfirmDialogService) {
   }
   ngOnInit(): void {
     this.resetForm();
   }
-  editSubmit() {
+  editSubmit(event: Event) {
+    event.preventDefault();
     if (this.editForm.valid) {
       const data: IUpdateUser = {
         name: this.editForm.value.name!,
@@ -41,7 +42,14 @@ export class EditProfileComponent {
       this.userId = localStorage.getItem('owner')!;
       this.service.updateUser(this.userId, data).subscribe({
         next: () => {
+          localStorage.setItem('user', data.login);
+          this.service.setUser(data.login);
           this.router.navigate(['/auth/main']);
+          this.snackBar.open(this.translateService.instant('success.message'), this.translateService.instant('success.close'), {
+            duration: 2000,
+            horizontalPosition: 'right',
+            panelClass: ['success-snack'],
+          })
         }
       })
     } else {
@@ -61,6 +69,7 @@ export class EditProfileComponent {
     return this.translateService.instant(text, params)
   }
   deleteUser(event: Event) {
+    event.preventDefault();
     event.stopPropagation();
     this.dialogservice.openConfirm().afterClosed().subscribe(response => {
       if (response) {
