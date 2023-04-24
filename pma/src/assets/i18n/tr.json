@@ -69,7 +69,8 @@
   },
   "success": {
     "close": "Kapat",
-    "message": "Başarıyla güncellendi"
+    "message": "Başarıyla güncellendi",
+    "create": "Başarıyla  oluşturuldu"
   },
   "search": {
     "placeholder": "Başlığa veya açıklamaya göre ara"

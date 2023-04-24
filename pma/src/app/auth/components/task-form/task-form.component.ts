@@ -1,26 +1,26 @@
-import { Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ModalCreateComponent } from '../modal-create/modal-create.component';
 import { BoardserviceService } from '../../services/board.service';
 import { ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { IBoardResponse, IColumnCreate, IColumnResponse, ITaskCreate, ITaskResponse } from 'src/app/models/api.model';
+import { ITaskCreate, ITaskResponse } from 'src/app/models/api.model';
 import { TranslateService } from '@ngx-translate/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'pma-task-form',
   templateUrl: './task-form.component.html',
   styleUrls: ['./task-form.component.scss']
 })
-export class TaskFormComponent implements OnInit{
+export class TaskFormComponent implements OnInit {
   @Output() taskCreated = new EventEmitter<ITaskResponse>();
-  boardId: string ='';
-  columnId: string ='';
+  boardId: string = '';
+  columnId: string = '';
   tasks: ITaskResponse[] = [];
-  constructor(private dialogRef: MatDialogRef<ModalCreateComponent>, private translateService: TranslateService, private boardService: BoardserviceService, private route: ActivatedRoute, private dialog: MatDialog,
-    @Inject(MAT_DIALOG_DATA) public data: { boardId: string, columnId: string}){
-
-      this.boardId = data.boardId,
+  constructor(private dialogRef: MatDialogRef<ModalCreateComponent>, private snackBar: MatSnackBar, private translate: TranslateService, private boardService: BoardserviceService, private route: ActivatedRoute, private dialog: MatDialog,
+    @Inject(MAT_DIALOG_DATA) public data: { boardId: string, columnId: string }) {
+    this.boardId = data.boardId,
       this.columnId = data.columnId
   }
   createForm = new FormGroup({
@@ -28,9 +28,7 @@ export class TaskFormComponent implements OnInit{
     description: new FormControl('', Validators.required),
   })
   ngOnInit(): void {
-
   }
-
   close() {
     this.dialogRef.close();
   }
@@ -43,32 +41,18 @@ export class TaskFormComponent implements OnInit{
         userId: 0,
         users: ['']
       }
-
       this.boardService.createTask(this.boardId, this.columnId, task).subscribe((task) => {
-
-        console.log('what is this', task)
-       // this.tasks.push(task)
-        console.log('array', this.tasks)
         this.taskCreated.emit(task);
-        this.dialogRef.close({task});
+        this.dialogRef.close({ task });
+        this.snackBar.open(this.translate.instant('success.create'), this.translate.instant('success.close'), {
+          duration: 2000,
+          horizontalPosition: 'right',
+          panelClass: ['success-snack'],
+        })
       });
     }
   }
-    getErrorMessage(text: string, params: { length: number }): string {
-      return this.translateService.instant(text, params)
-      //return (this.signupForm.value.password!.length < 7) ? 'Your password should be min 7 chars' : '';
-    }
-  //  return (this.createForm.value.title!.length < 16) ? 'Title is required and should be max 15 chars' : '';
+  getErrorMessage(text: string, params: { length: number }): string {
+    return this.translate.instant(text, params)
   }
-
-
-/*         this.boardService.refresh$.subscribe(() => {
-          this.createTask(this.boardId, this.columnId, task);
-        });
-        this.createTask(this.boardId, this.columnId, task);
-    }
-  }
-      private createTask(idB:string,idC:string, data:ITaskCreate) {
-        this.boardService.createTask(idB, idC,data).subscribe((task) => {
-          task =task;
-        }); */
+}

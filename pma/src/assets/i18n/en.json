@@ -69,7 +69,8 @@
   },
   "success": {
     "close": "Close",
-    "message": "Updated successfully"
+    "message": "Updated successfully",
+    "create": "Created successfully"
   },
   "search": {
     "placeholder": "Search task by title or description"
