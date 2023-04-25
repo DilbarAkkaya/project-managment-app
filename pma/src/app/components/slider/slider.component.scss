@@ -24,38 +24,52 @@ swiper {
 
 img {
   width: 400px;
-  height: 400px;
+  height: 300px;
   position: absolute;
 }
 
 .img-1 {
-  width: 600px;
-  height: 200px;
-  right: 65px;
+  width: 450px;
+  height: 300px;
+  right: 45px;
   top: 50px;
   z-index: 1;
 }
 
 .img-2 {
   right: 140px;
-  top: 200px;
+  top: 180px;
   z-index: 1;
 }
 
 .img-3 {
   width: 130px;
   height: 130px;
-  right: 150px;
-  top: 380px;
+  right: 100px;
+  top: 280px;
   z-index: 3;
 }
 
 .img-4 {
-  width: 260px;
-  height: 100px;
-  right: 280px;
-  top: 486px;
+  width: 250px;
+  height: 200px;
+  right: 340px;
+  top: 400px;
   z-index: 4;
+}
+.img-5 {
+  width: 130px;
+  height: 80px;
+  right: 20px;
+  top: 180px;
+  z-index: 5;
+}
+.img-6 {
+  width: 250px;
+  height: 100px;
+  right: 180px;
+  top: 535px;
+  z-index: 6;
 }
 
 .swiper-slide {
@@ -92,9 +106,9 @@ h1 {
 
 .right-img {
   float: right;
-  margin: 7px 0 7px 7px;
-  width: 110px;
-  height: 110px;
+  margin: 7px 0 7px 40px;
+  width: 120px;
+  height: 170px;
   position: relative;
 }
 
