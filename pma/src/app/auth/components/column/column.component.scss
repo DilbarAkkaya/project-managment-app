@@ -97,3 +97,9 @@ mat-error {
   display: flex;
   flex-direction: column;
 }
+
+@media screen and (min-width: 324px) and (max-width: 767px) {
+  .form-wrapper>.create {
+    width: 125px;
+  }
+}

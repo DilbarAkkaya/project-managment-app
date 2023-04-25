@@ -22,6 +22,7 @@ html {
 body {
   background: $primary;
   font-family: 'Londrina Solid', cursive;
+  position: relative;
 }
 
 a {
@@ -47,7 +48,6 @@ main {
   height: 35px;
   text-align: center;
   font-size: 16px;
-  padding: 5px;
   line-height: 1.4;
   color: $secondary-dark;
   cursor: pointer;
@@ -255,4 +255,42 @@ input:-webkit-autofill:active {
 .mat-mdc-form-field-hint-wrapper,
 .mat-mdc-form-field-error-wrapper {
   padding: 0 0 !important;
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  body {
+    font-size: 12px;
+    line-height: 1px;
+  }
+  .button {
+    width: 100px;
+    height: 35px;
+    font-size: 12px;
+    line-height: 1;
+  }
+  .swiper-button-prev:after, .swiper-container-rtl .swiper-button-next:after {
+    font-size: 16px;
+  }
+  .swiper-button-next:after, .swiper-container-rtl .swiper-button-next:after {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 324px) and (max-width: 767px) {
+  body {
+    font-size: 10px;
+    line-height: 1px;
+  }
+  .button {
+    width: 84px;
+    height: 32px;
+    font-size: 14px;
+  }
+  .swiper-button-prev:after, .swiper-container-rtl .swiper-button-next:after {
+    font-size: 14px;
+  }
+  .swiper-button-next:after, .swiper-container-rtl .swiper-button-next:after {
+    font-size: 14px;
+  }
 }

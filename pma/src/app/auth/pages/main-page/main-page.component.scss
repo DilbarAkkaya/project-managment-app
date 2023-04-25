@@ -48,6 +48,8 @@ button[disabled] {
   border-top-left-radius: 5px;
 }
 
-.board-main {
-  height: calc(100vh - 141px);
+@media screen and (min-width: 324px) and (max-width: 767px) {
+  .board-header p {
+    padding: 10px 0 0 20px;
+  }
 }

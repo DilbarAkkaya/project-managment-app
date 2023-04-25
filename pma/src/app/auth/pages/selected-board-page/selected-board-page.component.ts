@@ -53,10 +53,16 @@ export class SelectedBoardPageComponent implements OnInit {
   }
   onMoveColumn(event: CdkDragDrop<IColumnResponse[]>) {
     const prevColumns = this.columns;
-    const currentColumns = prevColumns;
+    const currentColumns = prevColumns.slice();
     const moveColumn = prevColumns[event.previousIndex];
     prevColumns.splice(event.previousIndex, 1);
     currentColumns.splice(event.currentIndex, 0, moveColumn);
+    this.boardService.updateColumnById(this.boardId, moveColumn._id, {
+        title: moveColumn.title,
+        order: event.previousIndex,
+    }).subscribe(()=>{
+      console.log('gdgdgdgdgdg', moveColumn)
+    })
     const columnId = currentColumns.map(c => c._id);
     this.columns = currentColumns;
     this.moveColumns.emit(columnId);

@@ -10,6 +10,7 @@ $secondary-dark: #40513B;
   font-weight: 700;
   justify-content: space-between;
   padding-top: 5px;
+  flex-wrap: wrap;
 }
 
 .mat-toolbar-row,
@@ -104,4 +105,34 @@ span {
 
 span mat-icon {
   margin-left: 5px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  mat-icon {
+    display: none;
+  }
+
+  .auth-wrapper a {
+    white-space: pre-line;
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 324px) and (max-width: 767px) {
+  mat-icon {
+    display: block;
+  }
+
+  .auth-wrapper a {
+    white-space: pre-line;
+    font-size: 0px;
+    display: block;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+  }
+
+  .mat-toolbar {
+    justify-content: space-around;
+  }
 }

@@ -28,3 +28,22 @@ mat-icon {
   top: 7px;
   color: $secondary-dark;
 }
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  input[type="text"] {
+    width: 30em;
+    height: 35px;
+    font-size: 14px;
+    line-height: 1;
+    margin-right: 5px;
+  }
+}
+
+@media screen and (min-width: 324px) and (max-width: 767px) {
+  input[type="text"] {
+    width: 20em;
+    height: 30px;
+    margin-right: 5px;
+    font-size: 12px;
+  }
+}

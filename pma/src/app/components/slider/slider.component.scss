@@ -5,7 +5,7 @@ $secondary-dark: #40513B;
 
 swiper {
   width: 100%;
-  height: calc(100vh - 109px);
+  height: calc(100vh - 125px);
   background: linear-gradient(to bottom, #EDF1D6, #9DC08B, #609966, #40513B);
 }
 
@@ -57,6 +57,7 @@ img {
   top: 400px;
   z-index: 4;
 }
+
 .img-5 {
   width: 130px;
   height: 80px;
@@ -64,11 +65,12 @@ img {
   top: 180px;
   z-index: 5;
 }
+
 .img-6 {
   width: 250px;
   height: 100px;
   right: 180px;
-  top: 535px;
+  top: 515px;
   z-index: 6;
 }
 
@@ -80,14 +82,13 @@ img {
 }
 
 .text-wrapper {
-  padding: 0px 50px 50px 60px;
+  padding: 0px 145px 10px 50px;
 }
 
 p {
   color: $secondary-dark;
   font-weight: 500;
   font-size: 18px;
-  padding: 30px 140px 0 0px;
   line-height: 2;
 }
 
@@ -106,7 +107,7 @@ h1 {
 
 .right-img {
   float: right;
-  margin: 7px 0 7px 40px;
+  margin: 0px 0 0px 40px;
   width: 120px;
   height: 170px;
   position: relative;
@@ -116,21 +117,120 @@ h1 {
   padding: 0;
 }
 
-.course,
-.avatar {
-  padding: 30px 30px 0 0px;
+.course {
+  padding: 35px 50px 0 70px;
 }
 
 .swiper-pagination {
-  bottom: 90px;
+  bottom: 60px;
 }
 
 .dev {
-  padding: 200px;
+  padding: 190px 180px 180px 180px;
 }
 
 .button {
   align-items: center;
   font-weight: 700;
   height: 25px;
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+  .text-wrapper {
+    padding: 0px 375px 0 40px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .image-wrapper {
+    padding: 50px 0px 0 0;
+  }
+.logo {
+  font-size: 30px;
+}
+  img {
+    width: 40vw;
+    height: 20vw;
+  }
+
+  .img-1 {
+    width: 35vw;
+    height: 20vw;
+    right: 30px;
+    top: 45px;
+  }
+
+  .img-2 {
+    right: 45px;
+    top: 125px;
+  }
+
+  .img-3 {
+    width: 115px;
+    height: 115px;
+    right: 45px;
+    top: 180px;
+  }
+
+  .img-4 {
+    width: 115px;
+    height: 115px;
+    right: 200px;
+    top: 250px;
+  }
+
+  .img-5 {
+    display: none;
+  }
+
+  .img-6 {
+    display: none;
+  }
+
+  .text-wrapper {
+    padding: 0px 275px 0 40px;
+  }
+
+  /*   p {
+    padding: 0px 220px 0 30px;
+  }
+  h1 {
+    padding: 0 0 0 30px;
+  } */
+  .swiper-pagination {
+    bottom: 40px;
+  }
+}
+
+@media screen and (min-width: 324px) and (max-width: 767px) {
+  .image-wrapper {
+    display: none;
+  }
+
+  .text-wrapper, .course, .dev {
+    padding: 15px 5px 0 15px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .text-wrapper p, .course p, .dev p, h1, .course a, .dev a {
+    font-size: 16px;
+    line-height: 1.2;
+  }
+  .right-img {
+    margin: 0 6px 0 0;
+  }
+  swiper {
+    height: calc(100vh - 150px);
+  }
+
+  .swiper-pagination {
+    bottom: 40px;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none;
+  }
 }

@@ -8,3 +8,20 @@ ul {
   justify-content: flex-start;
   gap: 23px;
 }
+
+@media screen and (min-width: 324px) and (max-width: 767px) {
+  ul {
+    position: relative;
+    padding-top: 5px;
+    display: flex;
+    flex-direction: row;
+    height: 475px;
+    overflow-y: auto;
+    margin-top: 10px;
+    width: 100%;
+    gap: 5px;
+    padding-bottom: 5px;
+    justify-content: center;
+  }
+}
+
