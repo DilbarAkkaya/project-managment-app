@@ -184,3 +184,74 @@ input:focus {
   --mdc-snackbar-container-color: #609966;
   --mdc-snackbar-supporting-text-color: #EDF1D6;
 }
+
+.mat-mdc-form-field:not(.mat-form-field-no-animations) .mdc-text-field__input {
+  background: transparent;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled),
+.mdc-text-field--filled {
+  background: transparent;
+  padding: 0;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  box-shadow: 0 0 0 30px $primary-dark inset !important;
+  width: 100% !important;
+  -webkit-text-fill-color: $secondary-dark !important;
+}
+
+.mat-mdc-form-field-flex {
+  width: 100%;
+  margin: 0;
+  font-size: 18px;
+}
+
+.mat-mdc-form-field:not(.mat-form-field-no-animations) .mdc-text-field__input {
+  transition: none !important;
+}
+
+.mat-mdc-form-field-focus-overlay {
+  background-color: transparent;
+}
+
+.mdc-text-field:not(.mdc-text-field--disabled) .mdc-floating-label {
+  color: $primary;
+  font-weight: 500;
+}
+
+.mat-mdc-form-field-subscript-wrapper:last-child {
+  margin-bottom: 0px;
+}
+
+.mdc-text-field__input {
+  padding-top: 8px !important;
+  padding-bottom: 0px !important;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::before {
+  border-bottom-color: $primary;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::before,
+.mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::after {
+  border-bottom-width: 2px;
+  border-bottom-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::after {
+  border-bottom-color: $secondary-dark;
+}
+
+.mat-mdc-form-field-error {
+  color: $warning;
+}
+
+.mat-mdc-form-field-hint-wrapper,
+.mat-mdc-form-field-error-wrapper {
+  padding: 0 0 !important;
+}
