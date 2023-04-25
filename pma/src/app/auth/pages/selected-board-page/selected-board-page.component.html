@@ -8,9 +8,8 @@
       translate}}</button>
   </div>
 </section>
-<section class="columns-main" cdkDropListGroup cdkDropList (cdkDropListDropped)="onMoveColumn($event)"
-  [cdkDropListData]="columns">
-  <ul>
+<section class="columns-main" >
+  <ul cdkDropListGroup cdkDropList (cdkDropListDropped)="onMoveColumn($event)"[cdkDropListData]="columns">
     <li *ngFor="let column of columns">
       <pma-column [searchText]="searchText" [column]=column class="form-wrapper"
         (removeColumnEvent)="ondeleteColumn($event)" cdkDrag></pma-column>

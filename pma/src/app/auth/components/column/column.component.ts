@@ -110,7 +110,7 @@ export class ColumnComponent implements OnInit, OnDestroy {
     if (this.edittitleForm.valid && this.boardId) {
       const column: IColumnCreate = {
         title: this.edittitleForm.value.title!,
-        order: 0,
+        order: this.column!.order,
       }
       this.boardservice.updateColumnById(this.boardId, this.column!._id, column).subscribe((updatedcolumn) => {
         this.column!.title = updatedcolumn.title;

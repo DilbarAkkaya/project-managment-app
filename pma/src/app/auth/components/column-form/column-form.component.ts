@@ -35,18 +35,21 @@ export class ColumnFormComponent implements OnInit {
   }
   createSubmit(): void {
     if (this.createForm.valid && this.boardId) {
-      const column: IColumnCreate = {
-        title: this.createForm.value.title || null,
-        order: 0,
-      }
-      this.boardservice.createColumn(this.boardId, column).subscribe((column: IColumnResponse) => {
-        this.columns.push(column)
-        this.dialogRef.close({ clicked: 'submit', form: this.createForm });
-        this.snackBar.open(this.translate.instant('success.create'), this.translate.instant('success.close'), {
-          duration: 2000,
-          horizontalPosition: 'right',
-          panelClass: ['success-snack'],
-        })
+      this.boardservice.getAllColumns(this.boardId).subscribe((columns: IColumnResponse[]) => {
+        const maxOrder = Math.max(...columns.map(column => column.order));
+        const column: IColumnCreate = {
+          title: this.createForm.value.title || null,
+          order: maxOrder + 1,
+        };
+        this.boardservice.createColumn(this.boardId, column).subscribe((column: IColumnResponse) => {
+          this.columns.push(column);
+          this.dialogRef.close({ clicked: 'submit', form: this.createForm });
+          this.snackBar.open(this.translate.instant('success.create'), this.translate.instant('success.close'), {
+            duration: 2000,
+            horizontalPosition: 'right',
+            panelClass: ['success-snack'],
+          });
+        });
       });
     }
   }

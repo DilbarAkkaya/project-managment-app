@@ -16,7 +16,7 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./selected-board-page.component.scss']
 })
 export class SelectedBoardPageComponent implements OnInit {
-  @Output() moveColumns = new EventEmitter<string[]>();
+  @Output() moveColumns = new EventEmitter<IColumnResponse[]>();
   sub: Subscription | undefined;
   board: IBoardResponse | undefined;
   boardId: string = '';
@@ -57,13 +57,22 @@ export class SelectedBoardPageComponent implements OnInit {
     const moveColumn = prevColumns[event.previousIndex];
     prevColumns.splice(event.previousIndex, 1);
     currentColumns.splice(event.currentIndex, 0, moveColumn);
-    this.boardService.updateColumnById(this.boardId, moveColumn._id, {
-        title: moveColumn.title,
-        order: 0,
-    }).subscribe(()=>{})
     const columnId = currentColumns.map(c => c._id);
+    currentColumns.forEach((column, index) => {
+      column.order = index;
+      this.boardService.updateColumnById(this.boardId, column._id, {
+        title: column.title,
+        order: column.order,
+      }).subscribe(() => {
+        this.snackBar.open(this.translate.instant('success.message'), this.translate.instant('success.close'), {
+          duration: 2000,
+          horizontalPosition: 'right',
+          panelClass: ['success-snack'],
+        })
+      });
+    });
     this.columns = currentColumns;
-    this.moveColumns.emit(columnId);
+    this.moveColumns.emit(currentColumns);
   }
   onSearchTextEntered(searchValue: string) {
     this.searchText = searchValue;
